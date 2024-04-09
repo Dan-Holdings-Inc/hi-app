@@ -8,11 +8,20 @@
 import SwiftUI
 
 struct HomeView: View {
+    @ObservedObject var viewModel: HomeViewModel
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ScrollView {
+            ForEach(0 ..< 10) { index in
+                UserCardButton(userName: "\(index)番目の人", color: viewModel.cardColors[index % viewModel.cardColors.count], action: {
+                    viewModel.userCardButtonAction(index: index)
+                })
+            }
+            .frame(maxWidth: .infinity)
+        }
     }
 }
 
 #Preview {
-    HomeView()
+    HomeView(viewModel: HomeViewModel())
 }

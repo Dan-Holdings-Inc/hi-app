@@ -17,6 +17,8 @@
 		5C818C9D2BC4DE56005A6FC1 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C818C9C2BC4DE56005A6FC1 /* HomeView.swift */; };
 		5C818CA02BC4E162005A6FC1 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C818C9F2BC4E162005A6FC1 /* SettingView.swift */; };
 		5CCC35FA2BC4E4F1003B00C5 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCC35F92BC4E4F1003B00C5 /* TabBar.swift */; };
+		5CCC35FC2BC4EB7D003B00C5 /* UserCardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCC35FB2BC4EB7D003B00C5 /* UserCardButton.swift */; };
+		5CCC35FF2BC51276003B00C5 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCC35FE2BC51276003B00C5 /* HomeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,8 @@
 		5C818C9C2BC4DE56005A6FC1 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		5C818C9F2BC4E162005A6FC1 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		5CCC35F92BC4E4F1003B00C5 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		5CCC35FB2BC4EB7D003B00C5 /* UserCardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCardButton.swift; sourceTree = "<group>"; };
+		5CCC35FE2BC51276003B00C5 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				5C818C9C2BC4DE56005A6FC1 /* HomeView.swift */,
+				5CCC35FE2BC51276003B00C5 /* HomeViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -163,6 +168,7 @@
 		5C818CA12BC4E398005A6FC1 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				5CCC35FD2BC5088C003B00C5 /* Button */,
 				5CCC35F82BC4E4D1003B00C5 /* Tab */,
 			);
 			path = Component;
@@ -174,6 +180,14 @@
 				5CCC35F92BC4E4F1003B00C5 /* TabBar.swift */,
 			);
 			path = Tab;
+			sourceTree = "<group>";
+		};
+		5CCC35FD2BC5088C003B00C5 /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				5CCC35FB2BC4EB7D003B00C5 /* UserCardButton.swift */,
+			);
+			path = Button;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,8 +322,10 @@
 			files = (
 				5CCC35FA2BC4E4F1003B00C5 /* TabBar.swift in Sources */,
 				5C818C9D2BC4DE56005A6FC1 /* HomeView.swift in Sources */,
+				5CCC35FF2BC51276003B00C5 /* HomeViewModel.swift in Sources */,
 				5C818CA02BC4E162005A6FC1 /* SettingView.swift in Sources */,
 				5C1C7BDB2BC41B77003049A1 /* ContentView.swift in Sources */,
+				5CCC35FC2BC4EB7D003B00C5 /* UserCardButton.swift in Sources */,
 				5C1C7BD92BC41B77003049A1 /* HiApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
