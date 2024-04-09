@@ -13,13 +13,15 @@ struct LoginButton: View {
     var body: some View {
         let screenWidth = UIScreen.main.bounds.width
         
-        ZStack {
-            RoundedRectangle(cornerRadius: 25)
-                .frame(width: screenWidth * 0.7, height: 50)
-                .foregroundColor(.blue)
-            Text("ログイン")
-                .foregroundColor(.white)
-                .bold()
+        Button(action: action) {
+            ZStack {
+                RoundedRectangle(cornerRadius: 25)
+                    .frame(width: screenWidth * 0.7, height: 50)
+                    .foregroundColor(.black)
+                Text("ログイン")
+                    .foregroundColor(.white)
+                    .bold()
+            }
         }
     }
 }

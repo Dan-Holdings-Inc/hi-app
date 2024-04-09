@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct LoginView: View {
+    @EnvironmentObject var router: NavigationRouter
     @State var mailAdress = ""
     @State var password = ""
     
@@ -42,8 +43,9 @@ struct LoginView: View {
                 .cornerRadius(25)
                 .shadow(radius: 10)
                 .padding(.horizontal)
+            
             LoginButton(action: {
-                print("ログインする！")
+                router.navigateToView(destination: .main)
             })
             .padding()
             Button {

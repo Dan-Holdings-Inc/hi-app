@@ -8,8 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var router = NavigationRouter()
+    
     var body: some View {
-        MainTabBar()
+        NavigationStack(path: $router.navigationPath) {
+            LoginView()
+                .navigationDestination(for: NavigationRouter.Path.self) { value in
+                    switch value {
+                    case .main:
+                        MainTabBar()
+                    case .login:
+                        LoginView()
+                    }
+                }
+                .navigationBarBackButtonHidden(true)
+        }
+        .environmentObject(router)
     }
 }
 
