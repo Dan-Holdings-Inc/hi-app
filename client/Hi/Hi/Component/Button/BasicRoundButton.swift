@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-struct LoginButton: View {
+struct BasicRoundButton: View {
+    var text: String
     var action: () -> Void
     
     var body: some View {
@@ -18,7 +19,7 @@ struct LoginButton: View {
                 RoundedRectangle(cornerRadius: 25)
                     .frame(width: screenWidth * 0.7, height: 50)
                     .foregroundColor(.black)
-                Text("ログイン")
+                Text("\(text)")
                     .foregroundColor(.white)
                     .bold()
             }
@@ -27,7 +28,7 @@ struct LoginButton: View {
 }
 
 #Preview {
-    LoginButton(action: {
+    BasicRoundButton(text: "テキスト", action: {
         print("ログイン！")
     })
 }

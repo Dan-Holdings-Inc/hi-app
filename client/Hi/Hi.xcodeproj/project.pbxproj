@@ -26,7 +26,7 @@
 		5CCC35FC2BC4EB7D003B00C5 /* UserCardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCC35FB2BC4EB7D003B00C5 /* UserCardButton.swift */; };
 		5CCC35FF2BC51276003B00C5 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCC35FE2BC51276003B00C5 /* HomeViewModel.swift */; };
 		5CCC36032BC55B11003B00C5 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCC36022BC55B11003B00C5 /* LoginView.swift */; };
-		5CCC36052BC56492003B00C5 /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCC36042BC56492003B00C5 /* LoginButton.swift */; };
+		5CCC36052BC56492003B00C5 /* BasicRoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCC36042BC56492003B00C5 /* BasicRoundButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,7 +68,7 @@
 		5CCC35FB2BC4EB7D003B00C5 /* UserCardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCardButton.swift; sourceTree = "<group>"; };
 		5CCC35FE2BC51276003B00C5 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		5CCC36022BC55B11003B00C5 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		5CCC36042BC56492003B00C5 /* LoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginButton.swift; sourceTree = "<group>"; };
+		5CCC36042BC56492003B00C5 /* BasicRoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicRoundButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,7 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				5CCC35FB2BC4EB7D003B00C5 /* UserCardButton.swift */,
-				5CCC36042BC56492003B00C5 /* LoginButton.swift */,
+				5CCC36042BC56492003B00C5 /* BasicRoundButton.swift */,
 				5C93BE9D2BC585B300C715DF /* LogoutButton.swift */,
 			);
 			path = Button;
@@ -383,7 +383,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5CCC35FA2BC4E4F1003B00C5 /* MainTabBar.swift in Sources */,
-				5CCC36052BC56492003B00C5 /* LoginButton.swift in Sources */,
+				5CCC36052BC56492003B00C5 /* BasicRoundButton.swift in Sources */,
 				5C818C9D2BC4DE56005A6FC1 /* HomeView.swift in Sources */,
 				5C93BEAD2BC6278D00C715DF /* Profile.swift in Sources */,
 				5CCC35FF2BC51276003B00C5 /* HomeViewModel.swift in Sources */,

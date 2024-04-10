@@ -26,7 +26,7 @@ struct LoginView: View {
             }
             Spacer()
             
-            LoginButton(action: {
+            BasicRoundButton(text: "始める", action: {
                 service.login()
             })
             Spacer()
