@@ -11,7 +11,7 @@ import Auth0
 class Auth0Service:ObservableObject {
     @Published var isAuthenticated = false
     @Published var userProfile = Profile.empty
-
+    
     internal func login() {
         Auth0
             .webAuth()
@@ -21,7 +21,7 @@ class Auth0Service:ObservableObject {
                     print("Obtained credentials: \(credentials)")
                     self.isAuthenticated = true
                     // 型定義に当てはめる部分のはずだが、エラーが出るので一旦コメントアウト
-//                    self.userProfile = Profile.from(credentials.idToken)
+                    //                    self.userProfile = Profile.from(credentials.idToken)
                 case .failure(let error):
                     print("Failure: \(error.localizedDescription)")
                 }

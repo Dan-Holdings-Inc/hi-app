@@ -13,8 +13,6 @@ struct LoginView: View {
     @State var password = ""
     
     var body: some View {
-        let screenWidth = UIScreen.main.bounds.width
-        
         VStack {
             Spacer()
             HStack {
