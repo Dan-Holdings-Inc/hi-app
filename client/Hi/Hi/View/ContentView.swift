@@ -9,10 +9,15 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var service: Auth0Service
+    @AppStorage("isFirstLogin") var isFirstLogin = true
     
     var body: some View {
         if service.isAuthenticated {
-            MainTabBar()
+            if isFirstLogin {
+                AccountCreateNameView()
+            } else {
+                MainTabBar()
+            }
         } else {
             LoginView()
         }

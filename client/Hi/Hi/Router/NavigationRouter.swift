@@ -14,6 +14,8 @@ final class NavigationRouter: ObservableObject {
     enum Path: Hashable {
         case main // メイン画面(ホーム、設定)
         case login // ログイン画面
+        case accountCreateName // 名前.アカウント作成
+        case accountCreateUserID // ユーザーID.アカウント作成
     }
     
     @MainActor func navigateToView(destination: Path) {
