@@ -32,6 +32,9 @@
 		5CCC35FF2BC51276003B00C5 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCC35FE2BC51276003B00C5 /* HomeViewModel.swift */; };
 		5CCC36032BC55B11003B00C5 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCC36022BC55B11003B00C5 /* LoginView.swift */; };
 		5CCC36052BC56492003B00C5 /* BasicRoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCC36042BC56492003B00C5 /* BasicRoundButton.swift */; };
+		5CFB76392BC6FB6700741DC8 /* AccountSettingWakeUpTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFB76382BC6FB6700741DC8 /* AccountSettingWakeUpTime.swift */; };
+		5CFB763C2BC7014300741DC8 /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFB763B2BC7014300741DC8 /* DateFormat.swift */; };
+		5CFB763E2BC7046200741DC8 /* AccountCreateWakeUpTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFB763D2BC7046200741DC8 /* AccountCreateWakeUpTimeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +82,9 @@
 		5CCC35FE2BC51276003B00C5 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		5CCC36022BC55B11003B00C5 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		5CCC36042BC56492003B00C5 /* BasicRoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicRoundButton.swift; sourceTree = "<group>"; };
+		5CFB76382BC6FB6700741DC8 /* AccountSettingWakeUpTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingWakeUpTime.swift; sourceTree = "<group>"; };
+		5CFB763B2BC7014300741DC8 /* DateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
+		5CFB763D2BC7046200741DC8 /* AccountCreateWakeUpTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCreateWakeUpTimeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +141,7 @@
 				5C93BE982BC579BD00C715DF /* Router */,
 				5C818CA12BC4E398005A6FC1 /* Component */,
 				5C818C9A2BC4DDAF005A6FC1 /* View */,
+				5CFB763A2BC7011E00741DC8 /* UICore */,
 				5C1C7BD82BC41B77003049A1 /* HiApp.swift */,
 				5C1C7BDE2BC41B79003049A1 /* Preview Content */,
 				5C1C7BDC2BC41B79003049A1 /* Assets.xcassets */,
@@ -236,6 +243,7 @@
 			children = (
 				5C3545C02BC66DD40011E78D /* AccountCreateNameView.swift */,
 				5C3545C42BC675700011E78D /* AccountCreateUserID.swift */,
+				5CFB763D2BC7046200741DC8 /* AccountCreateWakeUpTimeView.swift */,
 			);
 			path = AccountCreate;
 			sourceTree = "<group>";
@@ -245,6 +253,7 @@
 			children = (
 				5C93BEB42BC6633700C715DF /* AccountSettingName.swift */,
 				5C3545C22BC6714E0011E78D /* AccountSettingUserID.swift */,
+				5CFB76382BC6FB6700741DC8 /* AccountSettingWakeUpTime.swift */,
 			);
 			path = AccountSetting;
 			sourceTree = "<group>";
@@ -274,6 +283,14 @@
 				5CCC36022BC55B11003B00C5 /* LoginView.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		5CFB763A2BC7011E00741DC8 /* UICore */ = {
+			isa = PBXGroup;
+			children = (
+				5CFB763B2BC7014300741DC8 /* DateFormat.swift */,
+			);
+			path = UICore;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -419,6 +436,7 @@
 				5C93BEAD2BC6278D00C715DF /* Profile.swift in Sources */,
 				5CCC35FF2BC51276003B00C5 /* HomeViewModel.swift in Sources */,
 				5C3545C52BC675700011E78D /* AccountCreateUserID.swift in Sources */,
+				5CFB76392BC6FB6700741DC8 /* AccountSettingWakeUpTime.swift in Sources */,
 				5C818CA02BC4E162005A6FC1 /* SettingView.swift in Sources */,
 				5C1C7BDB2BC41B77003049A1 /* ContentView.swift in Sources */,
 				5C3545C12BC66DD40011E78D /* AccountCreateNameView.swift in Sources */,
@@ -427,9 +445,11 @@
 				5C93BEB52BC6633700C715DF /* AccountSettingName.swift in Sources */,
 				5C93BEAB2BC625DE00C715DF /* Auth0Service.swift in Sources */,
 				5C3545C32BC6714E0011E78D /* AccountSettingUserID.swift in Sources */,
+				5CFB763E2BC7046200741DC8 /* AccountCreateWakeUpTimeView.swift in Sources */,
 				5C3545C82BC67B990011E78D /* BackButton.swift in Sources */,
 				5C93BE9E2BC585B300C715DF /* LogoutButton.swift in Sources */,
 				5C93BE9C2BC57A1D00C715DF /* NavigationRouter.swift in Sources */,
+				5CFB763C2BC7014300741DC8 /* DateFormat.swift in Sources */,
 				5C1C7BD92BC41B77003049A1 /* HiApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

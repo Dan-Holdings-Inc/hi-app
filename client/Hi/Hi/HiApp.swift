@@ -26,6 +26,8 @@ struct HiApp: App {
                             AccountCreateNameView()
                         case .accountCreateUserID:
                             AccountCreateUserID()
+                        case .accountCreateWakeUpTime:
+                            AccountCreateWakeUpTimeView()
                         }
                     }
             }

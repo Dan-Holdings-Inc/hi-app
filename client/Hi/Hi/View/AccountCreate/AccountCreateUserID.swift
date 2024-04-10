@@ -12,7 +12,7 @@ struct AccountCreateUserID: View {
     
     var body: some View {
         AccountSettingUserID(nextButtonLabel: "次へ", action: {
-            print("次へ")
+            router.navigateToView(destination: .accountCreateWakeUpTime)
         })
         .navigationBarHidden(true)
     }
