@@ -16,6 +16,16 @@ struct AccountSettingName: View {
     
     var body: some View {
         VStack {
+            // 次ページとのUIの辻褄合わせで苦肉の策
+            // 本来はボタンでログイン画面に戻る実装にしたい
+            HStack {
+                BackButton()
+                    .padding(.horizontal)
+                    .padding(.bottom, 5)
+                Spacer()
+            }
+            .opacity(0)
+            
             HStack {
                 Text("名前を入力してください")
                     .font(.title)
