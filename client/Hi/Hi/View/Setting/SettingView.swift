@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct SettingView: View {
-    @EnvironmentObject var router: NavigationRouter
+    @EnvironmentObject var service: Auth0Service
     
     var body: some View {
         LogoutButton(action: {
-            router.backPage()
+            service.logout()
         })
     }
 }

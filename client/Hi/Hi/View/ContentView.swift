@@ -8,22 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var router = NavigationRouter()
+    @EnvironmentObject var service: Auth0Service
     
     var body: some View {
-        NavigationStack(path: $router.navigationPath) {
+        if service.isAuthenticated {
+            MainTabBar()
+        } else {
             LoginView()
-                .navigationDestination(for: NavigationRouter.Path.self) { value in
-                    switch value {
-                    case .main:
-                        MainTabBar()
-                    case .login:
-                        LoginView()
-                    }
-                }
-                .navigationBarBackButtonHidden(true)
         }
-        .environmentObject(router)
     }
 }
 

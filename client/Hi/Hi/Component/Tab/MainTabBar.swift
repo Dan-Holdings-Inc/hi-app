@@ -23,7 +23,6 @@ struct MainTabBar: View {
                 }
                 .tag(2)
         }
-        .navigationBarBackButtonHidden(true)
     }
 }
 
