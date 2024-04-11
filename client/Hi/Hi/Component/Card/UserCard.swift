@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct UserCardButton: View {
+struct UserCard: View {
     var userName: String
     var color: Color
     var action: () -> Void
@@ -32,7 +32,7 @@ struct UserCardButton: View {
 }
 
 #Preview {
-    UserCardButton(userName: "だん", color: .blue, action: {
+    UserCard(userName: "だん", color: .blue, action: {
         print("pressed!")
     })
 }
