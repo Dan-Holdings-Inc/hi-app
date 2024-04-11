@@ -12,7 +12,7 @@ struct AccountCreateWakeUpTimeView: View {
     
     var body: some View {
         AccountSettingWakeUpTime(nextButtonLabel: "次へ", action: {
-            print("次へ")
+            router.navigateToView(destination: .accountCreateDayOfWeek)
         })
         .navigationBarHidden(true)
     }

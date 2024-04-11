@@ -28,6 +28,8 @@ struct HiApp: App {
                             AccountCreateUserID()
                         case .accountCreateWakeUpTime:
                             AccountCreateWakeUpTimeView()
+                        case .accountCreateDayOfWeek:
+                            AccountCreateDayOfWeekView()
                         }
                     }
             }

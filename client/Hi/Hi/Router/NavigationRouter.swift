@@ -17,6 +17,7 @@ final class NavigationRouter: ObservableObject {
         case accountCreateName // 名前.アカウント作成
         case accountCreateUserID // ユーザーID.アカウント作成
         case accountCreateWakeUpTime // 起きる時間.アカウント作成
+        case accountCreateDayOfWeek // 曜日.アカウント作成
     }
     
     @MainActor func navigateToView(destination: Path) {
