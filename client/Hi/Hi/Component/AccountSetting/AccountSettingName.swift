@@ -12,19 +12,18 @@ struct AccountSettingName: View {
     @FocusState private var isFocused: Bool
     
     var nextButtonLabel: String
+    var isShowBackButton: Bool
     var action: () -> Void
     
     var body: some View {
         VStack {
-            // 次ページとのUIの辻褄合わせで苦肉の策
-            // 本来はボタンでログイン画面に戻る実装にしたい
             HStack {
                 BackButton()
                     .padding(.horizontal)
                     .padding(.bottom, 5)
                 Spacer()
             }
-            .opacity(0)
+            .opacity(isShowBackButton ? 1.0 : 0.0)
             
             HStack {
                 Text("名前を入力してください")
@@ -59,7 +58,7 @@ struct AccountSettingName: View {
 }
 
 #Preview {
-    AccountSettingName(nextButtonLabel: "次へ", action: {
+    AccountSettingName(nextButtonLabel: "次へ", isShowBackButton: false, action: {
         print("名前の設定完了")
     })
 }

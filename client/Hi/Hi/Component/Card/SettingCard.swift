@@ -37,7 +37,6 @@ struct SettingCard: View {
             .frame(width: screenWidth * 0.9, height: 50)
             .shadow(radius: 5)
         }
-        .padding(.bottom)
     }
 }
 
