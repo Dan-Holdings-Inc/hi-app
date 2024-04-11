@@ -45,7 +45,9 @@ struct AccountSettingUserID: View {
                 TextField("ユーザーID", text: $userID)
                     .focused($isFocused)
                     .keyboardType(.asciiCapable)
-                    .onChange(of: userID, perform: filter)
+                    .onChange(of: userID) {
+                        filter(value: userID)
+                    }
                 Image(systemName: "checkmark.circle")
                     .foregroundColor(.green)
             }
