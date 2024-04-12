@@ -20,6 +20,7 @@ struct FriendApprovalView: View {
             
             Spacer()
         }
+        .navigationBarHidden(true)
     }
 }
 

@@ -38,6 +38,12 @@ struct HiApp: App {
                             SettingWakeUpTimeView()
                         case .settingDayOfWeek:
                             SettingDayOfWeekView()
+                        case .friendSummary:
+                            FriendSummaryView()
+                        case .friendSearch:
+                            FriendSearchView()
+                        case .friendApproval:
+                            FriendApprovalView()
                         }
                     }
             }

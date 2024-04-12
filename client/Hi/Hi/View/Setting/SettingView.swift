@@ -54,11 +54,11 @@ struct SettingView: View {
                 let friendLabels = ["フレンド一覧", "フレンド検索"]
                 ForEach(0 ..< friendLabels.count, id: \.self) { index in
                     SettingCard(label: "\(friendLabels[index])", action: {
-                        print("\(friendLabels[index])画面へ")
+                        router.navigateToView(destination: router.friendNavigationPath[index])
                     })
                 }
                 SettingExclamationMarkCard(label: "フレンド承認", isShowMark: true, action: {
-                    print("フレンド承認画面へ")
+                    router.navigateToView(destination: .friendApproval)
                 })
             }
             .padding(.bottom)

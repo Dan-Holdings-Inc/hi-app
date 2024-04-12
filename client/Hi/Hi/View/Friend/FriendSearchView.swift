@@ -50,6 +50,7 @@ struct FriendSearchView: View {
             
             Spacer()
         }
+        .navigationBarHidden(true)
     }
 }
 
