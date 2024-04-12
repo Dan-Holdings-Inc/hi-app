@@ -33,6 +33,7 @@
 		5CD31A332BC7BC2B007B6135 /* AccountSettingDayOfWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD31A322BC7BC2B007B6135 /* AccountSettingDayOfWeek.swift */; };
 		5CD375312BC822B6004BFF4E /* SettingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD375302BC822B6004BFF4E /* SettingCard.swift */; };
 		5CD375362BC8318D004BFF4E /* AccountCreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD375352BC8318D004BFF4E /* AccountCreateView.swift */; };
+		5CD375382BC84B1E004BFF4E /* SettingExclamationMarkCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD375372BC84B1E004BFF4E /* SettingExclamationMarkCard.swift */; };
 		5CFB76392BC6FB6700741DC8 /* AccountSettingWakeUpTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFB76382BC6FB6700741DC8 /* AccountSettingWakeUpTime.swift */; };
 		5CFB763C2BC7014300741DC8 /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFB763B2BC7014300741DC8 /* DateFormat.swift */; };
 		5CFCEC2D2BC7B69800CE530A /* DayOfWeekButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFCEC2C2BC7B69800CE530A /* DayOfWeekButton.swift */; };
@@ -84,6 +85,7 @@
 		5CD31A322BC7BC2B007B6135 /* AccountSettingDayOfWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingDayOfWeek.swift; sourceTree = "<group>"; };
 		5CD375302BC822B6004BFF4E /* SettingCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCard.swift; sourceTree = "<group>"; };
 		5CD375352BC8318D004BFF4E /* AccountCreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCreateView.swift; sourceTree = "<group>"; };
+		5CD375372BC84B1E004BFF4E /* SettingExclamationMarkCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingExclamationMarkCard.swift; sourceTree = "<group>"; };
 		5CFB76382BC6FB6700741DC8 /* AccountSettingWakeUpTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingWakeUpTime.swift; sourceTree = "<group>"; };
 		5CFB763B2BC7014300741DC8 /* DateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
 		5CFCEC2C2BC7B69800CE530A /* DayOfWeekButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayOfWeekButton.swift; sourceTree = "<group>"; };
@@ -139,11 +141,11 @@
 			isa = PBXGroup;
 			children = (
 				5C93BEAE2BC627E300C715DF /* Model */,
+				5CFB763A2BC7011E00741DC8 /* UICore */,
 				5C93BEA92BC625B400C715DF /* Infrastructure */,
 				5C93BE982BC579BD00C715DF /* Router */,
 				5C818CA12BC4E398005A6FC1 /* Component */,
 				5C818C9A2BC4DDAF005A6FC1 /* View */,
-				5CFB763A2BC7011E00741DC8 /* UICore */,
 				5C1C7BD82BC41B77003049A1 /* HiApp.swift */,
 				5C1C7BDE2BC41B79003049A1 /* Preview Content */,
 				5C1C7BDC2BC41B79003049A1 /* Assets.xcassets */,
@@ -292,6 +294,7 @@
 			children = (
 				5CCC35FB2BC4EB7D003B00C5 /* UserCard.swift */,
 				5CD375302BC822B6004BFF4E /* SettingCard.swift */,
+				5CD375372BC84B1E004BFF4E /* SettingExclamationMarkCard.swift */,
 			);
 			path = Card;
 			sourceTree = "<group>";
@@ -441,6 +444,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CD375382BC84B1E004BFF4E /* SettingExclamationMarkCard.swift in Sources */,
 				5CCC35FA2BC4E4F1003B00C5 /* MainTabBar.swift in Sources */,
 				5CCC36052BC56492003B00C5 /* BasicRoundButton.swift in Sources */,
 				5C818C9D2BC4DE56005A6FC1 /* HomeView.swift in Sources */,

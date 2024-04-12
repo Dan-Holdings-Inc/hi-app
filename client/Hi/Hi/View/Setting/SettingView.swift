@@ -13,12 +13,57 @@ struct SettingView: View {
     
     var body: some View {
         VStack {
-            let labels = ["名前", "ユーザーID", "起きる時間", "曜日"]
-            ForEach(0 ..< labels.count, id: \.self) { index in
-                SettingCard(label: "\(labels[index])", action: {
-                    router.navigateToView(destination: router.settingNavigationPath[index])
+            VStack {
+                Text("名前")
+                    .font(.largeTitle)
+                    .bold()
+                    .padding(.bottom, 5)
+                Text("ユーザーID：〇〇〇〇〇〇")
+                    .font(.headline)
+                    .padding(.bottom)
+            }
+            .padding()
+            
+            VStack {
+                HStack {
+                    Text("設定の確認・変更")
+                        .font(.caption)
+                        .foregroundColor(.gray)
+                        .bold()
+                        .padding(.leading, 25)
+                    Spacer()
+                }
+                let settingLabels = ["名前", "ユーザーID", "起きる時間", "曜日"]
+                ForEach(0 ..< settingLabels.count, id: \.self) { index in
+                    SettingCard(label: "\(settingLabels[index])", action: {
+                        router.navigateToView(destination: router.settingNavigationPath[index])
+                    })
+                }
+            }
+            .padding(.bottom)
+            
+            VStack {
+                HStack {
+                    Text("フレンド")
+                        .font(.caption)
+                        .foregroundColor(.gray)
+                        .bold()
+                        .padding(.leading, 25)
+                    Spacer()
+                }
+                let friendLabels = ["フレンド一覧"]
+                ForEach(0 ..< friendLabels.count, id: \.self) { index in
+                    SettingCard(label: "\(friendLabels[index])", action: {
+                        print("\(friendLabels[index])画面へ")
+                    })
+                }
+                SettingExclamationMarkCard(label: "フレンド承認", isShowMark: true, action: {
+                    print("フレンド承認画面へ")
                 })
             }
+            .padding(.bottom)
+            
+            Spacer()
             LogoutButton(action: {
                 service.logout()
             })
