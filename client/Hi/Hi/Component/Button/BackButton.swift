@@ -19,7 +19,7 @@ struct BackButton: View {
                     Image(systemName: "chevron.backward")
                 }
             )
-            .tint(.black)
+            .tint(.primary)
             .padding(.leading)
             Spacer()
         }

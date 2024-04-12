@@ -39,7 +39,7 @@ struct AccountSettingWakeUpTime: View {
             .cornerRadius(15)
             .overlay(
                 RoundedRectangle(cornerRadius: 15)
-                    .stroke(.black, lineWidth: 1)
+                    .stroke(.primary, lineWidth: 1)
             )
             .padding()
             Text("\(DateFormat().dateToString(date: date))")

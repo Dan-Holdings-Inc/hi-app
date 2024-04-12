@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct BasicRoundButton: View {
+    @Environment(\.colorScheme) var colorScheme
+    
     var text: String
     var action: () -> Void
     
@@ -18,9 +20,9 @@ struct BasicRoundButton: View {
             ZStack {
                 RoundedRectangle(cornerRadius: 25)
                     .frame(width: screenWidth * 0.7, height: 50)
-                    .foregroundColor(.black)
+                    .foregroundColor(.primary)
                 Text("\(text)")
-                    .foregroundColor(.white)
+                    .foregroundColor(colorScheme == .light ? .white : .black)
                     .bold()
             }
         }

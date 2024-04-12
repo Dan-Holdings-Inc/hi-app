@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AccountSettingUserID: View {
+    @Environment(\.colorScheme) var colorScheme
     @State var userID = ""
     @FocusState private var isFocused: Bool
     
@@ -19,7 +20,7 @@ struct AccountSettingUserID: View {
             BackButton()
                 .padding(.bottom, 5)
             HStack {
-                Text("ユーザーIDを作成")
+                Text("ユーザーIDを設定")
                     .font(.title)
                     .bold()
                     .padding(.horizontal)
@@ -36,10 +37,20 @@ struct AccountSettingUserID: View {
                     .padding(.horizontal)
                 Spacer()
             }
+            
+            let strokeColor: Color = colorScheme == .light ? .black : .white
             HStack {
                 // 英数字のみのキーボードを無理やり作っているが要見直し
                 TextField("ユーザーID", text: $userID)
                     .focused($isFocused)
+                    .toolbar {
+                        ToolbarItemGroup(placement: .keyboard) {
+                            Spacer()
+                            Button("閉じる") {
+                                isFocused = false
+                            }
+                        }
+                    }
                     .keyboardType(.asciiCapable)
                     .onChange(of: userID) {
                         filter(value: userID)
@@ -52,7 +63,7 @@ struct AccountSettingUserID: View {
             .cornerRadius(15)
             .overlay(
                 RoundedRectangle(cornerRadius: 15)
-                    .stroke(isFocused ? .black : .gray, lineWidth: 1)
+                    .stroke(isFocused ? strokeColor : .gray, lineWidth: 1)
             )
             .padding()
             BasicRoundButton(text: "\(nextButtonLabel)", action: action)

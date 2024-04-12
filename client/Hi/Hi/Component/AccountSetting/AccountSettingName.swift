@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AccountSettingName: View {
+    @Environment(\.colorScheme) var colorScheme
     @State var displayName = ""
     @FocusState private var isFocused: Bool
     
@@ -34,14 +35,23 @@ struct AccountSettingName: View {
                     .padding(.horizontal)
                 Spacer()
             }
+            let strokeColor: Color = colorScheme == .light ? .black : .white
             TextField("名前", text: $displayName)
                 .focused($isFocused)
+                .toolbar {
+                    ToolbarItemGroup(placement: .keyboard) {
+                        Spacer()
+                        Button("閉じる") {
+                            isFocused = false
+                        }
+                    }
+                }
                 .padding()
                 .background(Color(.systemGray6))
                 .cornerRadius(15)
                 .overlay(
                     RoundedRectangle(cornerRadius: 15)
-                        .stroke(isFocused ? .black : .gray, lineWidth: 1)
+                        .stroke(isFocused ? strokeColor : .gray, lineWidth: 1)
                 )
                 .padding()
             BasicRoundButton(text: "\(nextButtonLabel)", action: action)

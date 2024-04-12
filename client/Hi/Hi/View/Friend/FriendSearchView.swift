@@ -18,12 +18,12 @@ struct FriendSearchView: View {
                 Text("フレンド検索")
                     .font(.title)
                     .bold()
+                    .padding()
             }
-            .padding()
             // 検索窓
             HStack {
                 Image(systemName: "magnifyingglass")
-                TextField("フレンドののユーザーIDを入力", text: $inputText)
+                TextField("フレンドのユーザーIDを入力", text: $inputText)
                     .focused($isFocused)
                     .toolbar {
                         ToolbarItemGroup(placement: .keyboard) {
@@ -45,8 +45,11 @@ struct FriendSearchView: View {
             .padding()
             .background(Color(.systemGray6))
             .cornerRadius(25)
+            .overlay(
+                RoundedRectangle(cornerRadius: 25)
+                    .stroke(.primary, lineWidth: 1)
+            )
             .padding(.horizontal)
-            
             
             Spacer()
         }

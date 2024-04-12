@@ -18,8 +18,8 @@ struct FriendSummaryView: View {
                 Text("フレンド一覧")
                     .font(.title)
                     .bold()
+                    .padding()
             }
-            .padding()
             // 検索窓
             HStack {
                 Image(systemName: "magnifyingglass")
@@ -45,8 +45,11 @@ struct FriendSummaryView: View {
             .padding()
             .background(Color(.systemGray6))
             .cornerRadius(25)
+            .overlay(
+                RoundedRectangle(cornerRadius: 25)
+                    .stroke(.primary, lineWidth: 1)
+            )
             .padding(.horizontal)
-            
             
             Spacer()
         }

@@ -26,11 +26,15 @@ struct SettingView: View {
             
             VStack {
                 HStack {
+                    Image(systemName: "gearshape")
+                        .resizable()
+                        .frame(width: 15, height: 15)
+                        .foregroundColor(.gray)
+                        .padding(.leading, 25)
                     Text("設定の確認・変更")
                         .font(.caption)
                         .foregroundColor(.gray)
                         .bold()
-                        .padding(.leading, 25)
                     Spacer()
                 }
                 let settingLabels = ["名前", "ユーザーID", "起きる時間", "曜日"]
@@ -44,11 +48,15 @@ struct SettingView: View {
             
             VStack {
                 HStack {
+                    Image(systemName: "person")
+                        .resizable()
+                        .frame(width: 15, height: 15)
+                        .foregroundColor(.gray)
+                        .padding(.leading, 25)
                     Text("フレンド")
                         .font(.caption)
                         .foregroundColor(.gray)
                         .bold()
-                        .padding(.leading, 25)
                     Spacer()
                 }
                 let friendLabels = ["フレンド一覧", "フレンド検索"]

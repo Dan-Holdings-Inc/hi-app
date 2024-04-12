@@ -15,8 +15,8 @@ struct FriendApprovalView: View {
                 Text("フレンド承認待ち")
                     .font(.title)
                     .bold()
+                    .padding()
             }
-            .padding()
             
             Spacer()
         }
