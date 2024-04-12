@@ -8,7 +8,7 @@
 import Foundation
 import Auth0
 
-class Auth0Service:ObservableObject {
+class Auth0Service: ObservableObject {
     @Published var isAuthenticated = false
     @Published var userProfile = Profile.empty
     

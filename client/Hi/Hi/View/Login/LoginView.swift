@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct LoginView: View {
+    @EnvironmentObject var router: NavigationRouter
     @EnvironmentObject var service: Auth0Service
     @State var mailAdress = ""
     @State var password = ""
@@ -26,10 +27,16 @@ struct LoginView: View {
             }
             Spacer()
             
-            LoginButton(action: {
+            BasicRoundButton(text: "始める", action: {
                 service.login()
             })
             Spacer()
+        }
+        .navigationBarHidden(true)
+        .onChange(of: service.isAuthenticated) {
+            if service.isAuthenticated {
+                router.navigateToView(destination: .accountCreateName)
+            }
         }
     }
 }

@@ -8,12 +8,20 @@
 import SwiftUI
 
 struct SettingView: View {
+    @EnvironmentObject var router: NavigationRouter
     @EnvironmentObject var service: Auth0Service
     
     var body: some View {
-        LogoutButton(action: {
-            service.logout()
-        })
+        VStack {
+            LogoutButton(action: {
+                service.logout()
+            })
+        }
+        .onChange(of: service.isAuthenticated) {
+            if !service.isAuthenticated {
+                router.navigateToView(destination: .login)
+            }
+        }
     }
 }
 
