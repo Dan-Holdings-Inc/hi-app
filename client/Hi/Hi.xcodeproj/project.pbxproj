@@ -27,6 +27,7 @@
 		5C93BEB52BC6633700C715DF /* AccountSettingName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C93BEB42BC6633700C715DF /* AccountSettingName.swift */; };
 		5CC2BE742BC9071800C56A21 /* FriendSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC2BE732BC9071800C56A21 /* FriendSummaryView.swift */; };
 		5CC2BE782BC91B9A00C56A21 /* FriendSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC2BE772BC91B9A00C56A21 /* FriendSearchView.swift */; };
+		5CC2BE7A2BC9216400C56A21 /* FriendApprovalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC2BE792BC9216400C56A21 /* FriendApprovalView.swift */; };
 		5CCC35FA2BC4E4F1003B00C5 /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCC35F92BC4E4F1003B00C5 /* MainTabBar.swift */; };
 		5CCC35FC2BC4EB7D003B00C5 /* UserCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCC35FB2BC4EB7D003B00C5 /* UserCard.swift */; };
 		5CCC35FF2BC51276003B00C5 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCC35FE2BC51276003B00C5 /* HomeViewModel.swift */; };
@@ -81,6 +82,7 @@
 		5C93BEB42BC6633700C715DF /* AccountSettingName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingName.swift; sourceTree = "<group>"; };
 		5CC2BE732BC9071800C56A21 /* FriendSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendSummaryView.swift; sourceTree = "<group>"; };
 		5CC2BE772BC91B9A00C56A21 /* FriendSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendSearchView.swift; sourceTree = "<group>"; };
+		5CC2BE792BC9216400C56A21 /* FriendApprovalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendApprovalView.swift; sourceTree = "<group>"; };
 		5CCC35F92BC4E4F1003B00C5 /* MainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
 		5CCC35FB2BC4EB7D003B00C5 /* UserCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCard.swift; sourceTree = "<group>"; };
 		5CCC35FE2BC51276003B00C5 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 			children = (
 				5CC2BE732BC9071800C56A21 /* FriendSummaryView.swift */,
 				5CC2BE772BC91B9A00C56A21 /* FriendSearchView.swift */,
+				5CC2BE792BC9216400C56A21 /* FriendApprovalView.swift */,
 			);
 			path = Friend;
 			sourceTree = "<group>";
@@ -473,6 +476,7 @@
 				5CD375362BC8318D004BFF4E /* AccountCreateView.swift in Sources */,
 				5CCC35FC2BC4EB7D003B00C5 /* UserCard.swift in Sources */,
 				5CCC36032BC55B11003B00C5 /* LoginView.swift in Sources */,
+				5CC2BE7A2BC9216400C56A21 /* FriendApprovalView.swift in Sources */,
 				5C93BEB52BC6633700C715DF /* AccountSettingName.swift in Sources */,
 				5C93BEAB2BC625DE00C715DF /* Auth0Service.swift in Sources */,
 				5C3545C32BC6714E0011E78D /* AccountSettingUserID.swift in Sources */,
