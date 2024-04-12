@@ -51,7 +51,7 @@ struct SettingView: View {
                         .padding(.leading, 25)
                     Spacer()
                 }
-                let friendLabels = ["フレンド一覧"]
+                let friendLabels = ["フレンド一覧", "フレンド検索"]
                 ForEach(0 ..< friendLabels.count, id: \.self) { index in
                     SettingCard(label: "\(friendLabels[index])", action: {
                         print("\(friendLabels[index])画面へ")
