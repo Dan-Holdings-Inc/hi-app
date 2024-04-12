@@ -13,10 +13,13 @@ struct FriendSummaryView: View {
     
     var body: some View {
         VStack {
-            Text("フレンド一覧")
-                .font(.title)
-                .bold()
-                .padding()
+            ZStack {
+                BackButton()
+                Text("フレンド一覧")
+                    .font(.title)
+                    .bold()
+            }
+            .padding()
             // 検索窓
             HStack {
                 Image(systemName: "magnifyingglass")

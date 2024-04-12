@@ -15,12 +15,8 @@ struct AccountSettingWakeUpTime: View {
     
     var body: some View {
         VStack {
-            HStack {
-                BackButton()
-                    .padding(.horizontal)
-                    .padding(.bottom, 5)
-                Spacer()
-            }
+            BackButton()
+                .padding(.bottom, 5)
             HStack {
                 Text("毎朝の起きる時間を設定")
                     .font(.title)

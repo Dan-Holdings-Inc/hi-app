@@ -17,13 +17,9 @@ struct AccountSettingName: View {
     
     var body: some View {
         VStack {
-            HStack {
-                BackButton()
-                    .padding(.horizontal)
-                    .padding(.bottom, 5)
-                Spacer()
-            }
-            .opacity(isShowBackButton ? 1.0 : 0.0)
+            BackButton()
+                .padding(.bottom, 5)
+                .opacity(isShowBackButton ? 1.0 : 0.0)
             
             HStack {
                 Text("名前を入力してください")

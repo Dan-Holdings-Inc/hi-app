@@ -16,12 +16,8 @@ struct AccountSettingUserID: View {
     
     var body: some View {
         VStack {
-            HStack {
-                BackButton()
-                    .padding(.horizontal)
-                    .padding(.bottom, 5)
-                Spacer()
-            }
+            BackButton()
+                .padding(.bottom, 5)
             HStack {
                 Text("ユーザーIDを作成")
                     .font(.title)
