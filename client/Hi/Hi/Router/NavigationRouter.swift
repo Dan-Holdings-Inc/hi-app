@@ -34,4 +34,8 @@ final class NavigationRouter: ObservableObject {
     @MainActor func backPage() {
         navigationPath.removeLast()
     }
+    
+    @MainActor func resetPath() {
+        navigationPath.removeAll()
+    }
 }

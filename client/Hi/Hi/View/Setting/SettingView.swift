@@ -70,7 +70,7 @@ struct SettingView: View {
         }
         .onChange(of: service.isAuthenticated) {
             if !service.isAuthenticated {
-                router.navigateToView(destination: .login)
+                router.resetPath()
             }
         }
     }
