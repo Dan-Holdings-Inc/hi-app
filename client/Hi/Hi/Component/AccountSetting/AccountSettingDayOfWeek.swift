@@ -15,12 +15,8 @@ struct AccountSettingDayOfWeek: View {
     
     var body: some View {
         VStack {
-            HStack {
-                BackButton()
-                    .padding(.horizontal)
-                    .padding(.bottom, 5)
-                Spacer()
-            }
+            BackButton()
+                .padding(.bottom, 5)
             HStack {
                 Text("曜日を選択")
                     .font(.title)

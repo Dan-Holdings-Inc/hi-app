@@ -15,12 +15,8 @@ struct AccountSettingWakeUpTime: View {
     
     var body: some View {
         VStack {
-            HStack {
-                BackButton()
-                    .padding(.horizontal)
-                    .padding(.bottom, 5)
-                Spacer()
-            }
+            BackButton()
+                .padding(.bottom, 5)
             HStack {
                 Text("毎朝の起きる時間を設定")
                     .font(.title)
@@ -43,7 +39,7 @@ struct AccountSettingWakeUpTime: View {
             .cornerRadius(15)
             .overlay(
                 RoundedRectangle(cornerRadius: 15)
-                    .stroke(.black, lineWidth: 1)
+                    .stroke(.primary, lineWidth: 1)
             )
             .padding()
             Text("\(DateFormat().dateToString(date: date))")

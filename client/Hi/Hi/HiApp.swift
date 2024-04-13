@@ -30,6 +30,20 @@ struct HiApp: App {
                             AccountCreateWakeUpTimeView()
                         case .accountCreateDayOfWeek:
                             AccountCreateDayOfWeekView()
+                        case .settingName:
+                            SettingNameView()
+                        case .settingUserID:
+                            SettingUserIDView()
+                        case .settingWakuUpTime:
+                            SettingWakeUpTimeView()
+                        case .settingDayOfWeek:
+                            SettingDayOfWeekView()
+                        case .friendSummary:
+                            FriendSummaryView()
+                        case .friendSearch:
+                            FriendSearchView()
+                        case .friendApproval:
+                            FriendApprovalView()
                         }
                     }
             }

@@ -11,13 +11,18 @@ struct BackButton: View {
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
-        Button(
-            action: {
-                dismiss()
-            }, label: {
-                Image(systemName: "chevron.backward")
-            }
-        ).tint(.black)
+        HStack {
+            Button(
+                action: {
+                    dismiss()
+                }, label: {
+                    Image(systemName: "chevron.backward")
+                }
+            )
+            .tint(.primary)
+            .padding(.leading)
+            Spacer()
+        }
     }
 }
 

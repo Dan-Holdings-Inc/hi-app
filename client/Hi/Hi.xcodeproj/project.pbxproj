@@ -14,9 +14,7 @@
 		5C1C7BEA2BC41B79003049A1 /* HiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1C7BE92BC41B79003049A1 /* HiTests.swift */; };
 		5C1C7BF42BC41B79003049A1 /* HiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1C7BF32BC41B79003049A1 /* HiUITests.swift */; };
 		5C1C7BF62BC41B79003049A1 /* HiUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1C7BF52BC41B79003049A1 /* HiUITestsLaunchTests.swift */; };
-		5C3545C12BC66DD40011E78D /* AccountCreateNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3545C02BC66DD40011E78D /* AccountCreateNameView.swift */; };
 		5C3545C32BC6714E0011E78D /* AccountSettingUserID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3545C22BC6714E0011E78D /* AccountSettingUserID.swift */; };
-		5C3545C52BC675700011E78D /* AccountCreateUserID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3545C42BC675700011E78D /* AccountCreateUserID.swift */; };
 		5C3545C82BC67B990011E78D /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3545C72BC67B990011E78D /* BackButton.swift */; };
 		5C818C9D2BC4DE56005A6FC1 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C818C9C2BC4DE56005A6FC1 /* HomeView.swift */; };
 		5C818CA02BC4E162005A6FC1 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C818C9F2BC4E162005A6FC1 /* SettingView.swift */; };
@@ -27,16 +25,20 @@
 		5C93BEAB2BC625DE00C715DF /* Auth0Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C93BEAA2BC625DE00C715DF /* Auth0Service.swift */; };
 		5C93BEAD2BC6278D00C715DF /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C93BEAC2BC6278D00C715DF /* Profile.swift */; };
 		5C93BEB52BC6633700C715DF /* AccountSettingName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C93BEB42BC6633700C715DF /* AccountSettingName.swift */; };
+		5CC2BE742BC9071800C56A21 /* FriendSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC2BE732BC9071800C56A21 /* FriendSummaryView.swift */; };
+		5CC2BE782BC91B9A00C56A21 /* FriendSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC2BE772BC91B9A00C56A21 /* FriendSearchView.swift */; };
+		5CC2BE7A2BC9216400C56A21 /* FriendApprovalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC2BE792BC9216400C56A21 /* FriendApprovalView.swift */; };
 		5CCC35FA2BC4E4F1003B00C5 /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCC35F92BC4E4F1003B00C5 /* MainTabBar.swift */; };
-		5CCC35FC2BC4EB7D003B00C5 /* UserCardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCC35FB2BC4EB7D003B00C5 /* UserCardButton.swift */; };
+		5CCC35FC2BC4EB7D003B00C5 /* UserCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCC35FB2BC4EB7D003B00C5 /* UserCard.swift */; };
 		5CCC35FF2BC51276003B00C5 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCC35FE2BC51276003B00C5 /* HomeViewModel.swift */; };
 		5CCC36032BC55B11003B00C5 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCC36022BC55B11003B00C5 /* LoginView.swift */; };
 		5CCC36052BC56492003B00C5 /* BasicRoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCC36042BC56492003B00C5 /* BasicRoundButton.swift */; };
 		5CD31A332BC7BC2B007B6135 /* AccountSettingDayOfWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD31A322BC7BC2B007B6135 /* AccountSettingDayOfWeek.swift */; };
-		5CD31A352BC7C03A007B6135 /* AccountCreateDayOfWeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD31A342BC7C03A007B6135 /* AccountCreateDayOfWeekView.swift */; };
+		5CD375312BC822B6004BFF4E /* SettingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD375302BC822B6004BFF4E /* SettingCard.swift */; };
+		5CD375362BC8318D004BFF4E /* AccountCreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD375352BC8318D004BFF4E /* AccountCreateView.swift */; };
+		5CD375382BC84B1E004BFF4E /* SettingExclamationMarkCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD375372BC84B1E004BFF4E /* SettingExclamationMarkCard.swift */; };
 		5CFB76392BC6FB6700741DC8 /* AccountSettingWakeUpTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFB76382BC6FB6700741DC8 /* AccountSettingWakeUpTime.swift */; };
 		5CFB763C2BC7014300741DC8 /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFB763B2BC7014300741DC8 /* DateFormat.swift */; };
-		5CFB763E2BC7046200741DC8 /* AccountCreateWakeUpTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFB763D2BC7046200741DC8 /* AccountCreateWakeUpTimeView.swift */; };
 		5CFCEC2D2BC7B69800CE530A /* DayOfWeekButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFCEC2C2BC7B69800CE530A /* DayOfWeekButton.swift */; };
 /* End PBXBuildFile section */
 
@@ -68,9 +70,7 @@
 		5C1C7BEF2BC41B79003049A1 /* HiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C1C7BF32BC41B79003049A1 /* HiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiUITests.swift; sourceTree = "<group>"; };
 		5C1C7BF52BC41B79003049A1 /* HiUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		5C3545C02BC66DD40011E78D /* AccountCreateNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCreateNameView.swift; sourceTree = "<group>"; };
 		5C3545C22BC6714E0011E78D /* AccountSettingUserID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingUserID.swift; sourceTree = "<group>"; };
-		5C3545C42BC675700011E78D /* AccountCreateUserID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCreateUserID.swift; sourceTree = "<group>"; };
 		5C3545C72BC67B990011E78D /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
 		5C818C9C2BC4DE56005A6FC1 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		5C818C9F2BC4E162005A6FC1 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
@@ -80,16 +80,20 @@
 		5C93BEAA2BC625DE00C715DF /* Auth0Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth0Service.swift; sourceTree = "<group>"; };
 		5C93BEAC2BC6278D00C715DF /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		5C93BEB42BC6633700C715DF /* AccountSettingName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingName.swift; sourceTree = "<group>"; };
+		5CC2BE732BC9071800C56A21 /* FriendSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendSummaryView.swift; sourceTree = "<group>"; };
+		5CC2BE772BC91B9A00C56A21 /* FriendSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendSearchView.swift; sourceTree = "<group>"; };
+		5CC2BE792BC9216400C56A21 /* FriendApprovalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendApprovalView.swift; sourceTree = "<group>"; };
 		5CCC35F92BC4E4F1003B00C5 /* MainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
-		5CCC35FB2BC4EB7D003B00C5 /* UserCardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCardButton.swift; sourceTree = "<group>"; };
+		5CCC35FB2BC4EB7D003B00C5 /* UserCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCard.swift; sourceTree = "<group>"; };
 		5CCC35FE2BC51276003B00C5 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		5CCC36022BC55B11003B00C5 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		5CCC36042BC56492003B00C5 /* BasicRoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicRoundButton.swift; sourceTree = "<group>"; };
 		5CD31A322BC7BC2B007B6135 /* AccountSettingDayOfWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingDayOfWeek.swift; sourceTree = "<group>"; };
-		5CD31A342BC7C03A007B6135 /* AccountCreateDayOfWeekView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCreateDayOfWeekView.swift; sourceTree = "<group>"; };
+		5CD375302BC822B6004BFF4E /* SettingCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCard.swift; sourceTree = "<group>"; };
+		5CD375352BC8318D004BFF4E /* AccountCreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCreateView.swift; sourceTree = "<group>"; };
+		5CD375372BC84B1E004BFF4E /* SettingExclamationMarkCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingExclamationMarkCard.swift; sourceTree = "<group>"; };
 		5CFB76382BC6FB6700741DC8 /* AccountSettingWakeUpTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingWakeUpTime.swift; sourceTree = "<group>"; };
 		5CFB763B2BC7014300741DC8 /* DateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
-		5CFB763D2BC7046200741DC8 /* AccountCreateWakeUpTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCreateWakeUpTimeView.swift; sourceTree = "<group>"; };
 		5CFCEC2C2BC7B69800CE530A /* DayOfWeekButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayOfWeekButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -143,11 +147,11 @@
 			isa = PBXGroup;
 			children = (
 				5C93BEAE2BC627E300C715DF /* Model */,
+				5CFB763A2BC7011E00741DC8 /* UICore */,
 				5C93BEA92BC625B400C715DF /* Infrastructure */,
 				5C93BE982BC579BD00C715DF /* Router */,
 				5C818CA12BC4E398005A6FC1 /* Component */,
 				5C818C9A2BC4DDAF005A6FC1 /* View */,
-				5CFB763A2BC7011E00741DC8 /* UICore */,
 				5C1C7BD82BC41B77003049A1 /* HiApp.swift */,
 				5C1C7BDE2BC41B79003049A1 /* Preview Content */,
 				5C1C7BDC2BC41B79003049A1 /* Assets.xcassets */,
@@ -184,6 +188,7 @@
 		5C818C9A2BC4DDAF005A6FC1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5CC2BE722BC9062800C56A21 /* Friend */,
 				5C93BEB32BC6632100C715DF /* AccountCreate */,
 				5CCC36012BC55B00003B00C5 /* Login */,
 				5C818C9E2BC4E152005A6FC1 /* Setting */,
@@ -213,6 +218,7 @@
 		5C818CA12BC4E398005A6FC1 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				5CD375322BC822FD004BFF4E /* Card */,
 				5C93BEB82BC66D1900C715DF /* AccountSetting */,
 				5CCC35FD2BC5088C003B00C5 /* Button */,
 				5CCC35F82BC4E4D1003B00C5 /* Tab */,
@@ -247,10 +253,7 @@
 		5C93BEB32BC6632100C715DF /* AccountCreate */ = {
 			isa = PBXGroup;
 			children = (
-				5C3545C02BC66DD40011E78D /* AccountCreateNameView.swift */,
-				5C3545C42BC675700011E78D /* AccountCreateUserID.swift */,
-				5CFB763D2BC7046200741DC8 /* AccountCreateWakeUpTimeView.swift */,
-				5CD31A342BC7C03A007B6135 /* AccountCreateDayOfWeekView.swift */,
+				5CD375352BC8318D004BFF4E /* AccountCreateView.swift */,
 			);
 			path = AccountCreate;
 			sourceTree = "<group>";
@@ -266,6 +269,16 @@
 			path = AccountSetting;
 			sourceTree = "<group>";
 		};
+		5CC2BE722BC9062800C56A21 /* Friend */ = {
+			isa = PBXGroup;
+			children = (
+				5CC2BE732BC9071800C56A21 /* FriendSummaryView.swift */,
+				5CC2BE772BC91B9A00C56A21 /* FriendSearchView.swift */,
+				5CC2BE792BC9216400C56A21 /* FriendApprovalView.swift */,
+			);
+			path = Friend;
+			sourceTree = "<group>";
+		};
 		5CCC35F82BC4E4D1003B00C5 /* Tab */ = {
 			isa = PBXGroup;
 			children = (
@@ -278,7 +291,6 @@
 			isa = PBXGroup;
 			children = (
 				5C3545C72BC67B990011E78D /* BackButton.swift */,
-				5CCC35FB2BC4EB7D003B00C5 /* UserCardButton.swift */,
 				5CCC36042BC56492003B00C5 /* BasicRoundButton.swift */,
 				5CFCEC2C2BC7B69800CE530A /* DayOfWeekButton.swift */,
 				5C93BE9D2BC585B300C715DF /* LogoutButton.swift */,
@@ -292,6 +304,16 @@
 				5CCC36022BC55B11003B00C5 /* LoginView.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		5CD375322BC822FD004BFF4E /* Card */ = {
+			isa = PBXGroup;
+			children = (
+				5CCC35FB2BC4EB7D003B00C5 /* UserCard.swift */,
+				5CD375302BC822B6004BFF4E /* SettingCard.swift */,
+				5CD375372BC84B1E004BFF4E /* SettingExclamationMarkCard.swift */,
+			);
+			path = Card;
 			sourceTree = "<group>";
 		};
 		5CFB763A2BC7011E00741DC8 /* UICore */ = {
@@ -439,29 +461,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CD375382BC84B1E004BFF4E /* SettingExclamationMarkCard.swift in Sources */,
 				5CCC35FA2BC4E4F1003B00C5 /* MainTabBar.swift in Sources */,
 				5CCC36052BC56492003B00C5 /* BasicRoundButton.swift in Sources */,
 				5C818C9D2BC4DE56005A6FC1 /* HomeView.swift in Sources */,
 				5C93BEAD2BC6278D00C715DF /* Profile.swift in Sources */,
-				5CD31A352BC7C03A007B6135 /* AccountCreateDayOfWeekView.swift in Sources */,
 				5CCC35FF2BC51276003B00C5 /* HomeViewModel.swift in Sources */,
 				5CD31A332BC7BC2B007B6135 /* AccountSettingDayOfWeek.swift in Sources */,
-				5C3545C52BC675700011E78D /* AccountCreateUserID.swift in Sources */,
 				5CFB76392BC6FB6700741DC8 /* AccountSettingWakeUpTime.swift in Sources */,
+				5CD375312BC822B6004BFF4E /* SettingCard.swift in Sources */,
 				5C818CA02BC4E162005A6FC1 /* SettingView.swift in Sources */,
 				5C1C7BDB2BC41B77003049A1 /* ContentView.swift in Sources */,
-				5C3545C12BC66DD40011E78D /* AccountCreateNameView.swift in Sources */,
-				5CCC35FC2BC4EB7D003B00C5 /* UserCardButton.swift in Sources */,
+				5CC2BE742BC9071800C56A21 /* FriendSummaryView.swift in Sources */,
+				5CD375362BC8318D004BFF4E /* AccountCreateView.swift in Sources */,
+				5CCC35FC2BC4EB7D003B00C5 /* UserCard.swift in Sources */,
 				5CCC36032BC55B11003B00C5 /* LoginView.swift in Sources */,
+				5CC2BE7A2BC9216400C56A21 /* FriendApprovalView.swift in Sources */,
 				5C93BEB52BC6633700C715DF /* AccountSettingName.swift in Sources */,
 				5C93BEAB2BC625DE00C715DF /* Auth0Service.swift in Sources */,
 				5C3545C32BC6714E0011E78D /* AccountSettingUserID.swift in Sources */,
-				5CFB763E2BC7046200741DC8 /* AccountCreateWakeUpTimeView.swift in Sources */,
 				5C3545C82BC67B990011E78D /* BackButton.swift in Sources */,
 				5CFCEC2D2BC7B69800CE530A /* DayOfWeekButton.swift in Sources */,
 				5C93BE9E2BC585B300C715DF /* LogoutButton.swift in Sources */,
 				5C93BE9C2BC57A1D00C715DF /* NavigationRouter.swift in Sources */,
 				5CFB763C2BC7014300741DC8 /* DateFormat.swift in Sources */,
+				5CC2BE782BC91B9A00C56A21 /* FriendSearchView.swift in Sources */,
 				5C1C7BD92BC41B77003049A1 /* HiApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

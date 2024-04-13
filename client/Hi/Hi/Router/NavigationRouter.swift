@@ -11,13 +11,26 @@ import Foundation
 final class NavigationRouter: ObservableObject {
     @MainActor @Published var navigationPath: [Path] = []
     
+    @Published var settingNavigationPath: [Path] = [.settingName, .settingUserID, .settingWakuUpTime, .settingDayOfWeek]
+    @Published var friendNavigationPath: [Path] = [.friendSummary, .friendSearch, .friendApproval]
+    
     enum Path: Hashable {
         case main // メイン画面(ホーム、設定)
         case login // ログイン画面
-        case accountCreateName // 名前.アカウント作成
-        case accountCreateUserID // ユーザーID.アカウント作成
-        case accountCreateWakeUpTime // 起きる時間.アカウント作成
-        case accountCreateDayOfWeek // 曜日.アカウント作成
+        // アカウント作成
+        case accountCreateName
+        case accountCreateUserID
+        case accountCreateWakeUpTime
+        case accountCreateDayOfWeek
+        // 設定
+        case settingName
+        case settingUserID
+        case settingWakuUpTime
+        case settingDayOfWeek
+        // フレンド
+        case friendSummary
+        case friendSearch
+        case friendApproval
     }
     
     @MainActor func navigateToView(destination: Path) {
@@ -26,5 +39,9 @@ final class NavigationRouter: ObservableObject {
     
     @MainActor func backPage() {
         navigationPath.removeLast()
+    }
+    
+    @MainActor func resetPath() {
+        navigationPath.removeAll()
     }
 }

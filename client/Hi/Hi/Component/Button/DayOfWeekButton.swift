@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct DayOfWeekButton: View {
+    @Environment(\.colorScheme) var colorScheme
     @State var isSelected = false
     
     var label: String
@@ -20,16 +21,17 @@ struct DayOfWeekButton: View {
         }) {
             ZStack {
                 RoundedRectangle(cornerRadius: 20)
-                    .foregroundColor(.white)
+                    .foregroundColor(colorScheme == .light ? .white : .black)
                     .overlay(
                         RoundedRectangle(cornerRadius: 15)
-                            .stroke(.black, lineWidth: 3)
+                            .stroke(colorScheme == .light ? .black : .white, lineWidth: 3)
                             .opacity(isSelected ? 1.0 : 0.3)
                     )
                 Text("\(label)")
-                    .foregroundColor(isSelected ? .black : .gray)
+                    .foregroundColor(.primary)
                     .font(.title)
                     .bold()
+                    .opacity(isSelected ? 1.0 : 0.2)
             }
             .frame(width: screenWidth / 9, height: 50)
         }
