@@ -77,9 +77,7 @@ struct SettingView: View {
             Spacer()
             
             Button {
-                UserDefaultsHelper().remove(key: "name")
-                UserDefaultsHelper().remove(key: "userID")
-                router.resetPath()
+                UserDefaultsHelper().removeUserDefaults()
             } label: {
                 Text("アカウント削除（開発用）")
                     .padding()

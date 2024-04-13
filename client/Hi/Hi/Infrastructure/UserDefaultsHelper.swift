@@ -25,4 +25,10 @@ class UserDefaultsHelper {
     func remove(key: String) {
         userDefaults.removeObject(forKey: key)
     }
+    
+    func removeUserDefaults() {
+        if let appDomain = Bundle.main.bundleIdentifier {
+            UserDefaults.standard.removePersistentDomain(forName: appDomain)
+        }
+    }
 }
