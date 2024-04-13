@@ -10,7 +10,7 @@ import SwiftUI
 struct AccountSettingUserID: View {
     @Environment(\.colorScheme) var colorScheme
     @FocusState private var isFocused: Bool
-    @State var userID = UserDefaultsHelper().getStringDeta(key: "userID")
+    @State var userID = UserDefaultsHelper().getStringData(key: "userID")
     
     var nextButtonLabel: String
     var action: () -> Void
@@ -67,7 +67,7 @@ struct AccountSettingUserID: View {
             )
             .padding()
             BasicRoundButton(text: "\(nextButtonLabel)", action: {
-                UserDefaultsHelper().setStringDeta(value: userID, key: "userID")
+                UserDefaultsHelper().set(value: userID, key: "userID")
                 action()
             })
             Spacer()

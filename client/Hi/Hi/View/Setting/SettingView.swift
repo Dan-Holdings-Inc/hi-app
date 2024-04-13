@@ -75,20 +75,23 @@ struct SettingView: View {
             .padding(.bottom)
             
             Spacer()
+            
             Button {
-                UserDefaultsHelper().removeDeta(key: "name")
-                UserDefaultsHelper().removeDeta(key: "userID")
+                UserDefaultsHelper().remove(key: "name")
+                UserDefaultsHelper().remove(key: "userID")
+                router.resetPath()
             } label: {
-                Text("データリセット（開発用）")
+                Text("アカウント削除（開発用）")
                     .padding()
             }
+            
             LogoutButton(action: {
                 service.logout()
             })
         }
         .onAppear {
-            name = UserDefaultsHelper().getStringDeta(key: "name")
-            userID = UserDefaultsHelper().getStringDeta(key: "userID")
+            name = UserDefaultsHelper().getStringData(key: "name")
+            userID = UserDefaultsHelper().getStringData(key: "userID")
         }
         .onChange(of: service.isAuthenticated) {
             if !service.isAuthenticated {

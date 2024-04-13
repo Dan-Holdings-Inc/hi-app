@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct AccountSettingDayOfWeek: View {
-    @State var userID = ""
-    
     var nextButtonLabel: String
     var action: () -> Void
     

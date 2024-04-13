@@ -10,8 +10,6 @@ import SwiftUI
 struct LoginView: View {
     @EnvironmentObject var router: NavigationRouter
     @EnvironmentObject var service: Auth0Service
-    @State var mailAdress = ""
-    @State var password = ""
     
     var body: some View {
         VStack {

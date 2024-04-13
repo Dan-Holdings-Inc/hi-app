@@ -10,15 +10,19 @@ import Foundation
 class UserDefaultsHelper {
     let userDefaults = UserDefaults.standard
     
-    func setStringDeta(value: String, key: String) {
+    func set(value: Any, key: String) {
         userDefaults.set(value, forKey: key)
     }
     
-    func getStringDeta(key: String) -> String {
+    func getStringData(key: String) -> String {
         return userDefaults.string(forKey: key) ?? ""
     }
     
-    func removeDeta(key: String) {
+    func getBoolData(key: String) -> Bool {
+        return userDefaults.bool(forKey: key)
+    }
+    
+    func remove(key: String) {
         userDefaults.removeObject(forKey: key)
     }
 }
