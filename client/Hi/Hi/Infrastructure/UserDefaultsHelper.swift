@@ -22,6 +22,10 @@ class UserDefaultsHelper {
         return userDefaults.bool(forKey: key)
     }
     
+    func getArrayData(key: String) -> Array<Any> {
+        return userDefaults.array(forKey: key) ?? Array(repeating: false, count: 7)
+    }
+    
     func remove(key: String) {
         userDefaults.removeObject(forKey: key)
     }
