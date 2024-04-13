@@ -9,15 +9,16 @@ import SwiftUI
 
 struct DayOfWeekButton: View {
     @Environment(\.colorScheme) var colorScheme
-    @State var isSelected = false
     
     var label: String
+    var isSelected: Bool
+    var action: () -> Void
     
     var body: some View {
         let screenWidth = UIScreen.main.bounds.width
         
         Button(action: {
-            isSelected.toggle()
+            action()
         }) {
             ZStack {
                 RoundedRectangle(cornerRadius: 20)
@@ -39,5 +40,7 @@ struct DayOfWeekButton: View {
 }
 
 #Preview {
-    DayOfWeekButton(label: "月")
+    DayOfWeekButton(label: "月", isSelected: false, action: {
+        print("タップ！")
+    })
 }

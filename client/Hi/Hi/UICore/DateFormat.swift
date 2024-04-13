@@ -8,9 +8,23 @@
 import Foundation
 
 class DateFormat {
+    let dateFormatter = DateFormatter()
+    
     func dateToString(date: Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HH : mm"
-        return dateFormatter.string(from: date)
+        dateFormatter.dateStyle = .none
+        dateFormatter.timeStyle = .short
+        dateFormatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
+        
+        let string = dateFormatter.string(from: date)
+        return string
+    }
+    
+    func StringToDate(string: String) -> Date {
+        dateFormatter.dateStyle = .none
+        dateFormatter.timeStyle = .short
+        dateFormatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
+        
+        let date = dateFormatter.date(from: string) ?? Date()
+        return date
     }
 }
