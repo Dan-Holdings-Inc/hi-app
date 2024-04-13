@@ -9,8 +9,8 @@ import SwiftUI
 
 struct AccountSettingName: View {
     @Environment(\.colorScheme) var colorScheme
-    @State var displayName = ""
     @FocusState private var isFocused: Bool
+    @State var name = UserDefaultsHelper().getStringDeta(key: "name")
     
     var nextButtonLabel: String
     var isShowBackButton: Bool
@@ -36,7 +36,7 @@ struct AccountSettingName: View {
                 Spacer()
             }
             let strokeColor: Color = colorScheme == .light ? .black : .white
-            TextField("名前", text: $displayName)
+            TextField("名前", text: $name)
                 .focused($isFocused)
                 .toolbar {
                     ToolbarItemGroup(placement: .keyboard) {
@@ -54,7 +54,10 @@ struct AccountSettingName: View {
                         .stroke(isFocused ? strokeColor : .gray, lineWidth: 1)
                 )
                 .padding()
-            BasicRoundButton(text: "\(nextButtonLabel)", action: action)
+            BasicRoundButton(text: "\(nextButtonLabel)", action: {
+                UserDefaultsHelper().setStringDeta(value: name, key: "name")
+                action()
+            })
             Spacer()
         }
         .onAppear {
