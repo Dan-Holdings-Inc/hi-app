@@ -45,8 +45,17 @@ struct AccountSettingWakeUpTime: View {
             Text("\(DateFormat().dateToString(date: date))")
                 .font(.title)
                 .bold()
-            BasicRoundButton(text: "\(nextButtonLabel)", action: action)
+            BasicRoundButton(text: "\(nextButtonLabel)", action: {
+                let stringDate = DateFormat().dateToString(date: date)
+                UserDefaultsHelper().set(value: stringDate, key: "wakeUpTime")
+                action()
+            })
             Spacer()
+        }
+        .onAppear {
+            let stringDate = UserDefaultsHelper().getStringData(key: "wakeUpTime")
+            date = DateFormat().StringToDate(string: stringDate)
+            print(date)
         }
     }
 }

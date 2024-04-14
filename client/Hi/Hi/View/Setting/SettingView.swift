@@ -11,14 +11,17 @@ struct SettingView: View {
     @EnvironmentObject var router: NavigationRouter
     @EnvironmentObject var service: Auth0Service
     
+    @State var name = ""
+    @State var userID = ""
+    
     var body: some View {
         VStack {
             VStack {
-                Text("名前")
+                Text("\(name)")
                     .font(.largeTitle)
                     .bold()
                     .padding(.bottom, 5)
-                Text("ユーザーID：〇〇〇〇〇〇")
+                Text("ユーザーID：\(userID)")
                     .font(.headline)
                     .padding(.bottom)
             }
@@ -72,9 +75,21 @@ struct SettingView: View {
             .padding(.bottom)
             
             Spacer()
+            
+            Button {
+                UserDefaultsHelper().removeUserDefaults()
+            } label: {
+                Text("アカウント削除（開発用）")
+                    .padding()
+            }
+            
             LogoutButton(action: {
                 service.logout()
             })
+        }
+        .onAppear {
+            name = UserDefaultsHelper().getStringData(key: "name")
+            userID = UserDefaultsHelper().getStringData(key: "userID")
         }
         .onChange(of: service.isAuthenticated) {
             if !service.isAuthenticated {
