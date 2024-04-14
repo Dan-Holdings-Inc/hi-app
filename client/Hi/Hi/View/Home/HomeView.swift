@@ -11,11 +11,15 @@ struct HomeView: View {
     @ObservedObject var viewModel: HomeViewModel
     
     var body: some View {
-        ScrollView {
+        List {
             ForEach(0 ..< 10) { index in
                 UserCard(userName: "\(index)番目の人", color: viewModel.cardColors[index % viewModel.cardColors.count], action: {
                     viewModel.userCardButtonAction(index: index)
                 })
+                .swipeActions(edge: .trailing){
+                    Button("削除", role: .destructive) {
+                    }
+                }
             }
             .frame(maxWidth: .infinity)
         }
