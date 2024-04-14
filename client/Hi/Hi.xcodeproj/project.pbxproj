@@ -464,15 +464,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< HEAD
-				5CCC35FA2BC4E4F1003B00C5 /* MainTabBar.swift in Sources */,
-				5CCC36052BC56492003B00C5 /* LoginButton.swift in Sources */,
-=======
 				5CED66EF2BC987A6007183F1 /* UserDefaultsHelper.swift in Sources */,
 				5CD375382BC84B1E004BFF4E /* SettingExclamationMarkCard.swift in Sources */,
 				5CCC35FA2BC4E4F1003B00C5 /* MainTabBar.swift in Sources */,
 				5CCC36052BC56492003B00C5 /* BasicRoundButton.swift in Sources */,
->>>>>>> e3303cd1b0af1427c0341d988a1a8367bbb244e0
 				5C818C9D2BC4DE56005A6FC1 /* HomeView.swift in Sources */,
 				5C93BEAD2BC6278D00C715DF /* Profile.swift in Sources */,
 				5CCC35FF2BC51276003B00C5 /* HomeViewModel.swift in Sources */,
