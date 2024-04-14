@@ -13,7 +13,7 @@ struct HomeView: View {
     var body: some View {
         ScrollView {
             ForEach(0 ..< 10) { index in
-                UserCardButton(userName: "\(index)番目の人", color: viewModel.cardColors[index % viewModel.cardColors.count], action: {
+                UserCard(userName: "\(index)番目の人", color: viewModel.cardColors[index % viewModel.cardColors.count], action: {
                     viewModel.userCardButtonAction(index: index)
                 })
             }

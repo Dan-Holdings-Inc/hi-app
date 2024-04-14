@@ -8,12 +8,10 @@
 import SwiftUI
 
 struct LoginView: View {
-    @State var mailAdress = ""
-    @State var password = ""
+    @EnvironmentObject var router: NavigationRouter
+    @EnvironmentObject var service: Auth0Service
     
     var body: some View {
-        let screenWidth = UIScreen.main.bounds.width
-        
         VStack {
             Spacer()
             HStack {
@@ -26,32 +24,17 @@ struct LoginView: View {
                     .frame(width: 30, height: 30)
             }
             Spacer()
-            TextField("メールアドレス", text: $mailAdress)
-                .padding()
-                .multilineTextAlignment(.center)
-                .frame(width: screenWidth * 0.9)
-                .background(Color(.systemGray6))
-                .cornerRadius(25)
-                .shadow(radius: 10)
-                .padding()
-            TextField("パスワード", text: $password)
-                .padding()
-                .multilineTextAlignment(.center)
-                .frame(width: screenWidth * 0.9)
-                .background(Color(.systemGray6))
-                .cornerRadius(25)
-                .shadow(radius: 10)
-                .padding(.horizontal)
-            LoginButton(action: {
-                print("ログインする！")
+            
+            BasicRoundButton(text: "始める", action: {
+                service.login()
             })
-            .padding()
-            Button {
-                print("アカウント")
-            } label: {
-                Text("アカウントの新規作成 ＞")
-            }
             Spacer()
+        }
+        .navigationBarHidden(true)
+        .onChange(of: service.isAuthenticated) {
+            if service.isAuthenticated {
+                router.navigateToView(destination: .accountCreateName)
+            }
         }
     }
 }
