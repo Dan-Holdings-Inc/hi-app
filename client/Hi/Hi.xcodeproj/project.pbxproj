@@ -16,7 +16,6 @@
 		5C1C7BF62BC41B79003049A1 /* HiUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1C7BF52BC41B79003049A1 /* HiUITestsLaunchTests.swift */; };
 		5C3545C32BC6714E0011E78D /* AccountSettingUserID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3545C22BC6714E0011E78D /* AccountSettingUserID.swift */; };
 		5C3545C82BC67B990011E78D /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3545C72BC67B990011E78D /* BackButton.swift */; };
-		5C56F3322BCBB2DE0063927C /* KeyChainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C56F3312BCBB2DE0063927C /* KeyChainHelper.swift */; };
 		5C818C9D2BC4DE56005A6FC1 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C818C9C2BC4DE56005A6FC1 /* HomeView.swift */; };
 		5C818CA02BC4E162005A6FC1 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C818C9F2BC4E162005A6FC1 /* SettingView.swift */; };
 		5C93BE9C2BC57A1D00C715DF /* NavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C93BE9B2BC57A1D00C715DF /* NavigationRouter.swift */; };
@@ -74,7 +73,6 @@
 		5C1C7BF52BC41B79003049A1 /* HiUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		5C3545C22BC6714E0011E78D /* AccountSettingUserID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingUserID.swift; sourceTree = "<group>"; };
 		5C3545C72BC67B990011E78D /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
-		5C56F3312BCBB2DE0063927C /* KeyChainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainHelper.swift; sourceTree = "<group>"; };
 		5C818C9C2BC4DE56005A6FC1 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		5C818C9F2BC4E162005A6FC1 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		5C93BE9B2BC57A1D00C715DF /* NavigationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationRouter.swift; sourceTree = "<group>"; };
@@ -243,7 +241,6 @@
 			children = (
 				5C93BEAA2BC625DE00C715DF /* Auth0Service.swift */,
 				5CED66EE2BC987A6007183F1 /* UserDefaultsHelper.swift */,
-				5C56F3312BCBB2DE0063927C /* KeyChainHelper.swift */,
 			);
 			path = Infrastructure;
 			sourceTree = "<group>";
@@ -486,7 +483,6 @@
 				5CC2BE7A2BC9216400C56A21 /* FriendApprovalView.swift in Sources */,
 				5C93BEB52BC6633700C715DF /* AccountSettingName.swift in Sources */,
 				5C93BEAB2BC625DE00C715DF /* Auth0Service.swift in Sources */,
-				5C56F3322BCBB2DE0063927C /* KeyChainHelper.swift in Sources */,
 				5C3545C32BC6714E0011E78D /* AccountSettingUserID.swift in Sources */,
 				5C3545C82BC67B990011E78D /* BackButton.swift in Sources */,
 				5CFCEC2D2BC7B69800CE530A /* DayOfWeekButton.swift in Sources */,
