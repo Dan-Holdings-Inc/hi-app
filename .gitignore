@@ -136,3 +136,4 @@ iOSInjectionProject/
 # hi-server向け
 node_modules
 dist
+.env
