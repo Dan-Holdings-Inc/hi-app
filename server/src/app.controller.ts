@@ -1,5 +1,6 @@
-import { Controller, Get } from '@nestjs/common';
-import { AppService } from './app.service';
+import { Controller, Get, UseGuards, Request } from "@nestjs/common";
+import { AppService } from "./app.service";
+import { AuthGuard } from "@nestjs/passport";
 
 @Controller()
 export class AppController {
@@ -8,5 +9,10 @@ export class AppController {
   @Get()
   getHello(): string {
     return this.appService.getHello();
+  }
+  @UseGuards(AuthGuard("jwt"))
+  @Get("/private")
+  getHelloPrivate(@Request() req) {
+    return { message: "private api", sub: req.user.sub };
   }
 }
