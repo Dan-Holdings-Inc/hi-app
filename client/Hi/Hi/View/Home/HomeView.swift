@@ -20,9 +20,10 @@ struct HomeView: View {
                     Button("削除", role: .destructive) {
                     }
                 }
+                .listRowInsets(EdgeInsets())
             }
-            .frame(maxWidth: .infinity)
-        }
+        }.listStyle(GroupedListStyle())
+        
     }
 }
 

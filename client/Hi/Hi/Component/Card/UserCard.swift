@@ -16,18 +16,15 @@ struct UserCard: View {
         let screenWidth = UIScreen.main.bounds.width
         
         Button(action: action) {
-            ZStack {
-                RoundedRectangle(cornerRadius: 20)
-                    .foregroundColor(color)
-                Text("\(userName)")
-                    .foregroundColor(.white)
-                    .font(.title)
-                    .bold()
-            }
-            .frame(width: screenWidth * 0.9, height: 80)
-            .shadow(color: Color.gray.opacity(0.6), radius: 4, x: 10, y: 10)
+            Text("\(userName)")
+                .foregroundColor(.white)
+                .font(.title)
+                .bold()
+                .padding()
+            
+                .frame(width: screenWidth, height: 80)
+                .background(color)
         }
-        .padding(.bottom)
     }
 }
 
