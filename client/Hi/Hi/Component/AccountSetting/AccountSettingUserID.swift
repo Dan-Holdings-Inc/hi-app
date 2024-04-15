@@ -11,6 +11,7 @@ struct AccountSettingUserID: View {
     @Environment(\.colorScheme) var colorScheme
     @FocusState private var isFocused: Bool
     @State var userID = UserDefaultsHelper().getStringData(key: "userID")
+    @State var isShowerrormessage = false
     
     var nextButtonLabel: String
     var action: () -> Void
@@ -28,13 +29,15 @@ struct AccountSettingUserID: View {
                 Spacer()
             }
             HStack {
-                Text("ユーザーIDはフレンドの検索に使用されます。")
-                    .padding(.horizontal)
-                Spacer()
-            }
-            HStack {
-                Text("他人と同じIDを使うことはできません。")
-                    .padding(.horizontal)
+                VStack(alignment: .leading){
+                    Text("ユーザーIDはフレンドの検索に使用されます。")
+                    Text("他人と同じIDを使うことはできません。")
+                    if isShowerrormessage{
+                        Text("ユーザーIDを入力してください。")
+                            .foregroundColor(.red)
+                    }
+                }
+                .padding(.horizontal)
                 Spacer()
             }
             
@@ -67,8 +70,13 @@ struct AccountSettingUserID: View {
             )
             .padding()
             BasicRoundButton(text: "\(nextButtonLabel)", action: {
-                UserDefaultsHelper().set(value: userID, key: "userID")
-                action()
+                if userID.isEmpty{
+                    isShowerrormessage = true
+                }
+                else{
+                    UserDefaultsHelper().set(value: userID, key: "userID")
+                    action()
+                }
             })
             Spacer()
         }

@@ -12,7 +12,7 @@ final class NavigationRouter: ObservableObject {
     @MainActor @Published var navigationPath: [Path] = []
     
     @Published var settingNavigationPath: [Path] = [.settingName, .settingUserID, .settingWakuUpTime, .settingDayOfWeek]
-    @Published var friendNavigationPath: [Path] = [.friendSummary, .friendSearch, .friendApproval]
+    @Published var friendNavigationPath: [Path] = [.friendSearch, .friendApproval]
     
     enum Path: Hashable {
         case main // メイン画面(ホーム、設定)
@@ -28,7 +28,6 @@ final class NavigationRouter: ObservableObject {
         case settingWakuUpTime
         case settingDayOfWeek
         // フレンド
-        case friendSummary
         case friendSearch
         case friendApproval
     }

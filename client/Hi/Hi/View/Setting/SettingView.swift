@@ -62,7 +62,7 @@ struct SettingView: View {
                         .bold()
                     Spacer()
                 }
-                let friendLabels = ["フレンド一覧", "フレンド検索"]
+                let friendLabels = ["フレンド検索"]
                 ForEach(0 ..< friendLabels.count, id: \.self) { index in
                     SettingCard(label: "\(friendLabels[index])", action: {
                         router.navigateToView(destination: router.friendNavigationPath[index])

@@ -11,10 +11,12 @@ struct AccountSettingName: View {
     @Environment(\.colorScheme) var colorScheme
     @FocusState private var isFocused: Bool
     @State var name = UserDefaultsHelper().getStringData(key: "name")
+
     
     var nextButtonLabel: String
     var isShowBackButton: Bool
     var action: () -> Void
+    @State var isShowerrormessage = false
     
     var body: some View {
         VStack {
@@ -31,8 +33,14 @@ struct AccountSettingName: View {
                 Spacer()
             }
             HStack {
-                Text("名前はフレンドに表示されます。")
-                    .padding(.horizontal)
+                VStack(alignment: .leading){
+                    Text("名前はフレンドに表示されます。")
+                    if isShowerrormessage{
+                        Text("名前を入力してください。")
+                            .foregroundColor(.red)
+                    }
+                }
+                .padding(.horizontal)
                 Spacer()
             }
             let strokeColor: Color = colorScheme == .light ? .black : .white
@@ -55,8 +63,13 @@ struct AccountSettingName: View {
                 )
                 .padding()
             BasicRoundButton(text: "\(nextButtonLabel)", action: {
-                UserDefaultsHelper().set(value: name, key: "name")
-                action()
+                if name.isEmpty{
+                    isShowerrormessage = true
+                }
+                else{
+                    UserDefaultsHelper().set(value: name, key: "name")
+                    action()
+                }
             })
             Spacer()
         }
