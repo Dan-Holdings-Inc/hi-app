@@ -1,6 +1,6 @@
 import { Injectable } from "@nestjs/common";
 import * as mongoose from "mongoose";
-import { UserModel } from "./db-models";
+import { UserModel } from "src/entity/db-models/user";
 @Injectable()
 export class DbService {
   constructor() {

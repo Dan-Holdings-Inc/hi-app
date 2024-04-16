@@ -16,3 +16,8 @@ export interface User {
    */
   getUpAt: string;
 }
+
+export interface UserWithRelationship extends User {
+  followings: User[];
+  followers: User[];
+}
