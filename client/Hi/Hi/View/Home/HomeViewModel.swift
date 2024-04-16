@@ -11,7 +11,10 @@ import SwiftUI
 class HomeViewModel: ObservableObject {
     @Published var cardColors: [Color] = [.pink, .blue, .green, .gray, .yellow]
     
+    let soundHelper = SoundHelper()
+    
     func userCardButtonAction(index: Int) {
         print("\(index)にHiを送信")
+        soundHelper.playSound()
     }
 }
