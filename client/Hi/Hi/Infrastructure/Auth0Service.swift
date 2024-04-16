@@ -26,6 +26,7 @@ class Auth0Service: ObservableObject {
                         print("refreshTokenがありません")
                         return
                     }
+                    print(credentials.idToken)
                     print("Obtained credentials: \(credentials)")
                     do {
                         try self.keychain.set(credentials.accessToken, forKey: "access_token")
