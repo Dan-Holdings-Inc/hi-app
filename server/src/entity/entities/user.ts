@@ -4,6 +4,10 @@ export interface User {
    */
   id: string;
   /**
+   * メールアドレス
+   */
+  email: string;
+  /**
    * ユーザー固有の名前
    */
   userName: string;
