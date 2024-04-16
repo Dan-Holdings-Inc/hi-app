@@ -28,6 +28,20 @@ struct LoginView: View {
             BasicRoundButton(text: "始める", action: {
                 service.login()
             })
+            
+            Button {
+                router.navigateToView(destination: .accountCreateName)
+            } label: {
+                Text("名前入力画面へ（開発用）")
+                    .padding()
+            }
+            Button {
+                router.navigateToView(destination: .main)
+            } label: {
+                Text("メイン画面へ（開発用）")
+                    .padding()
+            }
+            
             Spacer()
         }
         .navigationBarHidden(true)
