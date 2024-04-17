@@ -11,12 +11,11 @@ struct AccountSettingName: View {
     @Environment(\.colorScheme) var colorScheme
     @FocusState private var isFocused: Bool
     @State var name = UserDefaultsHelper().getStringData(key: "name")
-
+    @State var isShowErrorMessage = false
     
     var nextButtonLabel: String
     var isShowBackButton: Bool
     var action: () -> Void
-    @State var isShowerrormessage = false
     
     var body: some View {
         VStack {
@@ -33,16 +32,16 @@ struct AccountSettingName: View {
                 Spacer()
             }
             HStack {
-                VStack(alignment: .leading){
+                VStack(alignment: .leading) {
                     Text("名前はフレンドに表示されます。")
-                    if isShowerrormessage{
-                        Text("名前を入力してください。")
-                            .foregroundColor(.red)
-                    }
+                    Text("名前を入力してください。")
+                        .foregroundColor(.red)
+                        .opacity(isShowErrorMessage ? 1.0 : 0.0)
                 }
                 .padding(.horizontal)
                 Spacer()
             }
+            
             let strokeColor: Color = colorScheme == .light ? .black : .white
             TextField("名前", text: $name)
                 .focused($isFocused)
@@ -62,11 +61,18 @@ struct AccountSettingName: View {
                         .stroke(isFocused ? strokeColor : .gray, lineWidth: 1)
                 )
                 .padding()
+            
             BasicRoundButton(text: "\(nextButtonLabel)", action: {
-                if name.isEmpty{
-                    isShowerrormessage = true
-                }
-                else{
+                if name.isEmpty {
+                    withAnimation {
+                        isShowErrorMessage = true
+                    }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        withAnimation {
+                            isShowErrorMessage = false
+                        }
+                    }
+                } else {
                     UserDefaultsHelper().set(value: name, key: "name")
                     action()
                 }
