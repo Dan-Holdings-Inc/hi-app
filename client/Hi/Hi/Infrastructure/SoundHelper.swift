@@ -8,13 +8,16 @@
 import SwiftUI
 import AVFoundation
 
-let musicData = NSDataAsset(name: "se")!.data
 var musicPlayer: AVAudioPlayer!
+let musicData = [NSDataAsset(name: "hoo")!.data,
+                 NSDataAsset(name: "hey")!.data]
 
 class SoundHelper {
     func playSound() {
+        let randomIndex = Int.random(in: 0 ..< musicData.count)
+        
         do {
-            musicPlayer = try AVAudioPlayer(data: musicData)
+            musicPlayer = try AVAudioPlayer(data: musicData[randomIndex])
             musicPlayer.currentTime = 0.0
             musicPlayer.play()
         } catch {
