@@ -15,13 +15,14 @@ export interface User {
    * 表示名
    */
   name: string;
-  /**
-   * HH:mm
-   */
-  getUpAt: string;
 }
 
 export interface UserWithRelationship extends User {
   followings: User[];
   followers: User[];
+}
+
+export interface UserRegistration extends User {
+  getUpAt: string;
+  daysToGetUp: boolean[];
 }

@@ -1,5 +1,6 @@
 import { Injectable } from "@nestjs/common";
 import * as mongoose from "mongoose";
+import { RelationshipModel } from "src/entity/db-models/relationship";
 import { UserModel } from "src/entity/db-models/user";
 @Injectable()
 export class DbService {
@@ -9,6 +10,10 @@ export class DbService {
 
   get users() {
     return UserModel;
+  }
+
+  get relationships() {
+    return RelationshipModel;
   }
 
   private async connect() {
