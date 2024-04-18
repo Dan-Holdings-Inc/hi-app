@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 let userDefaultsHelper = UserDefaultsHelper()
+let dateFormatHepler = DateFormat()
 
 class AccountCommonNameViewModel: ObservableObject {
     @Published var name = userDefaultsHelper.getStringData(key: "name")
@@ -55,5 +56,19 @@ class AccountCommonUserIDViewModel: ObservableObject {
         let validCodes = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
         let sets = CharacterSet(charactersIn: validCodes)
         userID = String(userID.unicodeScalars.filter(sets.contains).map(Character.init))
+    }
+}
+
+class AccountCommonWakeUpTimeViewModel: ObservableObject {
+    @Published var date = Date()
+    
+    func nextButtonAction() {
+        let stringDate = dateFormatHepler.dateToString(date: date)
+        userDefaultsHelper.set(value: stringDate, key: "wakeUpTime")
+    }
+    
+    func onAppear() {
+        let stringDate = userDefaultsHelper.getStringData(key: "wakeUpTime")
+        date = dateFormatHepler.StringToDate(string: stringDate)
     }
 }
