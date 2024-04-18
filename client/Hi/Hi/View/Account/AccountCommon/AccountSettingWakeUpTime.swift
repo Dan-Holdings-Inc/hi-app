@@ -10,6 +10,7 @@ import SwiftUI
 struct AccountSettingWakeUpTime: View {
     @State var date = Date()
     
+    let dateFormatHelper = DateFormat()
     var nextButtonLabel: String
     var action: () -> Void
     
@@ -42,20 +43,19 @@ struct AccountSettingWakeUpTime: View {
                     .stroke(.primary, lineWidth: 1)
             )
             .padding()
-            Text("\(DateFormat().dateToString(date: date))")
+            Text("\(dateFormatHelper.dateToString(date: date))")
                 .font(.title)
                 .bold()
             BasicRoundButton(text: "\(nextButtonLabel)", action: {
-                let stringDate = DateFormat().dateToString(date: date)
-                UserDefaultsHelper().set(value: stringDate, key: "wakeUpTime")
+                let stringDate = dateFormatHelper.dateToString(date: date)
+                userDefaultsHelper.set(value: stringDate, key: "wakeUpTime")
                 action()
             })
             Spacer()
         }
         .onAppear {
-            let stringDate = UserDefaultsHelper().getStringData(key: "wakeUpTime")
-            date = DateFormat().StringToDate(string: stringDate)
-            print(date)
+            let stringDate = userDefaultsHelper.getStringData(key: "wakeUpTime")
+            date = dateFormatHelper.StringToDate(string: stringDate)
         }
     }
 }

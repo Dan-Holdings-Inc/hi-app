@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AccountSettingDayOfWeek: View {
-    @State var dayOfWeekSelected = Array(repeating: false, count: 7)
+    @ObservedObject var viewModel = AccountCommonDayOfWeekViewModel()
     
     var nextButtonLabel: String
     var action: () -> Void
@@ -33,21 +33,21 @@ struct AccountSettingDayOfWeek: View {
             HStack {
                 let dayOfWeekLabel = ["月", "火", "水", "木", "金", "土", "日"]
                 ForEach(0 ..< dayOfWeekLabel.count, id: \.self) { index in
-                    DayOfWeekButton(label: dayOfWeekLabel[index], isSelected: dayOfWeekSelected[index], action: {
-                        dayOfWeekSelected[index].toggle()
+                    DayOfWeekButton(label: dayOfWeekLabel[index], isSelected: viewModel.dayOfWeekSelected[index], action: {
+                        viewModel.dayOfWeekSelected[index].toggle()
                     })
                 }
             }
             .padding()
 
             BasicRoundButton(text: "\(nextButtonLabel)", action: {
-                UserDefaultsHelper().set(value: dayOfWeekSelected, key: "dayOfWeekSelected")
+                viewModel.nextButtonAction()
                 action()
             })
             Spacer()
         }
         .onAppear {
-            dayOfWeekSelected = UserDefaultsHelper().getArrayData(key: "dayOfWeekSelected") as? [Bool] ?? []
+            viewModel.onAppear()
         }
     }
 }
