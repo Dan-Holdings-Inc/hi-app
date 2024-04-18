@@ -3,3 +3,7 @@ export interface Relationship {
   userId: string;
   followsId: string;
 }
+
+export interface RelationshipDto {
+  followsId: string;
+}

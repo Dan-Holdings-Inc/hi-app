@@ -1,7 +1,10 @@
 import {
+  BadRequestException,
+  Body,
   Controller,
   Delete,
   Get,
+  InternalServerErrorException,
   NotFoundException,
   Param,
   Post,
@@ -11,8 +14,12 @@ import {
   UseGuards,
 } from "@nestjs/common";
 import { AuthGuard } from "@nestjs/passport";
-import { Relationship } from "src/entity/entities/relationship";
-import { User, UserRegistration } from "src/entity/entities/user";
+import {
+  Relationship,
+  RelationshipDto,
+} from "src/entity/entities/relationship";
+import { User, UserRegistrationDto } from "src/entity/entities/user";
+import { UserNotFoundError } from "src/errors";
 import { DbService } from "src/infrastructure/db/db.service";
 import { UsersService } from "src/services/users/users.service";
 
@@ -35,15 +42,27 @@ export class UsersController {
    */
   @Post()
   async register(@Request() req) {
-    const registration: UserRegistration = req.body;
+    const registration: UserRegistrationDto = req.body;
     return await this.usersService.register(registration);
   }
 
   @Post(":id/followings")
-  async follow(@Param(":id") id: string, @Request() req) {
+  async follow(@Param("id") id: string, @Body() body) {
     //TODO: tokenを元に（nameとかから）アクセス元ユーザーがuserIdのユーザーなのか検証
     const userId = id;
-    const relationship = req.body as Relationship;
+    const { followsId } = body as RelationshipDto;
+    if (userId === followsId) {
+      throw new BadRequestException("you can't follow yourself.");
+    }
+    try {
+      await this.usersService.follow(userId, followsId);
+    } catch (error) {
+      if (error instanceof UserNotFoundError) {
+        throw new BadRequestException(error.message);
+      } else {
+        throw new InternalServerErrorException(error);
+      }
+    }
   }
 
   @Put(":id")

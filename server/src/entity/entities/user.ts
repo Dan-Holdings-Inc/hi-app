@@ -22,7 +22,7 @@ export interface UserWithRelationship extends User {
   followers: User[];
 }
 
-export interface UserRegistration extends User {
+export interface UserRegistrationDto extends User {
   getUpAt: string;
   daysToGetUp: boolean[];
 }

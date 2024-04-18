@@ -1,11 +1,12 @@
 import { Injectable } from "@nestjs/common";
 import { randomUUID } from "crypto";
+import { Relationship } from "src/entity/entities/relationship";
 import {
   User,
-  UserRegistration,
+  UserRegistrationDto,
   UserWithRelationship,
 } from "src/entity/entities/user";
-import { UserAlreadyExistError } from "src/errors";
+import { UserAlreadyExistError, UserNotFoundError } from "src/errors";
 import { DbService } from "src/infrastructure/db/db.service";
 
 @Injectable()
@@ -25,7 +26,7 @@ export class UsersService {
    * @param ur
    * @returns
    */
-  async register(ur: UserRegistration) {
+  async register(ur: UserRegistrationDto) {
     const existingUser = await this.dbService.users
       .findOne({ id: ur.id })
       .lean()
@@ -86,6 +87,24 @@ export class UsersService {
         },
       ],
     });
+  }
+
+  async follow(userId: string, userIdToFollow: string) {
+    const users = await this.dbService.users
+      .find({ id: { $in: [userId, userIdToFollow] } })
+      .lean()
+      .exec();
+    if (users.length < 2) {
+      throw new UserNotFoundError(
+        "Faild to follow user. Either userId or followsId are invalid"
+      );
+    }
+    const relationship: Relationship = {
+      id: randomUUID(),
+      userId,
+      followsId: userIdToFollow,
+    };
+    await this.dbService.relationships.create(relationship);
   }
 
   /**
