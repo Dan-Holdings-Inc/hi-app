@@ -62,7 +62,7 @@ struct AccountSettingName: View {
                 .padding()
             
             BasicRoundButton(text: "\(nextButtonLabel)", action: {
-                viewModel.showEmptyErrorMessage(routerAction: routerAction)
+                viewModel.showErrorMessage(routerAction: routerAction)
             })
             Spacer()
         }

@@ -14,7 +14,7 @@ class AccountCommonNameViewModel: ObservableObject {
     @Published var name = userDefaultsHelper.getStringData(key: "name")
     @Published var isShowErrorMessage = false
     
-    func showEmptyErrorMessage(routerAction: () -> Void) {
+    func showErrorMessage(routerAction: () -> Void) {
         if name.isEmpty {
             withAnimation {
                 isShowErrorMessage = true
@@ -28,5 +28,32 @@ class AccountCommonNameViewModel: ObservableObject {
             userDefaultsHelper.set(value: name, key: "name")
             routerAction()
         }
+    }
+}
+
+class AccountCommonUserIDViewModel: ObservableObject {
+    @Published var userID = userDefaultsHelper.getStringData(key: "userID")
+    @Published var isShowEmptyErrorMessage = false
+    
+    func showErrorMessage(routerAction: () -> Void) {
+        if userID.isEmpty {
+            withAnimation {
+                isShowEmptyErrorMessage = true
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                withAnimation {
+                    self.isShowEmptyErrorMessage = false
+                }
+            }
+        } else {
+            userDefaultsHelper.set(value: userID, key: "userID")
+            routerAction()
+        }
+    }
+    
+    func filter() {
+        let validCodes = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        let sets = CharacterSet(charactersIn: validCodes)
+        userID = String(userID.unicodeScalars.filter(sets.contains).map(Character.init))
     }
 }

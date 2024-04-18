@@ -8,10 +8,9 @@
 import SwiftUI
 
 struct AccountSettingUserID: View {
+    @ObservedObject var viewModel = AccountCommonUserIDViewModel()
     @Environment(\.colorScheme) var colorScheme
     @FocusState private var isFocused: Bool
-    @State var userID = UserDefaultsHelper().getStringData(key: "userID")
-    @State var isShowerrormessage = false
     
     var nextButtonLabel: String
     var action: () -> Void
@@ -32,10 +31,9 @@ struct AccountSettingUserID: View {
                 VStack(alignment: .leading){
                     Text("ユーザーIDはフレンドの検索に使用されます。")
                     Text("他人と同じIDを使うことはできません。")
-                    if isShowerrormessage{
-                        Text("ユーザーIDを入力してください。")
-                            .foregroundColor(.red)
-                    }
+                    Text("ユーザーIDを入力してください。")
+                        .foregroundColor(.red)
+                        .opacity(viewModel.isShowEmptyErrorMessage ? 1.0 : 0.0)
                 }
                 .padding(.horizontal)
                 Spacer()
@@ -44,7 +42,7 @@ struct AccountSettingUserID: View {
             let strokeColor: Color = colorScheme == .light ? .black : .white
             HStack {
                 // 英数字のみのキーボードを無理やり作っているが要見直し
-                TextField("ユーザーID", text: $userID)
+                TextField("ユーザーID", text: $viewModel.userID)
                     .focused($isFocused)
                     .toolbar {
                         ToolbarItemGroup(placement: .keyboard) {
@@ -55,8 +53,8 @@ struct AccountSettingUserID: View {
                         }
                     }
                     .keyboardType(.asciiCapable)
-                    .onChange(of: userID) {
-                        filter(value: userID)
+                    .onChange(of: viewModel.userID) {
+                        viewModel.filter()
                     }
                 Image(systemName: "checkmark.circle")
                     .foregroundColor(.green)
@@ -70,25 +68,13 @@ struct AccountSettingUserID: View {
             )
             .padding()
             BasicRoundButton(text: "\(nextButtonLabel)", action: {
-                if userID.isEmpty{
-                    isShowerrormessage = true
-                }
-                else{
-                    UserDefaultsHelper().set(value: userID, key: "userID")
-                    action()
-                }
+                viewModel.showErrorMessage(routerAction: action)
             })
             Spacer()
         }
         .onAppear {
             isFocused = true
         }
-    }
-    
-    func filter(value: String) {
-        let validCodes = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-        let sets = CharacterSet(charactersIn: validCodes)
-        userID = String(value.unicodeScalars.filter(sets.contains).map(Character.init))
     }
 }
 
