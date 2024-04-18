@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct AccountSettingWakeUpTime: View {
-    @ObservedObject var viewModel = AccountCommonWakeUpTimeViewModel()
+    @State var date = Date()
     
+    let dateFormatHelper = DateFormat()
     var nextButtonLabel: String
     var action: () -> Void
     
@@ -31,7 +32,7 @@ struct AccountSettingWakeUpTime: View {
                 Spacer()
             }
             HStack {
-                DatePicker("", selection: $viewModel.date, displayedComponents: .hourAndMinute)
+                DatePicker("", selection: $date, displayedComponents: .hourAndMinute)
                     .datePickerStyle(WheelDatePickerStyle())
             }
             .padding()
@@ -42,17 +43,19 @@ struct AccountSettingWakeUpTime: View {
                     .stroke(.primary, lineWidth: 1)
             )
             .padding()
-            Text("\(DateFormat().dateToString(date: viewModel.date))")
+            Text("\(dateFormatHelper.dateToString(date: date))")
                 .font(.title)
                 .bold()
             BasicRoundButton(text: "\(nextButtonLabel)", action: {
-                viewModel.nextButtonAction()
+                let stringDate = dateFormatHelper.dateToString(date: date)
+                userDefaultsHelper.set(value: stringDate, key: "wakeUpTime")
                 action()
             })
             Spacer()
         }
         .onAppear {
-            viewModel.onAppear()
+            let stringDate = userDefaultsHelper.getStringData(key: "wakeUpTime")
+            date = dateFormatHelper.StringToDate(string: stringDate)
         }
     }
 }

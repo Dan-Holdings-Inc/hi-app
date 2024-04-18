@@ -9,7 +9,6 @@ import Foundation
 import SwiftUI
 
 let userDefaultsHelper = UserDefaultsHelper()
-let dateFormatHepler = DateFormat()
 
 class AccountCommonNameViewModel: ObservableObject {
     @Published var name = userDefaultsHelper.getStringData(key: "name")
@@ -59,16 +58,14 @@ class AccountCommonUserIDViewModel: ObservableObject {
     }
 }
 
-class AccountCommonWakeUpTimeViewModel: ObservableObject {
-    @Published var date = Date()
+class AccountCommonDayOfWeekViewModel: ObservableObject {
+    @Published var dayOfWeekSelected = Array(repeating: false, count: 7)
     
     func nextButtonAction() {
-        let stringDate = dateFormatHepler.dateToString(date: date)
-        userDefaultsHelper.set(value: stringDate, key: "wakeUpTime")
+        userDefaultsHelper.set(value: dayOfWeekSelected, key: "dayOfWeekSelected")
     }
     
     func onAppear() {
-        let stringDate = userDefaultsHelper.getStringData(key: "wakeUpTime")
-        date = dateFormatHepler.StringToDate(string: stringDate)
+        dayOfWeekSelected = userDefaultsHelper.getArrayData(key: "dayOfWeekSelected") as? [Bool] ?? []
     }
 }
