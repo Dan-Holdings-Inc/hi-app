@@ -10,18 +10,16 @@ import SwiftUI
 struct SettingView: View {
     @EnvironmentObject var router: NavigationRouter
     @EnvironmentObject var service: Auth0Service
-    
-    @State var name = ""
-    @State var userID = ""
+    @ObservedObject var viewModel = SettingViewModel()
     
     var body: some View {
         VStack {
             VStack {
-                Text("\(name)")
+                Text("\(viewModel.name)")
                     .font(.largeTitle)
                     .bold()
                     .padding(.bottom, 5)
-                Text("ユーザーID：\(userID)")
+                Text("ユーザーID：\(viewModel.userID)")
                     .font(.headline)
                     .padding(.bottom)
             }
@@ -88,8 +86,7 @@ struct SettingView: View {
             })
         }
         .onAppear {
-            name = UserDefaultsHelper().getStringData(key: "name")
-            userID = UserDefaultsHelper().getStringData(key: "userID")
+            viewModel.onAppear()
         }
         .onChange(of: service.isAuthenticated) {
             if !service.isAuthenticated {
