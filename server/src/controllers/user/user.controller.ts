@@ -47,15 +47,31 @@ export class UsersController {
   }
 
   @Post(":id/followings")
-  async follow(@Param("id") id: string, @Body() body) {
+  async follow(@Param("id") userId: string, @Body() body) {
     //TODO: tokenを元に（nameとかから）アクセス元ユーザーがuserIdのユーザーなのか検証
-    const userId = id;
     const { followsId } = body as RelationshipDto;
     if (userId === followsId) {
       throw new BadRequestException("you can't follow yourself.");
     }
     try {
-      await this.usersService.follow(userId, followsId);
+      return await this.usersService.follow(userId, followsId);
+    } catch (error) {
+      if (error instanceof UserNotFoundError) {
+        throw new BadRequestException(error.message);
+      } else {
+        throw new BadRequestException(error.message);
+      }
+    }
+  }
+
+  @Delete(":id/followings")
+  async unfollow(@Param("id") userId: string, @Body() body) {
+    const { followsId } = body as RelationshipDto;
+    if (userId === followsId) {
+      throw new BadRequestException("you can't unfollow yourself.");
+    }
+    try {
+      return await this.usersService.unfollow(userId, followsId);
     } catch (error) {
       if (error instanceof UserNotFoundError) {
         throw new BadRequestException(error.message);

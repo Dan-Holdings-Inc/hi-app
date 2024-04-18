@@ -6,7 +6,11 @@ import {
   UserRegistrationDto,
   UserWithRelationship,
 } from "src/entity/entities/user";
-import { UserAlreadyExistError, UserNotFoundError } from "src/errors";
+import {
+  AlreadyFollowingError,
+  UserAlreadyExistError,
+  UserNotFoundError,
+} from "src/errors";
 import { DbService } from "src/infrastructure/db/db.service";
 
 @Injectable()
@@ -23,22 +27,22 @@ export class UsersService {
 
   /**
    * 初回登録処理
-   * @param ur
+   * @param dto
    * @returns
    */
-  async register(ur: UserRegistrationDto) {
+  async register(dto: UserRegistrationDto) {
     const existingUser = await this.dbService.users
-      .findOne({ id: ur.id })
+      .findOne({ id: dto.id })
       .lean()
       .exec();
     if (existingUser) {
       throw new UserAlreadyExistError();
     }
     const user: User = {
-      id: ur.id,
-      email: ur.email,
-      userName: ur.userName,
-      name: ur.name,
+      id: dto.id,
+      email: dto.email,
+      userName: dto.userName,
+      name: dto.name,
     };
     await this.dbService.users.create(user);
     const userWithRelationship: UserWithRelationship = {
@@ -46,6 +50,7 @@ export class UsersService {
       followers: [],
       followings: [],
     };
+
     return userWithRelationship;
   }
 
@@ -89,22 +94,77 @@ export class UsersService {
     });
   }
 
-  async follow(userId: string, userIdToFollow: string) {
+  async follow(userId: string, followsId: string) {
     const users = await this.dbService.users
-      .find({ id: { $in: [userId, userIdToFollow] } })
+      .find({ id: { $in: [userId, followsId] } })
       .lean()
       .exec();
     if (users.length < 2) {
       throw new UserNotFoundError(
-        "Faild to follow user. Either userId or followsId are invalid"
+        "Faild to follow user. Either of userId or followsId is invalid"
       );
     }
-    const relationship: Relationship = {
+    //ハッカソンのための実装の簡略化のため、フォローしようとしたら強制的に相互フォロー状態
+    const existingRelationship = await this.dbService.relationships
+      .findOne({
+        userId,
+        followsId,
+      })
+      .lean()
+      .exec();
+    if (existingRelationship) {
+      throw new AlreadyFollowingError(
+        `user(${userId}) has followed (${followsId}) already `
+      );
+    }
+
+    const relationship1: Relationship = {
       id: randomUUID(),
       userId,
-      followsId: userIdToFollow,
+      followsId,
     };
-    await this.dbService.relationships.create(relationship);
+    const relationship2: Relationship = {
+      id: randomUUID(),
+      userId: followsId,
+      followsId: userId,
+    };
+    await this.dbService.relationships.insertMany([
+      relationship1,
+      relationship2,
+    ]);
+    return await Promise.all(
+      users.map((u) => this.buildUserWithRelationship(u))
+    );
+  }
+
+  async unfollow(userId: string, unfollowsId: string) {
+    const users = await this.dbService.users
+      .find({ id: { $in: [userId, unfollowsId] } })
+      .lean()
+      .exec();
+    if (users.length < 2) {
+      throw new UserNotFoundError(
+        "Faild to follow user. Either of userId or unfollowsId is invalid"
+      );
+    }
+    //ハッカソンのための実装の簡略化のため、フォロー外そうとしたらお互いにフォロー解除状態
+    await this.dbService.relationships
+      .deleteMany({
+        $or: [
+          {
+            userId: userId,
+            followsId: unfollowsId,
+          },
+          {
+            userId: unfollowsId,
+            followsId: userId,
+          },
+        ],
+      })
+      .exec();
+    return await Promise.all(
+      users.map((u) => this.buildUserWithRelationship(u))
+    );
   }
 
   /**
@@ -112,6 +172,8 @@ export class UsersService {
    * @param user
    */
   private async buildUserWithRelationship(arg: User) {
+    //TODO: 複数のユーザーのUserWithRelationshipの実装に対応する。今のままだとパフォーマンスが悪い。
+    //できるだけ少ない問い合わせで必要なものを取得したい。(followやunfollowでの実装)
     const user = arg;
     const followingIds = (
       await this.dbService.relationships.find({ userId: user.id }).lean().exec()
