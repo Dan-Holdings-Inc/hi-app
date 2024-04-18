@@ -148,11 +148,11 @@
 		5C1C7BD72BC41B77003049A1 /* Hi */ = {
 			isa = PBXGroup;
 			children = (
-				5C93BEAE2BC627E300C715DF /* Model */,
-				5CFB763A2BC7011E00741DC8 /* UICore */,
 				5C93BEA92BC625B400C715DF /* Infrastructure */,
 				5C93BE982BC579BD00C715DF /* Router */,
+				5C93BEAE2BC627E300C715DF /* Model */,
 				5C818CA12BC4E398005A6FC1 /* Component */,
+				5CFB763A2BC7011E00741DC8 /* UICore */,
 				5C818C9A2BC4DDAF005A6FC1 /* View */,
 				5C1C7BD82BC41B77003049A1 /* HiApp.swift */,
 				5C1C7BDE2BC41B79003049A1 /* Preview Content */,
@@ -190,11 +190,9 @@
 		5C818C9A2BC4DDAF005A6FC1 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				5CC2BE722BC9062800C56A21 /* Friend */,
-				5C93BEB32BC6632100C715DF /* AccountCreate */,
 				5CCC36012BC55B00003B00C5 /* Login */,
-				5C818C9E2BC4E152005A6FC1 /* Setting */,
 				5C818C9B2BC4DE44005A6FC1 /* Home */,
+				5CFBFF582BD01D0100C16EF6 /* Account */,
 				5C1C7BDA2BC41B77003049A1 /* ContentView.swift */,
 			);
 			path = View;
@@ -221,7 +219,6 @@
 			isa = PBXGroup;
 			children = (
 				5CD375322BC822FD004BFF4E /* Card */,
-				5C93BEB82BC66D1900C715DF /* AccountSetting */,
 				5CCC35FD2BC5088C003B00C5 /* Button */,
 				5CCC35F82BC4E4D1003B00C5 /* Tab */,
 			);
@@ -260,17 +257,6 @@
 				5CD375352BC8318D004BFF4E /* AccountCreateView.swift */,
 			);
 			path = AccountCreate;
-			sourceTree = "<group>";
-		};
-		5C93BEB82BC66D1900C715DF /* AccountSetting */ = {
-			isa = PBXGroup;
-			children = (
-				5C93BEB42BC6633700C715DF /* AccountSettingName.swift */,
-				5C3545C22BC6714E0011E78D /* AccountSettingUserID.swift */,
-				5CFB76382BC6FB6700741DC8 /* AccountSettingWakeUpTime.swift */,
-				5CD31A322BC7BC2B007B6135 /* AccountSettingDayOfWeek.swift */,
-			);
-			path = AccountSetting;
 			sourceTree = "<group>";
 		};
 		5CC2BE722BC9062800C56A21 /* Friend */ = {
@@ -325,6 +311,28 @@
 				5CFB763B2BC7014300741DC8 /* DateFormat.swift */,
 			);
 			path = UICore;
+			sourceTree = "<group>";
+		};
+		5CFBFF582BD01D0100C16EF6 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				5CFBFF592BD01D0C00C16EF6 /* AccountCommon */,
+				5C93BEB32BC6632100C715DF /* AccountCreate */,
+				5C818C9E2BC4E152005A6FC1 /* Setting */,
+				5CC2BE722BC9062800C56A21 /* Friend */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		5CFBFF592BD01D0C00C16EF6 /* AccountCommon */ = {
+			isa = PBXGroup;
+			children = (
+				5C93BEB42BC6633700C715DF /* AccountSettingName.swift */,
+				5C3545C22BC6714E0011E78D /* AccountSettingUserID.swift */,
+				5CFB76382BC6FB6700741DC8 /* AccountSettingWakeUpTime.swift */,
+				5CD31A322BC7BC2B007B6135 /* AccountSettingDayOfWeek.swift */,
+			);
+			path = AccountCommon;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
