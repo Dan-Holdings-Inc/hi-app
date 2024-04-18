@@ -93,37 +93,6 @@ export class UsersService {
    * @param user
    */
   private async buildUserWithRelationship(arg: User) {
-    //後に使うかもしれなくて一旦コメントアウト
-    // if (Array.isArray(arg)) {
-    // 	const users = arg;
-    // 	const userIds = users.map((u)=>u.id);
-    // 	//O(1)でUser取得するためにMapを作っておく。
-    // 	const userMap = new Map<string,User>();
-    // 	const followingIds = (await this.dbService.relationships.find({
-    // 		userId: {
-    // 			$in:userIds
-    // 		}
-    // 	}).exec()).map((r)=>r.followsId);
-
-    // 	const followerIds = (await this.dbService.relationships.find({
-    // 		followsId:{
-    // 			$in: userIds
-    // 		}
-    // 	}).exec())
-    // 	.map((r)=>r.userId);
-
-    // 	const users = await this.dbService.users.find({
-    // 		id:{
-    // 			$in:followerIds.concat(followerIds)
-    // 		}
-    // 	}).lean().exec();
-
-    // 	for(const )
-
-    // 	for(const user of users){
-
-    // 	}
-    // } else {
     const user = arg;
     const followingIds = (
       await this.dbService.relationships.find({ userId: user.id }).lean().exec()
@@ -154,6 +123,5 @@ export class UsersService {
       followers: followerUsers,
     };
     return userWithRelationship;
-    // }
   }
 }
