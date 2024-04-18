@@ -104,7 +104,7 @@ struct SettingNameView: View {
     @EnvironmentObject var router: NavigationRouter
     
     var body: some View {
-        AccountSettingName(nextButtonLabel: "変更する", isShowBackButton: true, action: {
+        AccountSettingName(viewModel: AccountCommonNameViewModel(), nextButtonLabel: "変更する", isShowBackButton: true, routerAction: {
             router.backPage()
         })
         .navigationBarHidden(true)

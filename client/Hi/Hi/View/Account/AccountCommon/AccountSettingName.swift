@@ -8,14 +8,13 @@
 import SwiftUI
 
 struct AccountSettingName: View {
+    @ObservedObject var viewModel: AccountCommonNameViewModel
     @Environment(\.colorScheme) var colorScheme
     @FocusState private var isFocused: Bool
-    @State var name = UserDefaultsHelper().getStringData(key: "name")
-    @State var isShowErrorMessage = false
     
     var nextButtonLabel: String
     var isShowBackButton: Bool
-    var action: () -> Void
+    var routerAction: () -> Void
     
     var body: some View {
         VStack {
@@ -36,14 +35,14 @@ struct AccountSettingName: View {
                     Text("名前はフレンドに表示されます。")
                     Text("名前を入力してください。")
                         .foregroundColor(.red)
-                        .opacity(isShowErrorMessage ? 1.0 : 0.0)
+                        .opacity(viewModel.isShowErrorMessage ? 1.0 : 0.0)
                 }
                 .padding(.horizontal)
                 Spacer()
             }
             
             let strokeColor: Color = colorScheme == .light ? .black : .white
-            TextField("名前", text: $name)
+            TextField("名前", text: $viewModel.name)
                 .focused($isFocused)
                 .toolbar {
                     ToolbarItemGroup(placement: .keyboard) {
@@ -63,19 +62,7 @@ struct AccountSettingName: View {
                 .padding()
             
             BasicRoundButton(text: "\(nextButtonLabel)", action: {
-                if name.isEmpty {
-                    withAnimation {
-                        isShowErrorMessage = true
-                    }
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                        withAnimation {
-                            isShowErrorMessage = false
-                        }
-                    }
-                } else {
-                    UserDefaultsHelper().set(value: name, key: "name")
-                    action()
-                }
+                viewModel.showEmptyErrorMessage(routerAction: routerAction)
             })
             Spacer()
         }
@@ -86,7 +73,7 @@ struct AccountSettingName: View {
 }
 
 #Preview {
-    AccountSettingName(nextButtonLabel: "次へ", isShowBackButton: false, action: {
+    AccountSettingName(viewModel: AccountCommonNameViewModel(), nextButtonLabel: "次へ", isShowBackButton: false, routerAction: {
         print("名前の設定完了")
     })
 }

@@ -11,7 +11,7 @@ struct AccountCreateNameView: View {
     @EnvironmentObject var router: NavigationRouter
     
     var body: some View {
-        AccountSettingName(nextButtonLabel: "次へ", isShowBackButton: false, action: {
+        AccountSettingName(viewModel: AccountCommonNameViewModel(), nextButtonLabel: "次へ", isShowBackButton: false, routerAction: {
             router.navigateToView(destination: .accountCreateUserID)
         })
         .navigationBarHidden(true)
