@@ -19,10 +19,11 @@ struct MainTabBar: View {
                 .tag(1)
             SettingView()
                 .tabItem() {
-                    Label("設定", systemImage: "gearshape")
+                    Label("アカウント", systemImage: "person")
                 }
                 .tag(2)
         }
+        .tint(.black)
         .navigationBarHidden(true)
     }
 }
