@@ -1,0 +1,18 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "pwa-node",
+      "name": "Launch debugger",
+      "request": "launch",
+      "runtimeArgs": ["run", "start:debug"],
+      "runtimeExecutable": "pnpm",
+      "skipFiles": ["server/<node_internals>/**"],
+      "sourceMaps": true,
+      "envFile": "${workspaceFolder}/server/.env",
+      "cwd": "${workspaceRoot}/server",
+      "console": "integratedTerminal",
+      "protocol": "inspector"
+    }
+  ]
+}
