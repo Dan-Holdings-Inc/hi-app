@@ -14,16 +14,15 @@ struct HomeView: View {
     var body: some View {
         VStack {
             HStack{
-                TextField("検索", text: $searchText)
-                    .padding(.vertical, 8)
-                    .padding(.horizontal, 12)
-                    .background(Color(.systemGray5))
-                    .cornerRadius(8)
-                    .padding(.leading,10)
-                    .padding(.bottom,5)
                 Image(systemName: "magnifyingglass")
                     .foregroundColor(.gray)
+                TextField("検索", text: $searchText)
             }
+            .padding()
+            .background(Color(.systemGray5))
+            .cornerRadius(15)
+            .padding(.horizontal)
+            
             List {
                 ForEach(0 ..< 10) { index in
                     UserCard(userName: "\(index)番目の人", color: viewModel.cardColors[index % viewModel.cardColors.count], action: {
@@ -35,7 +34,8 @@ struct HomeView: View {
                     }
                     .listRowInsets(EdgeInsets())
                 }
-            }.listStyle(GroupedListStyle())
+            }
+            .listStyle(GroupedListStyle())
         }
     }
 }
