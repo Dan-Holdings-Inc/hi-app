@@ -86,7 +86,7 @@ export class UsersController {
     const body = req.body;
     //UserWithRelationshipが渡されることを考慮
     const user: User = {
-      id: body.id,
+      _id: body._id,
       email: body.email,
       userName: body.userName,
       name: body.name,

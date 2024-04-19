@@ -32,14 +32,14 @@ export class UsersService {
    */
   async register(dto: UserRegistrationDto) {
     const existingUser = await this.dbService.users
-      .findOne({ id: dto.id })
+      .findOne({ _id: dto._id })
       .lean()
       .exec();
     if (existingUser) {
       throw new UserAlreadyExistError();
     }
     const user: User = {
-      id: dto.id,
+      _id: dto._id,
       email: dto.email,
       userName: dto.userName,
       name: dto.name,
@@ -59,11 +59,11 @@ export class UsersService {
   }
 
   async getUser(idOrEmail: string) {
-    let query: Partial<{ id: string; email: string }> = {};
+    let query: Partial<{ _id: string; email: string }> = {};
     if (this.emailReg.test(idOrEmail)) {
       query.email = idOrEmail;
     } else {
-      query.id = idOrEmail;
+      query._id = idOrEmail;
     }
     const user = await this.dbService.users.findOne(query).lean().exec();
     return user && this.buildUserWithRelationship(user);
@@ -76,19 +76,19 @@ export class UsersService {
    * @returns
    */
   async update(user: User) {
-    await this.dbService.users.updateOne({ id: user.id }, user);
+    await this.dbService.users.updateOne({ _id: user._id }, user);
     return user;
   }
 
   async delete(user: User) {
-    await this.dbService.users.deleteOne({ id: user.id });
+    await this.dbService.users.deleteOne({ _id: user._id });
     await this.dbService.relationships.deleteMany({
       $or: [
         {
-          userId: user.id,
+          userId: user._id,
         },
         {
-          followsId: user.id,
+          followsId: user._id,
         },
       ],
     });
@@ -96,7 +96,7 @@ export class UsersService {
 
   async follow(userId: string, followsId: string) {
     const users = await this.dbService.users
-      .find({ id: { $in: [userId, followsId] } })
+      .find({ _id: { $in: [userId, followsId] } })
       .lean()
       .exec();
     if (users.length < 2) {
@@ -119,12 +119,12 @@ export class UsersService {
     }
 
     const relationship1: Relationship = {
-      id: randomUUID(),
+      _id: randomUUID(),
       userId,
       followsId,
     };
     const relationship2: Relationship = {
-      id: randomUUID(),
+      _id: randomUUID(),
       userId: followsId,
       followsId: userId,
     };
@@ -139,7 +139,7 @@ export class UsersService {
 
   async unfollow(userId: string, unfollowsId: string) {
     const users = await this.dbService.users
-      .find({ id: { $in: [userId, unfollowsId] } })
+      .find({ _id: { $in: [userId, unfollowsId] } })
       .lean()
       .exec();
     if (users.length < 2) {
@@ -176,23 +176,26 @@ export class UsersService {
     //できるだけ少ない問い合わせで必要なものを取得したい。(followやunfollowでの実装)
     const user = arg;
     const followingIds = (
-      await this.dbService.relationships.find({ userId: user.id }).lean().exec()
+      await this.dbService.relationships
+        .find({ userId: user._id })
+        .lean()
+        .exec()
     ).map((r) => r.followsId);
     const followerIds = (
       await this.dbService.relationships
-        .find({ followsId: user.id })
+        .find({ followsId: user._id })
         .lean()
         .exec()
     ).map((r) => r.userId);
 
     const realtedUsers = await this.dbService.users.find({
-      id: {
+      _id: {
         $in: followingIds.concat(followerIds),
       },
     });
     const userMap = new Map<string, User>();
     for (const u of realtedUsers) {
-      userMap.set(u.id, u);
+      userMap.set(u._id, u);
     }
 
     const followingUsers = followingIds.map((id) => userMap.get(id)!);
