@@ -1,5 +1,6 @@
 import { Injectable } from "@nestjs/common";
 import { randomUUID } from "crypto";
+import { Alarm, AlarmDto } from "src/entity/entities/alarm";
 import { Relationship } from "src/entity/entities/relationship";
 import {
   User,
@@ -50,7 +51,13 @@ export class UsersService {
       followers: [],
       followings: [],
     };
-
+    const alarm: Alarm = {
+      _id: randomUUID(),
+      userId: dto._id,
+      getUpAt: dto.getUpAt,
+      daysToAlarm: dto.daysToAlarm,
+    };
+    await this.dbService.alarms.create(alarm);
     return userWithRelationship;
   }
 
@@ -165,6 +172,19 @@ export class UsersService {
     return await Promise.all(
       users.map((u) => this.buildUserWithRelationship(u))
     );
+  }
+
+  async updateAlarm(alarm: AlarmDto) {
+    await this.dbService.alarms
+      .updateOne(
+        {
+          userId: alarm.userId,
+        },
+        alarm
+      )
+      .lean()
+      .exec();
+    return this.dbService.alarms.findOne({ userId: alarm.userId });
   }
 
   /**

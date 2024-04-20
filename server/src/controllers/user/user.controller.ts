@@ -14,6 +14,7 @@ import {
   UseGuards,
 } from "@nestjs/common";
 import { AuthGuard } from "@nestjs/passport";
+import { Alarm, AlarmDto } from "src/entity/entities/alarm";
 import {
   Relationship,
   RelationshipDto,
@@ -92,6 +93,16 @@ export class UsersController {
       name: body.name,
     };
     return await this.usersService.update(user);
+  }
+
+  @Put(":id/alarm")
+  async updateAlarm(@Param("id") userId: string, @Body() alarm: AlarmDto) {
+    if (userId !== alarm.userId) {
+      throw new BadRequestException(
+        ":id and Alarm.userId should be same value."
+      );
+    }
+    return await this.usersService.updateAlarm(alarm);
   }
 
   @Delete(":id")
