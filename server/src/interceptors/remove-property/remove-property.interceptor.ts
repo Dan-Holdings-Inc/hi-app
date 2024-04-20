@@ -14,7 +14,6 @@ export class RemovePropertyInterceptor implements NestInterceptor {
     return next.handle().pipe(
       map((value) => {
         for (const p of propertiesToRemove) {
-          console.log(value[p]);
           if (value[p] !== undefined) {
             delete value[p];
           }
