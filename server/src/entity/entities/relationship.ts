@@ -1,5 +1,5 @@
 export interface Relationship {
-  id: string;
+  _id: string;
   userId: string;
   followsId: string;
 }

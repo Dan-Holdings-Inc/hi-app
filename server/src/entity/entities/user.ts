@@ -2,7 +2,7 @@ export interface User {
   /**
    * システム上の識別子
    */
-  id: string;
+  _id: string;
   /**
    * メールアドレス
    */
@@ -24,5 +24,5 @@ export interface UserWithRelationship extends User {
 
 export interface UserRegistrationDto extends User {
   getUpAt: string;
-  daysToGetUp: boolean[];
+  daysToAlarm: boolean[];
 }
