@@ -21,7 +21,7 @@ class LoginViewModel: ObservableObject {
                                     otherErrorAction: @escaping () -> Void) {
         let email = userDefaults.getStringData(key: "email")
         
-        ApiService.getUserRegistrationDto(email: email)
+        LoginModel.getUserWithRelationship(email: email)
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .finished:
@@ -54,7 +54,7 @@ class LoginViewModel: ObservableObject {
             .store(in: &cancellables)
     }
     
-    func setUserData(user: UserRegistrationDto) {
+    func setUserData(user: UserWithRelationship) {
         userDefaults.set(value: user.name, key: "name")
         userDefaults.set(value: user.userName, key: "userName")
     }
