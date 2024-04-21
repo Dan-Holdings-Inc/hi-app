@@ -42,6 +42,8 @@ struct LoginView: View {
                     router.navigateToView(destination: .main)
                 }, failRouteAction: {
                     router.navigateToView(destination: .accountCreateName)
+                }, otherErrorAction: {
+                    service.resetAuthenticated()
                 })
             }
         }

@@ -32,7 +32,7 @@ class AccountCommonNameViewModel: ObservableObject {
 }
 
 class AccountCommonUserIDViewModel: ObservableObject {
-    @Published var userID = userDefaultsHelper.getStringData(key: "userID")
+    @Published var userID = userDefaultsHelper.getStringData(key: "userName")
     @Published var isShowEmptyErrorMessage = false
     
     func showErrorMessage(routerAction: () -> Void) {
@@ -46,7 +46,7 @@ class AccountCommonUserIDViewModel: ObservableObject {
                 }
             }
         } else {
-            userDefaultsHelper.set(value: userID, key: "userID")
+            userDefaultsHelper.set(value: userID, key: "userName")
             routerAction()
         }
     }

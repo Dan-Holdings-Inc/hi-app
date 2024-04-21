@@ -15,6 +15,6 @@ class SettingViewModel: ObservableObject {
     
     func onAppear() {
         name = userDefaultsHelper.getStringData(key: "name")
-        userID = userDefaultsHelper.getStringData(key: "userID")
+        userID = userDefaultsHelper.getStringData(key: "userName")
     }
 }

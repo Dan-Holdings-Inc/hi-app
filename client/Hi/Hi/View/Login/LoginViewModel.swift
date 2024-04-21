@@ -16,7 +16,9 @@ class LoginViewModel: ObservableObject {
     let userDefaults = UserDefaultsHelper()
     private var cancellables: Set<AnyCancellable> = []
     
-    func getUserDataAndNavigateView(successRouteAction: @escaping () -> Void, failRouteAction: @escaping () -> Void) {
+    func getUserDataAndNavigateView(successRouteAction: @escaping () -> Void,
+                                    failRouteAction: @escaping () -> Void,
+                                    otherErrorAction: @escaping () -> Void) {
         let email = userDefaults.getStringData(key: "email")
         
         ApiService.getUserRegistrationDto(email: email)
@@ -37,6 +39,7 @@ class LoginViewModel: ObservableObject {
                         }
                     default:
                         DispatchQueue.main.async {
+                            otherErrorAction()
                             withAnimation {
                                 self.isShowErrorMessage = true
                             }
@@ -45,8 +48,14 @@ class LoginViewModel: ObservableObject {
                     print(error.localizedDescription)
                 }
             }, receiveValue: { data in
+                self.setUserData(user: data)
                 print(data)
             })
             .store(in: &cancellables)
+    }
+    
+    func setUserData(user: UserRegistrationDto) {
+        userDefaults.set(value: user.name, key: "name")
+        userDefaults.set(value: user.userName, key: "userName")
     }
 }

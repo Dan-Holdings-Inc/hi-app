@@ -56,8 +56,10 @@ class ApiService {
             .mapError { error in
                 if let apiError = error as? ApiError {
                     return apiError
+                } else if error is DecodingError {
+                    return .decodingFailed
                 } else {
-                    return ApiError.unknown
+                    return .unknown
                 }
             }
             .eraseToAnyPublisher()

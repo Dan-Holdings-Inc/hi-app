@@ -10,7 +10,6 @@ struct UserRegistrationDto: Codable {
     var email: String
     var userName: String
     var name: String
-    var __v: Int
     var followings: [User]
     var followers: [User]
 }

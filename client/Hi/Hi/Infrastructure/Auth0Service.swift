@@ -66,5 +66,9 @@ class Auth0Service: ObservableObject {
                 }
             }
     }
+    
+    func resetAuthenticated() {
+        isAuthenticated = false
+    }
 }
 
