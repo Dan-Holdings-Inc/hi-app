@@ -14,6 +14,9 @@ let musicData = [NSDataAsset(name: "hoo")!.data,
 
 class SoundHelper {
     func playSound() {
+        if let player = musicPlayer, player.isPlaying {
+                    return
+                }
         let randomIndex = Int.random(in: 0 ..< musicData.count)
         
         do {

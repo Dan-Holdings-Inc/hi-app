@@ -36,6 +36,7 @@ struct UserCard: View {
                 .background(color)
                 .scaleEffect(scale)
         }
+        .disabled(scale != 1.0)
     }
 }
 
