@@ -13,7 +13,7 @@ struct ContentView: View {
 //        if service.isAuthenticated {
 //            AccountCreateNameView()
 //        } else {
-            LoginView()
+        LoginView(viewModel: LoginViewModel())
 //        }
 
     }

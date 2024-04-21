@@ -10,6 +10,7 @@ import SwiftUI
 struct LoginView: View {
     @EnvironmentObject var router: NavigationRouter
     @EnvironmentObject var service: Auth0Service
+    @ObservedObject var viewModel: LoginViewModel
     
     var body: some View {
         VStack {
@@ -25,34 +26,28 @@ struct LoginView: View {
             }
             Spacer()
             
+            Text("エラーが発生しました。")
+                .foregroundColor(.red)
+                .opacity(viewModel.isShowErrorMessage ? 1 : 0)
+            
             BasicRoundButton(text: "始める", action: {
                 service.login()
             })
-            
-            Button {
-                router.navigateToView(destination: .accountCreateName)
-            } label: {
-                Text("名前入力画面へ（開発用）")
-                    .padding()
-            }
-            Button {
-                router.navigateToView(destination: .main)
-            } label: {
-                Text("メイン画面へ（開発用）")
-                    .padding()
-            }
-            
             Spacer()
         }
         .navigationBarHidden(true)
         .onChange(of: service.isAuthenticated) {
             if service.isAuthenticated {
-                router.navigateToView(destination: .accountCreateName)
+                viewModel.getUserDataAndNavigateView(successRouteAction: {
+                    router.navigateToView(destination: .main)
+                }, failRouteAction: {
+                    router.navigateToView(destination: .accountCreateName)
+                })
             }
         }
     }
 }
 
 #Preview {
-    LoginView()
+    LoginView(viewModel: LoginViewModel())
 }

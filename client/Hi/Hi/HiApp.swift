@@ -21,7 +21,7 @@ struct HiApp: App {
                         case .main:
                             MainTabBar()
                         case .login:
-                            LoginView()
+                            LoginView(viewModel: LoginViewModel())
                         case .accountCreateName:
                             AccountCreateNameView()
                         case .accountCreateUserID:
