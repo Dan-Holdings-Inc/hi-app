@@ -17,15 +17,15 @@ struct UserCard: View {
         let screenWidth = UIScreen.main.bounds.width
         
         Button(action: {
-            withAnimation {
-                scale = 0.95
-                action()
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                    withAnimation{
-                        scale = 1.0
+                withAnimation {
+                    scale = 0.95
+                    action()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                        withAnimation{
+                            scale = 1.0
+                        }
                     }
                 }
-            }
         }) {
             Text("\(userName)")
                 .foregroundColor(.white)
