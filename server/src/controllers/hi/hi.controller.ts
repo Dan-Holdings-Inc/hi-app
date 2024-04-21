@@ -1,4 +1,8 @@
-import { Controller } from '@nestjs/common';
+import { Controller, Post } from '@nestjs/common';
 
+// @UseGuards(AuthGuard("jwt"))
 @Controller('hi')
-export class HiController {}
+export class HiController {
+	@Post()
+	async sendHi()
+}
