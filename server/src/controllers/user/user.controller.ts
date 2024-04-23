@@ -33,7 +33,7 @@ export class UsersController {
   async getUser(@Param("idOrEmail") id: string) {
     const user = await this.usersService.getUser(id);
     if (user) return user;
-    throw new NotFoundException();
+    throw new NotFoundException("user not registered yet.");
   }
 
   /**
