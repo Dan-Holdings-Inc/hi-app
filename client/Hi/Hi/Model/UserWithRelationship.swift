@@ -10,6 +10,6 @@ struct UserWithRelationship: Codable {
     var email: String
     var userName: String
     var name: String
-    var followings: [User]
     var followers: [User]
+    var followings: [User]
 }

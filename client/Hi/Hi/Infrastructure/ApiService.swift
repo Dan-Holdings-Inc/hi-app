@@ -12,6 +12,7 @@ enum ApiError: Error {
     case emptyData
     case invalidURL
     case decodingFailed
+    case encodingFailed
     case unknown
     
     var errorDescription: String {
@@ -22,6 +23,8 @@ enum ApiError: Error {
             return "URLが無効"
         case .decodingFailed:
             return "デコード失敗"
+        case .encodingFailed:
+            return "エンコード失敗"
         case .unknown:
             return "不明なエラー"
         }
@@ -56,6 +59,8 @@ class ApiService {
             return apiError
         } else if error is DecodingError {
             return .decodingFailed
+        } else if error is EncodingError {
+            return .encodingFailed
         } else {
             return .unknown
         }

@@ -26,6 +26,8 @@
 		5C847FB42BD540E000BE39B6 /* RelationshipDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C847FB32BD540E000BE39B6 /* RelationshipDto.swift */; };
 		5C847FB62BD5410700BE39B6 /* UserRegistrationDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C847FB52BD5410700BE39B6 /* UserRegistrationDto.swift */; };
 		5C847FB82BD547B900BE39B6 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C847FB72BD547B900BE39B6 /* LoginModel.swift */; };
+		5C847FBC2BD55B4E00BE39B6 /* AccountCreateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C847FBB2BD55B4E00BE39B6 /* AccountCreateModel.swift */; };
+		5C847FBE2BD55B7B00BE39B6 /* AccountCreateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C847FBD2BD55B7B00BE39B6 /* AccountCreateViewModel.swift */; };
 		5C93BE9C2BC57A1D00C715DF /* NavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C93BE9B2BC57A1D00C715DF /* NavigationRouter.swift */; };
 		5C93BE9E2BC585B300C715DF /* LogoutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C93BE9D2BC585B300C715DF /* LogoutButton.swift */; };
 		5C93BEA52BC623D300C715DF /* Auth0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5C93BEA42BC623D300C715DF /* Auth0.plist */; };
@@ -91,6 +93,8 @@
 		5C847FB32BD540E000BE39B6 /* RelationshipDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelationshipDto.swift; sourceTree = "<group>"; };
 		5C847FB52BD5410700BE39B6 /* UserRegistrationDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegistrationDto.swift; sourceTree = "<group>"; };
 		5C847FB72BD547B900BE39B6 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		5C847FBB2BD55B4E00BE39B6 /* AccountCreateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCreateModel.swift; sourceTree = "<group>"; };
+		5C847FBD2BD55B7B00BE39B6 /* AccountCreateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCreateViewModel.swift; sourceTree = "<group>"; };
 		5C93BE9B2BC57A1D00C715DF /* NavigationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationRouter.swift; sourceTree = "<group>"; };
 		5C93BE9D2BC585B300C715DF /* LogoutButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutButton.swift; sourceTree = "<group>"; };
 		5C93BEA42BC623D300C715DF /* Auth0.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Auth0.plist; sourceTree = "<group>"; };
@@ -276,6 +280,8 @@
 			isa = PBXGroup;
 			children = (
 				5CD375352BC8318D004BFF4E /* AccountCreateView.swift */,
+				5C847FBD2BD55B7B00BE39B6 /* AccountCreateViewModel.swift */,
+				5C847FBB2BD55B4E00BE39B6 /* AccountCreateModel.swift */,
 			);
 			path = AccountCreate;
 			sourceTree = "<group>";
@@ -497,6 +503,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5CED66EF2BC987A6007183F1 /* UserDefaultsHelper.swift in Sources */,
+				5C847FBC2BD55B4E00BE39B6 /* AccountCreateModel.swift in Sources */,
 				5CD375382BC84B1E004BFF4E /* SettingExclamationMarkCard.swift in Sources */,
 				5CCC35FA2BC4E4F1003B00C5 /* MainTabBar.swift in Sources */,
 				5CCC36052BC56492003B00C5 /* BasicRoundButton.swift in Sources */,
@@ -512,6 +519,7 @@
 				5C1C7BDB2BC41B77003049A1 /* ContentView.swift in Sources */,
 				5C49CB822BD1732000DE1630 /* SettingViewModel.swift in Sources */,
 				5C847FB82BD547B900BE39B6 /* LoginModel.swift in Sources */,
+				5C847FBE2BD55B7B00BE39B6 /* AccountCreateViewModel.swift in Sources */,
 				5CD375362BC8318D004BFF4E /* AccountCreateView.swift in Sources */,
 				5CF341A82BD15B5C000B4D2A /* AccountCommonViewModel.swift in Sources */,
 				5CCC35FC2BC4EB7D003B00C5 /* UserCard.swift in Sources */,
@@ -695,7 +703,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Hi/Preview Content\"";
-				DEVELOPMENT_TEAM = GQCUYA55W4;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -726,7 +734,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Hi/Preview Content\"";
-				DEVELOPMENT_TEAM = GQCUYA55W4;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

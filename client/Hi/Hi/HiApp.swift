@@ -29,7 +29,7 @@ struct HiApp: App {
                         case .accountCreateWakeUpTime:
                             AccountCreateWakeUpTimeView()
                         case .accountCreateDayOfWeek:
-                            AccountCreateDayOfWeekView()
+                            AccountCreateDayOfWeekView(viewModel: AccountCreateViewModel())
                         case .settingName:
                             SettingNameView()
                         case .settingUserID:

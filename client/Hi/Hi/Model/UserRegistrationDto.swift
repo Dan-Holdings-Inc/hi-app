@@ -6,7 +6,7 @@
 //
 
 struct UserRegistrationDto: Codable {
-    var id: String
+    var _id: String
     var email: String
     var userName: String
     var name: String
