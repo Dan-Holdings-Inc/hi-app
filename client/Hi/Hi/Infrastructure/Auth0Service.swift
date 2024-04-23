@@ -14,6 +14,7 @@ class Auth0Service: ObservableObject {
     @Published var isAuthenticated = false
     
     let keychain = SimpleKeychain(service: "Auth0")
+    let userDefaults = UserDefaultsHelper()
     var email = ""
 
     internal func login() {
@@ -32,6 +33,7 @@ class Auth0Service: ObservableObject {
                     
                     let jwt = try! decode(jwt: credentials.idToken)
                     self.email = jwt.claim(name: "name").string ?? ""
+                    self.userDefaults.set(value: self.email, key: "email")
                     
                     do {
                         try self.keychain.set(credentials.accessToken, forKey: "access_token")

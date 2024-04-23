@@ -19,6 +19,7 @@ class LoginViewModel: ObservableObject {
     func getUserDataAndNavigateView(successRouteAction: @escaping () -> Void,
                                     failRouteAction: @escaping () -> Void,
                                     otherErrorAction: @escaping () -> Void) {
+        
         let email = userDefaults.getStringData(key: "email")
         
         LoginModel.getUserWithRelationship(email: email)

@@ -16,6 +16,7 @@ class AccountCreateModel {
         
         do {
             var request = try ApiService.buildRequest(url: url, httpMethod: "POST")
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
             request.httpBody = try JSONEncoder().encode(userRegistrationDto)
             print(String(data: request.httpBody!, encoding: .utf8) ?? "")
             
