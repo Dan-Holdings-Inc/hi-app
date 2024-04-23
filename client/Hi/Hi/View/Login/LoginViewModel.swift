@@ -55,8 +55,11 @@ class LoginViewModel: ObservableObject {
             .store(in: &cancellables)
     }
     
-    func setUserData(user: UserWithRelationship) {
+    func setUserData(user: UserWithRelatedData) {
+        userDefaults.set(value: user.email, key: "email")
         userDefaults.set(value: user.name, key: "name")
         userDefaults.set(value: user.userName, key: "userName")
+        userDefaults.set(value: user.getUpAt, key: "wakeUpTime")
+        userDefaults.set(value: user.daysToAlarm, key: "dayOfWeekSelected")
     }
 }

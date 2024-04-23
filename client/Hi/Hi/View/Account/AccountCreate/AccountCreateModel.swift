@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 class AccountCreateModel {
-    static func postUserData(userRegistrationDto: UserRegistrationDto) -> AnyPublisher<UserWithRelationship, ApiError> {
+    static func postUserData(userRegistrationDto: UserRegistrationDto) -> AnyPublisher<UserWithRelatedData, ApiError> {
         guard let url = URL(string: ApiService.apiServer + "users/") else {
             return Fail(error: .invalidURL).eraseToAnyPublisher()
         }
@@ -24,7 +24,7 @@ class AccountCreateModel {
                 .tryMap { data, response in
                     try ApiService.handleResponse(data: data, response: response)
                 }
-                .decode(type: UserWithRelationship.self, decoder: JSONDecoder())
+                .decode(type: UserWithRelatedData.self, decoder: JSONDecoder())
                 .mapError { error in
                     ApiService.handleError(error: error)
                 }
