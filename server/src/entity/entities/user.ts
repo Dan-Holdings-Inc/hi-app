@@ -17,9 +17,11 @@ export interface User {
   name: string;
 }
 
-export interface UserWithRelationship extends User {
+export interface UserWithRelatedData extends User {
   followings: User[];
   followers: User[];
+  getUpAt: string;
+  daysToAlarm: boolean[];
 }
 
 export interface UserRegistrationDto extends User {

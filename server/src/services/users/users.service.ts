@@ -5,7 +5,7 @@ import { Relationship } from "src/entity/entities/relationship";
 import {
   User,
   UserRegistrationDto,
-  UserWithRelationship,
+  UserWithRelatedData,
 } from "src/entity/entities/user";
 import {
   AlreadyFollowingError,
@@ -46,11 +46,7 @@ export class UsersService {
       name: dto.name,
     };
     await this.dbService.users.create(user);
-    const userWithRelationship: UserWithRelationship = {
-      ...user,
-      followers: [],
-      followings: [],
-    };
+
     const alarm: Alarm = {
       _id: randomUUID(),
       userId: dto._id,
@@ -58,6 +54,13 @@ export class UsersService {
       daysToAlarm: dto.daysToAlarm,
     };
     await this.dbService.alarms.create(alarm);
+    const userWithRelationship: UserWithRelatedData = {
+      ...user,
+      followers: [],
+      followings: [],
+      getUpAt: dto.getUpAt,
+      daysToAlarm: dto.daysToAlarm,
+    };
     return userWithRelationship;
   }
 
@@ -207,6 +210,12 @@ export class UsersService {
         .lean()
         .exec()
     ).map((r) => r.userId);
+    const alarm = await this.dbService.alarms
+      .findOne({
+        userId: user._id,
+      })
+      .lean()
+      .exec();
 
     const realtedUsers = await this.dbService.users.find({
       _id: {
@@ -221,10 +230,12 @@ export class UsersService {
     const followingUsers = followingIds.map((id) => userMap.get(id)!);
     const followerUsers = followerIds.map((id) => userMap.get(id)!);
 
-    const userWithRelationship: UserWithRelationship = {
+    const userWithRelationship: UserWithRelatedData = {
       ...user,
       followings: followingUsers,
       followers: followerUsers,
+      getUpAt: alarm.getUpAt,
+      daysToAlarm: alarm.daysToAlarm,
     };
     return userWithRelationship;
   }
