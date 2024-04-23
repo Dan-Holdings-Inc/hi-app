@@ -42,9 +42,11 @@ struct AccountCreateWakeUpTimeView: View {
 
 struct AccountCreateDayOfWeekView: View {
     @EnvironmentObject var router: NavigationRouter
+    @ObservedObject var viewModel: AccountCreateViewModel
     
     var body: some View {
         AccountSettingDayOfWeek(nextButtonLabel: "Hiを始める！", action: {
+            viewModel.postNewUserData()
             router.navigateToView(destination: .main)
         })
         .navigationBarHidden(true)

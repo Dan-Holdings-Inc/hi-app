@@ -21,7 +21,7 @@ struct HiApp: App {
                         case .main:
                             MainTabBar()
                         case .login:
-                            LoginView()
+                            LoginView(viewModel: LoginViewModel())
                         case .accountCreateName:
                             AccountCreateNameView()
                         case .accountCreateUserID:
@@ -29,7 +29,7 @@ struct HiApp: App {
                         case .accountCreateWakeUpTime:
                             AccountCreateWakeUpTimeView()
                         case .accountCreateDayOfWeek:
-                            AccountCreateDayOfWeekView()
+                            AccountCreateDayOfWeekView(viewModel: AccountCreateViewModel())
                         case .settingName:
                             SettingNameView()
                         case .settingUserID:
