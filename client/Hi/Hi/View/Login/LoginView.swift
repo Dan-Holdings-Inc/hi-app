@@ -32,6 +32,7 @@ struct LoginView: View {
             
             BasicRoundButton(text: "始める", action: {
                 service.login()
+                viewModel.startButtonAction()
             })
             Spacer()
         }

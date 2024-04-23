@@ -55,6 +55,10 @@ class LoginViewModel: ObservableObject {
             .store(in: &cancellables)
     }
     
+    func startButtonAction() {
+        isShowErrorMessage = false
+    }
+    
     func setUserData(user: UserWithRelationship) {
         userDefaults.set(value: user.name, key: "name")
         userDefaults.set(value: user.userName, key: "userName")
