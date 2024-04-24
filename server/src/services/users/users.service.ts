@@ -87,17 +87,20 @@ export class UsersService {
     return user;
   }
 
-  async delete(user: User) {
-    await this.dbService.users.deleteOne({ _id: user._id });
+  async delete(userId: string) {
+    await this.dbService.users.deleteOne({ _id: userId });
     await this.dbService.relationships.deleteMany({
       $or: [
         {
-          userId: user._id,
+          userId: userId,
         },
         {
-          followsId: user._id,
+          followsId: userId,
         },
       ],
+    });
+    await this.dbService.alarms.deleteMany({
+      userId: userId,
     });
   }
 
