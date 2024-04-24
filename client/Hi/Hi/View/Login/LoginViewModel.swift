@@ -34,7 +34,7 @@ class LoginViewModel: ObservableObject {
                     print(error)
                     switch error {
                     case .emptyData:
-                        self.userDefaults.removeUserDefaults()
+                        self.userDefaults.removeUserDefaultsExceptEmail()
                         DispatchQueue.main.async {
                             failRouteAction()
                         }
