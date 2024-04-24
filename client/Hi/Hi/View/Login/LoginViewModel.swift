@@ -14,6 +14,7 @@ class LoginViewModel: ObservableObject {
     @Published var isShowErrorMessage = false
     
     let userDefaults = UserDefaultsHelper()
+    private var homeViewModel: HomeViewModel = HomeViewModel()
     private var cancellables: Set<AnyCancellable> = []
     
     func getUserDataAndNavigateView(successRouteAction: @escaping () -> Void,
@@ -50,6 +51,7 @@ class LoginViewModel: ObservableObject {
                 }
             }, receiveValue: { data in
                 self.setUserData(user: data)
+                self.homeViewModel.followUsers.append(data)
                 print(data)
             })
             .store(in: &cancellables)
