@@ -51,7 +51,8 @@ class LoginViewModel: ObservableObject {
                 }
             }, receiveValue: { data in
                 self.setUserData(user: data)
-                self.homeViewModel.followUsers.append(data)
+                self.homeViewModel.followUsers.append(contentsOf: data.followings)
+                print(self.homeViewModel.followUsers)
                 print(data)
             })
             .store(in: &cancellables)
