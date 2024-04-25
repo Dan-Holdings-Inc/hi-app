@@ -12,4 +12,5 @@ struct UserRegistrationDto: Codable {
     var name: String
     var getUpAt: String
     var daysToAlarm: [Bool]
+    var deviceToken: String
 }

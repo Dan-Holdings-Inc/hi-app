@@ -37,9 +37,10 @@ class AccountCreateViewModel: ObservableObject {
         let userName = userDefaultsHelper.getStringData(key: "userName")
         let getUpAt = userDefaultsHelper.getStringData(key: "wakeUpTime")
         let daysToAlarm = userDefaultsHelper.getArrayData(key: "dayOfWeekSelected") as? [Bool] ?? []
+        let deviceToken = userDefaultsHelper.getStringData(key: "deviceToken")
         
         let newUserData = UserRegistrationDto(_id: uuid, email: email, userName: userName,
-                                              name: name, getUpAt: getUpAt, daysToAlarm: daysToAlarm)
+                                              name: name, getUpAt: getUpAt, daysToAlarm: daysToAlarm, deviceToken: deviceToken)
         
         return newUserData
     }
