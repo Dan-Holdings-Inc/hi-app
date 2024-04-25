@@ -12,6 +12,7 @@ struct HiApp: App {
     @UIApplicationDelegateAdaptor (AppDelegate.self) var appDelegate
     @StateObject var router = NavigationRouter()
     @StateObject var service: Auth0Service = Auth0Service()
+    @StateObject var userEnvironmentData = UserEnvironmentData(user: UserWithRelatedData(_id: "", email: "", userName: "", name: "", getUpAt: "", daysToAlarm: [], followers: [], followings: []))
     
     var body: some Scene {
         WindowGroup {
@@ -48,6 +49,7 @@ struct HiApp: App {
             }
             .environmentObject(router)
             .environmentObject(service)
+            .environmentObject(userEnvironmentData)
         }
     }
 }
