@@ -33,7 +33,7 @@ export class UsersController {
   async getUser(@Param("idOrEmail") id: string) {
     const user = await this.usersService.getUser(id);
     if (user) return user;
-    throw new NotFoundException();
+    throw new NotFoundException("user not registered yet.");
   }
 
   /**
@@ -106,8 +106,7 @@ export class UsersController {
   }
 
   @Delete(":id")
-  async delete(@Param() params) {
-    const id = params.id;
-    await this.usersService.delete(params);
+  async delete(@Param("id") userId) {
+    await this.usersService.delete(userId);
   }
 }

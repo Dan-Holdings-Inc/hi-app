@@ -22,7 +22,6 @@ struct HomeView: View {
             .background(Color(.systemGray5))
             .cornerRadius(15)
             .padding(.horizontal)
-            
             List {
                 ForEach(0 ..< 10) { index in
                     UserCard(userName: "\(index)番目の人", color: viewModel.cardColors[index % viewModel.cardColors.count], action: {
