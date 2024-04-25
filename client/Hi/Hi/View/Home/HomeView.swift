@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
+    @EnvironmentObject var userEnvironmentData: UserEnvironmentData
     @ObservedObject var viewModel: HomeViewModel
     @State private var searchText = ""
     
@@ -23,14 +24,14 @@ struct HomeView: View {
             .cornerRadius(15)
             .padding(.horizontal)
             List {
-                if viewModel.followUsers.count == 0 {
+                if userEnvironmentData.user.followings.count == 0 {
                     UserCard(userName: "Tiffany", color: .gray, action: {
                         print("Hi!")
                     })
                 }
-                ForEach(0 ..< viewModel.followUsers.count, id: \.self) { index in
-                    UserCard(userName: viewModel.followUsers[index].name, color: viewModel.cardColors[index % viewModel.cardColors.count], action: {
-                        viewModel.userCardButtonAction(name: viewModel.followUsers[index].name)
+                ForEach(0 ..< userEnvironmentData.user.followings.count, id: \.self) { index in
+                    UserCard(userName: userEnvironmentData.user.followings[index].name, color: viewModel.cardColors[index % viewModel.cardColors.count], action: {
+                        viewModel.userCardButtonAction(name: userEnvironmentData.user.followings[index].name)
                     })
                     .swipeActions(edge: .trailing){
                         Button("削除", role: .destructive) {
