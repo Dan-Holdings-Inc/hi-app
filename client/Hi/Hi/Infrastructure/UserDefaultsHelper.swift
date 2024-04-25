@@ -35,4 +35,11 @@ class UserDefaultsHelper {
             UserDefaults.standard.removePersistentDomain(forName: appDomain)
         }
     }
+    
+    func removeUserDefaultsExceptEmail() {
+        userDefaults.removeObject(forKey: "name")
+        userDefaults.removeObject(forKey: "userName")
+        userDefaults.removeObject(forKey: "wakeUpTime")
+        userDefaults.removeObject(forKey: "dayOfWeekSelected")
+    }
 }

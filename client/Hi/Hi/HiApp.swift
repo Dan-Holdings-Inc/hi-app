@@ -9,6 +9,7 @@ import SwiftUI
 
 @main
 struct HiApp: App {
+    @UIApplicationDelegateAdaptor (AppDelegate.self) var appDelegate
     @StateObject var router = NavigationRouter()
     @StateObject var service: Auth0Service = Auth0Service()
     

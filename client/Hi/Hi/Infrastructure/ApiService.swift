@@ -48,7 +48,7 @@ class ApiService {
         case 200:
             return data
         case 404:
-            throw ApiError.emptyData
+            throw try checkResponseMessage(data: data)
         default:
             throw ApiError.unknown
         }
@@ -63,6 +63,21 @@ class ApiService {
             return .encodingFailed
         } else {
             return .unknown
+        }
+    }
+    
+    static func checkResponseMessage(data: Data) throws -> ApiError {
+        do {
+            if let jsonResponse = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
+               let errorMessage = jsonResponse["message"] as? String {
+                return errorMessage == "user not registered yet." ? .emptyData : .unknown
+            } else {
+                // エラーレスポンスがJSON形式ではない場合やmessageフィールドが存在しない場合
+                return ApiError.unknown
+            }
+        } catch {
+            // JSON解析エラーが発生した場合や、messageフィールドがString型でない場合
+            return ApiError.unknown
         }
     }
 }

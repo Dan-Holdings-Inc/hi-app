@@ -23,9 +23,14 @@ struct HomeView: View {
             .cornerRadius(15)
             .padding(.horizontal)
             List {
-                ForEach(0 ..< 10) { index in
-                    UserCard(userName: "\(index)番目の人", color: viewModel.cardColors[index % viewModel.cardColors.count], action: {
-                        viewModel.userCardButtonAction(index: index)
+                if viewModel.followUsers.count == 0 {
+                    UserCard(userName: "Tiffany", color: .gray, action: {
+                        print("Hi!")
+                    })
+                }
+                ForEach(0 ..< viewModel.followUsers.count, id: \.self) { index in
+                    UserCard(userName: viewModel.followUsers[index].name, color: viewModel.cardColors[index % viewModel.cardColors.count], action: {
+                        viewModel.userCardButtonAction(name: viewModel.followUsers[index].name)
                     })
                     .swipeActions(edge: .trailing){
                         Button("削除", role: .destructive) {

@@ -48,6 +48,7 @@
 		5CD375382BC84B1E004BFF4E /* SettingExclamationMarkCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD375372BC84B1E004BFF4E /* SettingExclamationMarkCard.swift */; };
 		5CED66EF2BC987A6007183F1 /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CED66EE2BC987A6007183F1 /* UserDefaultsHelper.swift */; };
 		5CF341A82BD15B5C000B4D2A /* AccountCommonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF341A72BD15B5C000B4D2A /* AccountCommonViewModel.swift */; };
+		5CF46EC32BD927980036B9A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF46EC22BD927980036B9A9 /* AppDelegate.swift */; };
 		5CFB76392BC6FB6700741DC8 /* AccountSettingWakeUpTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFB76382BC6FB6700741DC8 /* AccountSettingWakeUpTime.swift */; };
 		5CFB763C2BC7014300741DC8 /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFB763B2BC7014300741DC8 /* DateFormat.swift */; };
 		5CFCEC2D2BC7B69800CE530A /* DayOfWeekButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFCEC2C2BC7B69800CE530A /* DayOfWeekButton.swift */; };
@@ -114,6 +115,8 @@
 		5CD375372BC84B1E004BFF4E /* SettingExclamationMarkCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingExclamationMarkCard.swift; sourceTree = "<group>"; };
 		5CED66EE2BC987A6007183F1 /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
 		5CF341A72BD15B5C000B4D2A /* AccountCommonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCommonViewModel.swift; sourceTree = "<group>"; };
+		5CF46EC22BD927980036B9A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5CF46EC42BD928910036B9A9 /* Hi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Hi.entitlements; sourceTree = "<group>"; };
 		5CFB76382BC6FB6700741DC8 /* AccountSettingWakeUpTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingWakeUpTime.swift; sourceTree = "<group>"; };
 		5CFB763B2BC7014300741DC8 /* DateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
 		5CFCEC2C2BC7B69800CE530A /* DayOfWeekButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayOfWeekButton.swift; sourceTree = "<group>"; };
@@ -168,6 +171,7 @@
 		5C1C7BD72BC41B77003049A1 /* Hi */ = {
 			isa = PBXGroup;
 			children = (
+				5CF46EC42BD928910036B9A9 /* Hi.entitlements */,
 				5C93BEA92BC625B400C715DF /* Infrastructure */,
 				5C93BE982BC579BD00C715DF /* Router */,
 				5C93BEAE2BC627E300C715DF /* Model */,
@@ -261,6 +265,7 @@
 				5C149F192BD3D4330034ABCC /* ApiService.swift */,
 				5CED66EE2BC987A6007183F1 /* UserDefaultsHelper.swift */,
 				5CCDE98C2BCE81FB00764750 /* SoundHelper.swift */,
+				5CF46EC22BD927980036B9A9 /* AppDelegate.swift */,
 			);
 			path = Infrastructure;
 			sourceTree = "<group>";
@@ -504,6 +509,7 @@
 			files = (
 				5CED66EF2BC987A6007183F1 /* UserDefaultsHelper.swift in Sources */,
 				5C847FBC2BD55B4E00BE39B6 /* AccountCreateModel.swift in Sources */,
+				5CF46EC32BD927980036B9A9 /* AppDelegate.swift in Sources */,
 				5CD375382BC84B1E004BFF4E /* SettingExclamationMarkCard.swift in Sources */,
 				5CCC35FA2BC4E4F1003B00C5 /* MainTabBar.swift in Sources */,
 				5CCC36052BC56492003B00C5 /* BasicRoundButton.swift in Sources */,
@@ -699,6 +705,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Hi/Hi.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -730,6 +737,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Hi/Hi.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;

@@ -1,6 +1,7 @@
 import { Injectable } from "@nestjs/common";
 import { randomUUID } from "crypto";
 import { Alarm, AlarmDto } from "src/entity/entities/alarm";
+import { DeviceToken } from "src/entity/entities/device-token";
 import { Relationship } from "src/entity/entities/relationship";
 import {
   User,
@@ -61,6 +62,12 @@ export class UsersService {
       getUpAt: dto.getUpAt,
       daysToAlarm: dto.daysToAlarm,
     };
+    const deviceToken: DeviceToken = {
+      _id: randomUUID(),
+      userId: dto._id,
+      token: dto.deviceToken,
+    };
+    await this.dbService.deviceTokens.create(deviceToken);
     return userWithRelationship;
   }
 
@@ -90,17 +97,23 @@ export class UsersService {
     return user;
   }
 
-  async delete(user: User) {
-    await this.dbService.users.deleteOne({ _id: user._id });
+  async delete(userId: string) {
+    await this.dbService.users.deleteOne({ _id: userId });
     await this.dbService.relationships.deleteMany({
       $or: [
         {
-          userId: user._id,
+          userId: userId,
         },
         {
-          followsId: user._id,
+          followsId: userId,
         },
       ],
+    });
+    await this.dbService.alarms.deleteMany({
+      userId,
+    });
+    await this.dbService.deviceTokens.deleteMany({
+      userId,
     });
   }
 

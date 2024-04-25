@@ -32,6 +32,7 @@ struct LoginView: View {
             
             BasicRoundButton(text: "始める", action: {
                 service.login()
+                viewModel.startButtonAction()
             })
             Spacer()
         }
@@ -41,8 +42,6 @@ struct LoginView: View {
                 viewModel.getUserDataAndNavigateView(successRouteAction: {
                     router.navigateToView(destination: .main)
                 }, failRouteAction: {
-                    let userDefaults = UserDefaultsHelper()
-                    userDefaults.set(value: service.email, key: "email")
                     router.navigateToView(destination: .accountCreateName)
                 }, otherErrorAction: {
                     service.resetAuthenticated()

@@ -9,12 +9,13 @@ import Foundation
 import SwiftUI
 
 class HomeViewModel: ObservableObject {
+    @Published var followUsers: [UserWithRelationship] = []
     @Published var cardColors: [Color] = [.pink, .blue, .green, .gray, .yellow]
     
     let soundHelper = SoundHelper()
     
-    func userCardButtonAction(index: Int) {
-        print("\(index)にHiを送信")
+    func userCardButtonAction(name: String) {
+        print("\(name)にHiを送信")
         soundHelper.playSound()
     }
 }

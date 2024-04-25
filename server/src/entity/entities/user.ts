@@ -27,4 +27,5 @@ export interface UserWithRelatedData extends User {
 export interface UserRegistrationDto extends User {
   getUpAt: string;
   daysToAlarm: boolean[];
+  deviceToken: string;
 }
