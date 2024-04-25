@@ -14,6 +14,7 @@ class LoginViewModel: ObservableObject {
     @Published var isShowErrorMessage = false
     
     let userDefaults = UserDefaultsHelper()
+    private var homeViewModel: HomeViewModel = HomeViewModel()
     private var cancellables: Set<AnyCancellable> = []
     
     func getUserDataAndNavigateView(successRouteAction: @escaping () -> Void,
@@ -34,7 +35,7 @@ class LoginViewModel: ObservableObject {
                     print(error)
                     switch error {
                     case .emptyData:
-                        self.userDefaults.removeUserDefaults()
+                        self.userDefaults.removeUserDefaultsExceptEmail()
                         DispatchQueue.main.async {
                             failRouteAction()
                         }
@@ -50,9 +51,14 @@ class LoginViewModel: ObservableObject {
                 }
             }, receiveValue: { data in
                 self.setUserData(user: data)
+                self.homeViewModel.followUsers.append(data)
                 print(data)
             })
             .store(in: &cancellables)
+    }
+    
+    func startButtonAction() {
+        isShowErrorMessage = false
     }
     
     func setUserData(user: UserWithRelationship) {
