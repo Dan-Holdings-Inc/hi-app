@@ -16,7 +16,6 @@ export class HiService {
       .lean()
       .exec();
 
-    //Endpointの作成(複数デバイス使っている可能性があるので)
     const endpoints = await Promise.all(
       deviceTokens.map((dt) => {
         return sns
