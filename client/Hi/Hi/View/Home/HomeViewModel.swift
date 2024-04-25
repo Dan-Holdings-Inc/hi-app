@@ -9,7 +9,6 @@ import Foundation
 import SwiftUI
 
 class HomeViewModel: ObservableObject {
-    @Published var followUsers: [User] = []
     @Published var cardColors: [Color] = [.pink, .blue, .green, .gray, .yellow]
     
     let soundHelper = SoundHelper()

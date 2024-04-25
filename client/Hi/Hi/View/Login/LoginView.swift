@@ -10,6 +10,7 @@ import SwiftUI
 struct LoginView: View {
     @EnvironmentObject var router: NavigationRouter
     @EnvironmentObject var service: Auth0Service
+    @EnvironmentObject var userEnvironmentData: UserEnvironmentData
     @ObservedObject var viewModel: LoginViewModel
     
     var body: some View {
@@ -41,6 +42,7 @@ struct LoginView: View {
             if service.isAuthenticated {
                 viewModel.getUserDataAndNavigateView(successRouteAction: {
                     router.navigateToView(destination: .main)
+                    userEnvironmentData.user = viewModel.userWithRelatedData
                 }, failRouteAction: {
                     router.navigateToView(destination: .accountCreateName)
                 }, otherErrorAction: {

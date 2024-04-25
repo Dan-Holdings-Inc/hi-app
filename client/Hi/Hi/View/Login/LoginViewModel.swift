@@ -12,9 +12,9 @@ import SwiftUI
 
 class LoginViewModel: ObservableObject {
     @Published var isShowErrorMessage = false
+    @Published var userWithRelatedData: UserWithRelatedData = UserWithRelatedData(_id: "", email: "", userName: "", name: "", getUpAt: "", daysToAlarm: [], followers: [], followings: [])
     
     let userDefaults = UserDefaultsHelper()
-    private var homeViewModel: HomeViewModel = HomeViewModel()
     private var cancellables: Set<AnyCancellable> = []
     
     func getUserDataAndNavigateView(successRouteAction: @escaping () -> Void,
@@ -51,8 +51,7 @@ class LoginViewModel: ObservableObject {
                 }
             }, receiveValue: { data in
                 self.setUserData(user: data)
-                self.homeViewModel.followUsers.append(contentsOf: data.followings)
-                print(self.homeViewModel.followUsers)
+                self.userWithRelatedData = data
                 print(data)
             })
             .store(in: &cancellables)
