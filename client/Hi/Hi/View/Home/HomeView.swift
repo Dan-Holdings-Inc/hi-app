@@ -26,7 +26,7 @@ struct HomeView: View {
             List {
                 if userEnvironmentData.user.followings.count == 0 {
                     UserCard(userName: "Tiffany", color: .gray, action: {
-                        print("Hi!")
+                        viewModel.userCardButtonAction(name: "Tiffany")
                     })
                 }
                 ForEach(0 ..< userEnvironmentData.user.followings.count, id: \.self) { index in
