@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 class LoginModel {
-    static func getUserWithRelationship(email: String) -> AnyPublisher<UserWithRelationship, ApiError> {
+    static func getUserWithRelationship(email: String) -> AnyPublisher<UserWithRelatedData, ApiError> {
         guard let url = URL(string: ApiService.apiServer + "users/" + email) else {
             return Fail(error: .invalidURL).eraseToAnyPublisher()
         }
@@ -20,7 +20,7 @@ class LoginModel {
                 .tryMap { data, response in
                     try ApiService.handleResponse(data: data, response: response)
                 }
-                .decode(type: UserWithRelationship.self, decoder: JSONDecoder())
+                .decode(type: UserWithRelatedData.self, decoder: JSONDecoder())
                 .mapError { error in
                     ApiService.handleError(error: error)
                 }

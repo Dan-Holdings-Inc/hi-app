@@ -22,7 +22,7 @@
 		5C49CB822BD1732000DE1630 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C49CB812BD1732000DE1630 /* SettingViewModel.swift */; };
 		5C818C9D2BC4DE56005A6FC1 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C818C9C2BC4DE56005A6FC1 /* HomeView.swift */; };
 		5C818CA02BC4E162005A6FC1 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C818C9F2BC4E162005A6FC1 /* SettingView.swift */; };
-		5C847FB22BD4CC4200BE39B6 /* UserWithRelationship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C847FB12BD4CC4200BE39B6 /* UserWithRelationship.swift */; };
+		5C847FB22BD4CC4200BE39B6 /* UserWithRelatedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C847FB12BD4CC4200BE39B6 /* UserWithRelatedData.swift */; };
 		5C847FB42BD540E000BE39B6 /* RelationshipDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C847FB32BD540E000BE39B6 /* RelationshipDto.swift */; };
 		5C847FB62BD5410700BE39B6 /* UserRegistrationDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C847FB52BD5410700BE39B6 /* UserRegistrationDto.swift */; };
 		5C847FB82BD547B900BE39B6 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C847FB72BD547B900BE39B6 /* LoginModel.swift */; };
@@ -90,7 +90,7 @@
 		5C49CB812BD1732000DE1630 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		5C818C9C2BC4DE56005A6FC1 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		5C818C9F2BC4E162005A6FC1 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
-		5C847FB12BD4CC4200BE39B6 /* UserWithRelationship.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWithRelationship.swift; sourceTree = "<group>"; };
+		5C847FB12BD4CC4200BE39B6 /* UserWithRelatedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWithRelatedData.swift; sourceTree = "<group>"; };
 		5C847FB32BD540E000BE39B6 /* RelationshipDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelationshipDto.swift; sourceTree = "<group>"; };
 		5C847FB52BD5410700BE39B6 /* UserRegistrationDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegistrationDto.swift; sourceTree = "<group>"; };
 		5C847FB72BD547B900BE39B6 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
@@ -274,7 +274,7 @@
 			isa = PBXGroup;
 			children = (
 				5C149F172BD3D3F30034ABCC /* User.swift */,
-				5C847FB12BD4CC4200BE39B6 /* UserWithRelationship.swift */,
+				5C847FB12BD4CC4200BE39B6 /* UserWithRelatedData.swift */,
 				5C847FB52BD5410700BE39B6 /* UserRegistrationDto.swift */,
 				5C847FB32BD540E000BE39B6 /* RelationshipDto.swift */,
 			);
@@ -534,7 +534,7 @@
 				5CCDE98D2BCE81FC00764750 /* SoundHelper.swift in Sources */,
 				5C149F1C2BD3D45E0034ABCC /* LoginViewModel.swift in Sources */,
 				5C93BEB52BC6633700C715DF /* AccountSettingName.swift in Sources */,
-				5C847FB22BD4CC4200BE39B6 /* UserWithRelationship.swift in Sources */,
+				5C847FB22BD4CC4200BE39B6 /* UserWithRelatedData.swift in Sources */,
 				5C93BEAB2BC625DE00C715DF /* Auth0Service.swift in Sources */,
 				5C3545C32BC6714E0011E78D /* AccountSettingUserID.swift in Sources */,
 				5C3545C82BC67B990011E78D /* BackButton.swift in Sources */,
