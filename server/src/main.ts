@@ -3,6 +3,11 @@ import { AppModule } from "./app.module";
 import { RemovePropertyInterceptor } from "./interceptors/remove-property/remove-property.interceptor";
 import { Credentials, config } from "aws-sdk";
 import * as dotenv from "dotenv";
+import dayjs from "dayjs";
+import timezone from "dayjs/plugin/timezone";
+import utc from "dayjs/plugin/utc";
+dayjs.extend(utc);
+dayjs.extend(timezone);
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);

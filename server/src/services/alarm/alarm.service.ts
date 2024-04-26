@@ -3,6 +3,7 @@ import { Alarm } from "../../entity/entities/alarm";
 import { DbService } from "src/infrastructure/db/db.service";
 import { HiService } from "../hi/hi.service";
 import dayjs, { Dayjs } from "dayjs";
+import { TIMEZONE } from "src/utils";
 
 @Injectable()
 export class AlarmService {
@@ -16,14 +17,30 @@ export class AlarmService {
   /**
    * 次のアラームを設定する日時を計算します。
    */
-  private calculateAlarmDate(alarm: Alarm) {
-    const today = dayjs();
-    //現在の曜日
-    const currentDay = today.day();
-    let nextDateToAlarm = today.add(Math.abs(7 - currentDay), "day");
+  static calculateAlarmDate(alarm: Alarm) {
+    const today: Dayjs = dayjs().tz(TIMEZONE);
+    const timeRegex = /(\d\d?):(\d\d?)/;
+    const time = alarm.getUpAt.match(timeRegex);
+    const hour = Number(time[1]);
+    const minute = Number(time[2]);
     //次回のアラーム曜日
-    for (let i = currentDay + 1; i < 7; i++) {}
-    const howManyDaysNext = Math.abs(today.day() - nextDay);
+    let howManyDaysAfter = 0;
+    let index = 0;
+    if (alarm.daysToAlarm[today.day()]) {
+      const expectedDate = today.set("hour", hour).set("minute", minute);
+      const passedAlready = today.unix() - expectedDate.unix() > 0;
+      howManyDaysAfter = passedAlready ? 1 : 0;
+      index = passedAlready ? (today.day() + 1) % 7 : today.day();
+    } else {
+      howManyDaysAfter = 1;
+      index = (today.day() + 1) % 7;
+    }
+    while (!alarm.daysToAlarm[index]) {
+      howManyDaysAfter += 1;
+      index = (index + 1) % 7;
+    }
+    const date = today.add(howManyDaysAfter, "day");
+    return date;
   }
 }
 
