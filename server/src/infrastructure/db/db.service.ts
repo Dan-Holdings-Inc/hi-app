@@ -1,6 +1,7 @@
 import { Injectable } from "@nestjs/common";
 import * as mongoose from "mongoose";
 import { AlarmModel } from "src/entity/db-models/alarm";
+import { AlarmSessionModel } from "src/entity/db-models/alarm-session";
 import { DeviceTokenModel } from "src/entity/db-models/device-token";
 import { RelationshipModel } from "src/entity/db-models/relationship";
 import { UserModel } from "src/entity/db-models/user";
@@ -20,6 +21,10 @@ export class DbService {
 
   get alarms() {
     return AlarmModel;
+  }
+
+  get alarmSessions() {
+    return AlarmSessionModel;
   }
 
   get deviceTokens() {

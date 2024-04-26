@@ -23,6 +23,9 @@ importers:
       '@nestjs/platform-express':
         specifier: ^10.0.0
         version: 10.3.7(@nestjs/common@10.3.7(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@10.3.7)
+      '@types/node-cron':
+        specifier: ^3.0.11
+        version: 3.0.11
       aws-sdk:
         specifier: ^2.1606.0
         version: 2.1606.0
@@ -713,6 +716,9 @@ packages:
 
   '@types/ms@0.7.34':
     resolution: {integrity: sha512-nG96G3Wp6acyAgJqGasjODb+acrI7KltPiRxzHPXnP3NgI28bpQDRv53olbqGXbfcgF5aiiHmO3xpwEpS5Ld9g==}
+
+  '@types/node-cron@3.0.11':
+    resolution: {integrity: sha512-0ikrnug3/IyneSHqCBeslAhlK2aBfYek1fGo4bP4QnZPmiqSGRK+Oy7ZMisLWkesffJvQ1cqAcBnJC+8+nxIAg==}
 
   '@types/node@20.12.7':
     resolution: {integrity: sha512-wq0cICSkRLVaf3UGLMGItu/PtdY7oaXaI/RVU+xliKVOtRna3PRY57ZDfztpDL0n11vfymMUnXv8QwYCO7L1wg==}
@@ -4435,6 +4441,8 @@ snapshots:
   '@types/mime@1.3.5': {}
 
   '@types/ms@0.7.34': {}
+
+  '@types/node-cron@3.0.11': {}
 
   '@types/node@20.12.7':
     dependencies:
