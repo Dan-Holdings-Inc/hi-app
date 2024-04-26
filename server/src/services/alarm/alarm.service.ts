@@ -52,6 +52,19 @@ export class AlarmService {
     const alarmSession = await this.dbService.alarmSessions
       .findOne({ userId })
       .exec();
+    const user = await this.dbService.users
+      .findOne({
+        _id: userId,
+      })
+      .lean()
+      .exec();
+    let message = "";
+    if (alarmSession.round === 1) {
+      message = "起床時間です。";
+    } else {
+      message = "二度寝していませんか？";
+    }
+    this.hiService.sendHi("system", user, message);
     alarmSession.round += 1;
     alarmSession.isNew = false;
 

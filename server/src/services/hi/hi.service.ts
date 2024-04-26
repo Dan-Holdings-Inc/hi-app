@@ -6,7 +6,11 @@ import { SNS } from "aws-sdk";
 @Injectable()
 export class HiService {
   constructor(private dbService: DbService) {}
-  async sendHi(sender: User, receiver: User) {
+  async sendHi(
+    sender: User | "system",
+    receiver: User,
+    systemMessage?: string
+  ) {
     const sns = new SNS({ apiVersion: "2010-03-31" });
 
     const deviceTokens = await this.dbService.deviceTokens
@@ -33,7 +37,8 @@ export class HiService {
         const params = {
           // MessageEvent: "json",
           TargetArn: ep.EndpointArn,
-          Message: `Hi from ${sender.name}`,
+          Message:
+            sender === "system" ? systemMessage : `Hi from ${sender.name}`,
         };
         return sns.publish(params).promise();
       })
