@@ -10,7 +10,7 @@ import * as utc from "dayjs/plugin/utc";
 dayjs.extend(utc);
 dayjs.extend(timezone);
 
-//
+//toBeのISO StringはUTC表記になっています。DayjsのtoISOStringでJST表記にする方法がわからなかった...
 
 describe("AlarmService", () => {
   let service: AlarmService;
@@ -18,7 +18,7 @@ describe("AlarmService", () => {
     _id: "euiahfoweh9120e93",
     userId: "ioqweuwoeur9",
     getUpAt: "10:00",
-    daysToAlarm: [false, true, false, true, true, false, true],
+    daysToAlarm: [false, true, false, true, true, false, false],
   };
 
   const user: User = {
@@ -41,7 +41,7 @@ describe("AlarmService", () => {
   });
 
   describe("calculateAlarmDate", () => {
-    it("should be on a same day ", () => {
+    it("should be on 2024-04-01T01:00:00.000Z", () => {
       const now = dayjs.tz("2024-04-01T09:00:00", TIMEZONE);
 
       expect(AlarmService.calculateAlarmDate(now, alarm).toISOString()).toBe(
@@ -49,10 +49,24 @@ describe("AlarmService", () => {
       );
     });
 
-    it("should be on wednesday1", () => {
+    it("should be at 2024-04-03T01:00:00.000Z", () => {
       const now = dayjs.tz("2024-04-01T10:00:01", TIMEZONE);
       expect(AlarmService.calculateAlarmDate(now, alarm).toISOString()).toBe(
-        "2024-04-03T01:01:00.000Z"
+        "2024-04-03T01:00:00.000Z"
+      );
+    });
+
+    it("should be at 2024-04-03T01:00:00.000Z", () => {
+      const now = dayjs.tz("2024-04-02T10:00:00", TIMEZONE);
+      expect(AlarmService.calculateAlarmDate(now, alarm).toISOString()).toBe(
+        "2024-04-03T01:00:00.000Z"
+      );
+    });
+
+    it("should be at next monday", () => {
+      const now = dayjs.tz("2024-04-05T08:00:00", TIMEZONE);
+      expect(AlarmService.calculateAlarmDate(now, alarm).toISOString()).toBe(
+        "2024-04-08T01:00:00.000Z"
       );
     });
   });

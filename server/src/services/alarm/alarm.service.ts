@@ -17,14 +17,17 @@ export class AlarmService {
    */
   static calculateAlarmDate(now: dayjs.Dayjs, alarm: Alarm) {
     const timeRegex = /(\d\d?):(\d\d?)/;
-    const time = alarm.getUpAt.match(timeRegex);
-    const hour = Number(time[1]);
-    const minute = Number(time[2]);
+    const getUpTime = alarm.getUpAt.match(timeRegex);
+    const hour = Number(getUpTime[1]);
+    const minute = Number(getUpTime[2]);
     //次回のアラーム曜日
     let howManyDaysAfter = 0;
     let index = 0;
     if (alarm.daysToAlarm[now.day()]) {
-      const expectedDate = now.set("hour", hour).set("minute", minute);
+      const expectedDate = now
+        .set("hour", hour)
+        .set("minute", minute)
+        .set("second", 0);
       const passedAlready = now.unix() - expectedDate.unix() > 0;
       howManyDaysAfter = passedAlready ? 1 : 0;
       index = passedAlready ? (now.day() + 1) % 7 : now.day();
@@ -38,9 +41,11 @@ export class AlarmService {
     }
     const date = now
       .add(howManyDaysAfter, "day")
-      .tz(TIMEZONE)
       .set("hour", hour)
-      .set("minute", minute);
+      .set("minute", minute)
+      .set("second", 0)
+      .tz(TIMEZONE);
+
     return date;
   }
 }
