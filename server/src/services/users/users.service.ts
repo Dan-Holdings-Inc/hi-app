@@ -1,11 +1,12 @@
 import { Injectable } from "@nestjs/common";
 import { randomUUID } from "crypto";
 import { Alarm, AlarmDto } from "src/entity/entities/alarm";
+import { DeviceToken } from "src/entity/entities/device-token";
 import { Relationship } from "src/entity/entities/relationship";
 import {
   User,
   UserRegistrationDto,
-  UserWithRelationship,
+  UserWithRelatedData,
 } from "src/entity/entities/user";
 import {
   AlreadyFollowingError,
@@ -46,11 +47,7 @@ export class UsersService {
       name: dto.name,
     };
     await this.dbService.users.create(user);
-    const userWithRelationship: UserWithRelationship = {
-      ...user,
-      followers: [],
-      followings: [],
-    };
+
     const alarm: Alarm = {
       _id: randomUUID(),
       userId: dto._id,
@@ -58,6 +55,19 @@ export class UsersService {
       daysToAlarm: dto.daysToAlarm,
     };
     await this.dbService.alarms.create(alarm);
+    const userWithRelationship: UserWithRelatedData = {
+      ...user,
+      followers: [],
+      followings: [],
+      getUpAt: dto.getUpAt,
+      daysToAlarm: dto.daysToAlarm,
+    };
+    const deviceToken: DeviceToken = {
+      _id: randomUUID(),
+      userId: dto._id,
+      token: dto.deviceToken,
+    };
+    await this.dbService.deviceTokens.create(deviceToken);
     return userWithRelationship;
   }
 
@@ -87,17 +97,23 @@ export class UsersService {
     return user;
   }
 
-  async delete(user: User) {
-    await this.dbService.users.deleteOne({ _id: user._id });
+  async delete(userId: string) {
+    await this.dbService.users.deleteOne({ _id: userId });
     await this.dbService.relationships.deleteMany({
       $or: [
         {
-          userId: user._id,
+          userId: userId,
         },
         {
-          followsId: user._id,
+          followsId: userId,
         },
       ],
+    });
+    await this.dbService.alarms.deleteMany({
+      userId,
+    });
+    await this.dbService.deviceTokens.deleteMany({
+      userId,
     });
   }
 
@@ -207,6 +223,12 @@ export class UsersService {
         .lean()
         .exec()
     ).map((r) => r.userId);
+    const alarm = await this.dbService.alarms
+      .findOne({
+        userId: user._id,
+      })
+      .lean()
+      .exec();
 
     const realtedUsers = await this.dbService.users.find({
       _id: {
@@ -221,10 +243,12 @@ export class UsersService {
     const followingUsers = followingIds.map((id) => userMap.get(id)!);
     const followerUsers = followerIds.map((id) => userMap.get(id)!);
 
-    const userWithRelationship: UserWithRelationship = {
+    const userWithRelationship: UserWithRelatedData = {
       ...user,
       followings: followingUsers,
       followers: followerUsers,
+      getUpAt: alarm.getUpAt,
+      daysToAlarm: alarm.daysToAlarm,
     };
     return userWithRelationship;
   }

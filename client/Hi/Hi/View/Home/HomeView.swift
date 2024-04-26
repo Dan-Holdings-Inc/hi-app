@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
+    @EnvironmentObject var userEnvironmentData: UserEnvironmentData
     @ObservedObject var viewModel: HomeViewModel
     @State private var searchText = ""
     @FocusState private var isFocused: Bool
@@ -41,9 +42,15 @@ struct HomeView: View {
             .cornerRadius(15)
             .padding(.horizontal)
             List {
-                ForEach(0 ..< 10) { index in
-                    UserCard(userName: "\(index)番目の人", color: viewModel.cardColors[index % viewModel.cardColors.count], action: {
-                        viewModel.userCardButtonAction(index: index)
+                if userEnvironmentData.user.followings.count == 0 {
+                    UserCard(userName: "Tiffany", color: .gray, action: {
+                        viewModel.userCardButtonAction(name: "Tiffany")
+                    })
+                }
+                ForEach(0 ..< userEnvironmentData.user.followings.count, id: \.self) { index in
+                    UserCard(userName: userEnvironmentData.user.followings[index].name, color: viewModel.cardColors[index % viewModel.cardColors.count], action: {
+                        viewModel.userCardButtonAction(name: userEnvironmentData.user.followings[index].name)
+                        viewModel.postHi(friendId: userEnvironmentData.user.followings[index]._id)
                     })
                     .swipeActions(edge: .trailing){
                         Button("削除", role: .destructive) {

@@ -13,8 +13,20 @@ class HomeViewModel: ObservableObject {
     
     let soundHelper = SoundHelper()
     
-    func userCardButtonAction(index: Int) {
-        print("\(index)にHiを送信")
+    func userCardButtonAction(name: String) {
+        print("\(name)にHiを送信")
         soundHelper.playSound()
+    }
+    
+    func postHi(friendId: String) {
+        let userDefaults = UserDefaultsHelper()
+        let idToken = userDefaults.getStringData(key: "idToken")
+        print(idToken)
+        
+        HomeModel.pushHi(friendId: friendId, idToken: idToken) { error in
+            if let error = error {
+                print("Hi送信エラーが発生しました: \(error)")
+            }
+        }
     }
 }

@@ -7,14 +7,16 @@
 
 import Foundation
 import Auth0
+import JWTDecode
 import SimpleKeychain
 
 class Auth0Service: ObservableObject {
     @Published var isAuthenticated = false
-    @Published var userProfile = Profile.empty
     
     let keychain = SimpleKeychain(service: "Auth0")
-    
+    let userDefaults = UserDefaultsHelper()
+    var email = ""
+
     internal func login() {
         Auth0
             .webAuth()
@@ -27,7 +29,13 @@ class Auth0Service: ObservableObject {
                         return
                     }
                     print(credentials.idToken)
+                    self.userDefaults.set(value: credentials.idToken, key: "idToken")
                     print("Obtained credentials: \(credentials)")
+                    
+                    let jwt = try! decode(jwt: credentials.idToken)
+                    self.email = jwt.claim(name: "name").string ?? ""
+                    self.userDefaults.set(value: self.email, key: "email")
+                    
                     do {
                         try self.keychain.set(credentials.accessToken, forKey: "access_token")
                         try self.keychain.set(refreshToken, forKey: "refresh_token")
@@ -50,7 +58,6 @@ class Auth0Service: ObservableObject {
                 case .success:
                     print("Session cookie cleared")
                     self.isAuthenticated = false
-                    self.userProfile = Profile.empty
                     do {
                         try self.keychain.deleteAll()
                     } catch {
@@ -60,6 +67,10 @@ class Auth0Service: ObservableObject {
                     print("Failed with: \(error.localizedDescription)")
                 }
             }
+    }
+    
+    func resetAuthenticated() {
+        isAuthenticated = false
     }
 }
 

@@ -9,8 +9,10 @@ import SwiftUI
 
 @main
 struct HiApp: App {
+    @UIApplicationDelegateAdaptor (AppDelegate.self) var appDelegate
     @StateObject var router = NavigationRouter()
     @StateObject var service: Auth0Service = Auth0Service()
+    @StateObject var userEnvironmentData = UserEnvironmentData(user: UserWithRelatedData(_id: "", email: "", userName: "", name: "", getUpAt: "", daysToAlarm: [], followers: [], followings: []))
     
     var body: some Scene {
         WindowGroup {
@@ -21,7 +23,7 @@ struct HiApp: App {
                         case .main:
                             MainTabBar()
                         case .login:
-                            LoginView()
+                            LoginView(viewModel: LoginViewModel())
                         case .accountCreateName:
                             AccountCreateNameView()
                         case .accountCreateUserID:
@@ -29,7 +31,7 @@ struct HiApp: App {
                         case .accountCreateWakeUpTime:
                             AccountCreateWakeUpTimeView()
                         case .accountCreateDayOfWeek:
-                            AccountCreateDayOfWeekView()
+                            AccountCreateDayOfWeekView(viewModel: AccountCreateViewModel())
                         case .settingName:
                             SettingNameView()
                         case .settingUserID:
@@ -47,6 +49,7 @@ struct HiApp: App {
             }
             .environmentObject(router)
             .environmentObject(service)
+            .environmentObject(userEnvironmentData)
         }
     }
 }
