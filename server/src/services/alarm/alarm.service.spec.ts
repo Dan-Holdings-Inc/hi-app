@@ -7,6 +7,7 @@ import * as dayjs from "dayjs";
 const TIMEZONE = "Asia/Tokyo";
 import * as timezone from "dayjs/plugin/timezone";
 import * as utc from "dayjs/plugin/utc";
+import { DbService } from "../../infrastructure/db/db.service";
 dayjs.extend(utc);
 dayjs.extend(timezone);
 
@@ -28,7 +29,7 @@ describe("AlarmService", () => {
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [AlarmService],
+      providers: [AlarmService, DbService],
     }).compile();
 
     service = module.get<AlarmService>(AlarmService);
@@ -41,28 +42,28 @@ describe("AlarmService", () => {
   describe("calculateAlarmDate", () => {
     it("should be on 2024-04-01T01:00:00.000Z", () => {
       const now = dayjs.tz("2024-04-01T09:00:00", TIMEZONE);
-      expect(AlarmService.calculateAlarmDate(now, alarm).toISOString()).toBe(
+      expect(service.calculateAlarmDate(now, alarm).toISOString()).toBe(
         buildIsoStringWithTimezone("2024-04-01T10:00:00")
       );
     });
 
     it("should be at 2024-04-03T01:00:00.000Z", () => {
       const now = dayjs.tz("2024-04-01T10:00:01", TIMEZONE);
-      expect(AlarmService.calculateAlarmDate(now, alarm).toISOString()).toBe(
+      expect(service.calculateAlarmDate(now, alarm).toISOString()).toBe(
         buildIsoStringWithTimezone("2024-04-03T10:00:00")
       );
     });
 
     it("should be at 2024-04-03T01:00:00.000Z", () => {
       const now = dayjs.tz("2024-04-02T10:00:00", TIMEZONE);
-      expect(AlarmService.calculateAlarmDate(now, alarm).toISOString()).toBe(
+      expect(service.calculateAlarmDate(now, alarm).toISOString()).toBe(
         buildIsoStringWithTimezone("2024-04-03T10:00:00")
       );
     });
 
     it("should be at next monday", () => {
       const now = dayjs.tz("2024-04-05T08:00:00", TIMEZONE);
-      expect(AlarmService.calculateAlarmDate(now, alarm).toISOString()).toBe(
+      expect(service.calculateAlarmDate(now, alarm).toISOString()).toBe(
         buildIsoStringWithTimezone("2024-04-08T10:00:00")
       );
     });

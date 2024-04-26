@@ -4,18 +4,29 @@ import * as dayjs from "dayjs";
 import { TIMEZONE } from "../../utils";
 import * as timezone from "dayjs/plugin/timezone";
 import * as utc from "dayjs/plugin/utc";
+import { DbService } from "../../infrastructure/db/db.service";
 dayjs.extend(utc);
 dayjs.extend(timezone);
 @Injectable()
 export class AlarmService {
-  constructor() {}
+  constructor(private dbService: DbService) {}
 
-  init() {}
+  async init() {
+    const cursor = this.dbService.alarms.find({}).lean().cursor();
+    const now = dayjs();
+    for (
+      let alarm = await cursor.next();
+      alarm != null;
+      alarm = await cursor.next()
+    ) {
+      const date = this.calculateAlarmDate(now, alarm);
+    }
+  }
 
   /**
    * 次のアラームを設定する日時を計算します。
    */
-  static calculateAlarmDate(now: dayjs.Dayjs, alarm: Alarm) {
+  calculateAlarmDate(now: dayjs.Dayjs, alarm: Alarm) {
     const timeRegex = /(\d\d?):(\d\d?)/;
     const getUpTime = alarm.getUpAt.match(timeRegex);
     const hour = Number(getUpTime[1]);
@@ -47,6 +58,20 @@ export class AlarmService {
       .tz(TIMEZONE);
 
     return date;
+  }
+
+  /**
+   * Cron書式の文字列を生成します
+   * @param date
+   */
+  createCronSyntaxString(date: dayjs.Dayjs) {
+    const second = date.second();
+    const minute = date.minute();
+    const hour = date.hour();
+    const day = date.date();
+    const month = date.month() + 1; //month indexは0-11なので一つ足す。
+    const year = date.year();
+    return `${second} ${minute} ${hour} ${day} ${month} ${year}`;
   }
 }
 
