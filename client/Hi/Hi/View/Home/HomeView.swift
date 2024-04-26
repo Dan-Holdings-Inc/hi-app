@@ -26,12 +26,13 @@ struct HomeView: View {
             List {
                 if userEnvironmentData.user.followings.count == 0 {
                     UserCard(userName: "Tiffany", color: .gray, action: {
-                        print("Hi!")
+                        viewModel.userCardButtonAction(name: "Tiffany")
                     })
                 }
                 ForEach(0 ..< userEnvironmentData.user.followings.count, id: \.self) { index in
                     UserCard(userName: userEnvironmentData.user.followings[index].name, color: viewModel.cardColors[index % viewModel.cardColors.count], action: {
                         viewModel.userCardButtonAction(name: userEnvironmentData.user.followings[index].name)
+                        viewModel.postHi(friendId: userEnvironmentData.user.followings[index]._id)
                     })
                     .swipeActions(edge: .trailing){
                         Button("削除", role: .destructive) {
