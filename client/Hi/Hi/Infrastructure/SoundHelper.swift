@@ -18,7 +18,7 @@ class SoundHelper {
     func playSound() {
         let currentTime = Date()
         if currentTime.timeIntervalSince(lastButtonPressedTime) < 0.5 {
-            // 直前のボタン押下から1秒以内であれば、音を再生しない
+            // 直前のボタン押下から0.5秒以内であれば、音を再生しない
             return
         }
         

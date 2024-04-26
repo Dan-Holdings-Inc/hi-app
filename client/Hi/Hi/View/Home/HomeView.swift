@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeView: View {
     @ObservedObject var viewModel: HomeViewModel
     @State private var searchText = ""
+    @FocusState private var isFocused: Bool
     
     var body: some View {
         VStack {
@@ -17,6 +18,23 @@ struct HomeView: View {
                 Image(systemName: "magnifyingglass")
                     .foregroundColor(.gray)
                 TextField("検索", text: $searchText)
+                    .focused($isFocused)
+                    .toolbar {
+                        ToolbarItemGroup(placement: .keyboard) {
+                            Spacer()
+                            Button("閉じる") {
+                                isFocused = false
+                            }
+                        }
+                    }
+                if isFocused {
+                    Button(action: {
+                        self.searchText = ""
+                    }){
+                        Image(systemName: "multiply.circle.fill")
+                            .foregroundColor(.gray)
+                    }
+                }
             }
             .padding()
             .background(Color(.systemGray5))
