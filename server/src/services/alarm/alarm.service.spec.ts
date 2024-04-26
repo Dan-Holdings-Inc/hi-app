@@ -7,19 +7,19 @@ import { User } from "src/entity/entities/user";
 
 describe("AlarmService", () => {
   let service: AlarmService;
-  const alarm:Alarm ={
-    _id: 'euiahfoweh9120e93',
-    userId: 'ioqweuwoeur9',
+  const alarm: Alarm = {
+    _id: "euiahfoweh9120e93",
+    userId: "ioqweuwoeur9",
     getUpAt: "10:00",
-    daysToAlarm:[true,false,false,true,true,false,true]
-  }
+    daysToAlarm: [true, false, false, true, true, false, true],
+  };
 
-  const user:User = {
-    _id: 'ioqweuwoeur9',
+  const user: User = {
+    _id: "ioqweuwoeur9",
     email: "fujidan8464@gmail.com",
-    userName:"fujidan8464",
-    name:"Dan"
-  }
+    userName: "fujidan8464",
+    name: "Dan",
+  };
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -32,8 +32,10 @@ describe("AlarmService", () => {
   it("should be defined", () => {
     expect(service).toBeDefined();
   });
-  
-  describe("calculateAlarmDate",()=>{
-    if("should be")
-  })
+
+  describe("calculateAlarmDate", () => {
+    it("calculate ", () => {
+      expect(AlarmService.calculateAlarmDate(alarm).toISOString()).toBe("");
+    });
+  });
 });
