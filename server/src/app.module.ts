@@ -6,10 +6,11 @@ import { UsersController } from "./controllers/user/user.controller";
 import { UsersService } from "./services/users/users.service";
 import { HiController } from './controllers/hi/hi.controller';
 import { HiService } from './services/hi/hi.service';
+import { SearchController } from './controllers/search/search.controller';
 
 @Module({
   imports: [AuthModule, InfrastructureModule],
-  controllers: [UsersController, HiController],
+  controllers: [UsersController, HiController, SearchController],
   providers: [DbService, UsersService, HiService],
 })
 export class AppModule {}
