@@ -37,9 +37,9 @@ struct HiApp: App {
                         case .settingUserID:
                             SettingUserIDView(viewModel: SettingViewModel())
                         case .settingWakuUpTime:
-                            SettingWakeUpTimeView()
+                            SettingWakeUpTimeView(viewModel: TimeSettingViewModel())
                         case .settingDayOfWeek:
-                            SettingDayOfWeekView()
+                            SettingDayOfWeekView(viewModel: TimeSettingViewModel())
                         case .friendSearch:
                             FriendSearchView()
                         case .friendApproval:

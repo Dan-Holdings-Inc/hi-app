@@ -125,10 +125,12 @@ struct SettingUserIDView: View {
 
 struct SettingWakeUpTimeView: View {
     @EnvironmentObject var router: NavigationRouter
+    @ObservedObject var viewModel: TimeSettingViewModel
     
     var body: some View {
         AccountSettingWakeUpTime(nextButtonLabel: "変更する", action: {
             router.backPage()
+            viewModel.putUserData()
         })
         .navigationBarHidden(true)
     }
@@ -136,10 +138,12 @@ struct SettingWakeUpTimeView: View {
 
 struct SettingDayOfWeekView: View {
     @EnvironmentObject var router: NavigationRouter
+    @ObservedObject var viewModel: TimeSettingViewModel
     
     var body: some View {
-        AccountSettingDayOfWeek(nextButtonLabel: "変更する", action: {
+        AccountSettingDayOfWeek(viewModel:AccountCommonDayOfWeekViewModel(),nextButtonLabel: "変更する", action: {
             router.backPage()
+            viewModel.putUserData()
         })
         .navigationBarHidden(true)
     }

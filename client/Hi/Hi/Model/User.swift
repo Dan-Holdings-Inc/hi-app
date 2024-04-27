@@ -14,3 +14,11 @@ struct User: Codable, Hashable {
     var name: String
     var __v: Int
 }
+
+struct Time: Codable{
+    var _id:String
+    var userId:String
+    var getUpAt: String
+    var daysToAlarm: [Bool]
+    var __v: Int
+}
