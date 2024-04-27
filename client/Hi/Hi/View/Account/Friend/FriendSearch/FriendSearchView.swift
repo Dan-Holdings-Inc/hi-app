@@ -24,7 +24,7 @@ struct FriendSearchView: View {
             // 検索窓
             HStack {
                 HStack {
-                    TextField("名前、ユーザーID、メールアドレス", text: $inputText)
+                    TextField("名前、ユーザーID、メールアドレスを入力", text: $inputText)
                         .focused($isFocused)
                         .toolbar {
                             ToolbarItemGroup(placement: .keyboard) {
@@ -61,6 +61,9 @@ struct FriendSearchView: View {
             .padding()
             
             Spacer()
+        }
+        .onAppear {
+            isFocused = true
         }
         .onChange(of: inputText, {
             viewModel.getUserList(searchWord: inputText)
