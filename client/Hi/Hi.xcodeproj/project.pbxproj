@@ -63,6 +63,7 @@
 		B5ED02492BDCE98D00D37955 /* TimeSettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ED02482BDCE98D00D37955 /* TimeSettingModel.swift */; };
 		B5ED024B2BDCEAB900D37955 /* TimeSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ED024A2BDCEAB900D37955 /* TimeSettingViewModel.swift */; };
 		B5ED024D2BDD494500D37955 /* SearchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ED024C2BDD494500D37955 /* SearchButton.swift */; };
+		B5F69C6B2BDDA42C00261B52 /* DeleteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F69C6A2BDDA42C00261B52 /* DeleteModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,6 +143,7 @@
 		B5ED02482BDCE98D00D37955 /* TimeSettingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSettingModel.swift; sourceTree = "<group>"; };
 		B5ED024A2BDCEAB900D37955 /* TimeSettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSettingViewModel.swift; sourceTree = "<group>"; };
 		B5ED024C2BDD494500D37955 /* SearchButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchButton.swift; sourceTree = "<group>"; };
+		B5F69C6A2BDDA42C00261B52 /* DeleteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -260,6 +262,7 @@
 				5C818C9C2BC4DE56005A6FC1 /* HomeView.swift */,
 				5CCC35FE2BC51276003B00C5 /* HomeViewModel.swift */,
 				5CE5DE2D2BDAACA60023B864 /* HomeModel.swift */,
+				B5F69C6A2BDDA42C00261B52 /* DeleteModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -574,6 +577,7 @@
 				B5ED02432BDBCF3800D37955 /* SettingModel.swift in Sources */,
 				5CCC35FC2BC4EB7D003B00C5 /* UserCard.swift in Sources */,
 				5CCC36032BC55B11003B00C5 /* LoginView.swift in Sources */,
+				B5F69C6B2BDDA42C00261B52 /* DeleteModel.swift in Sources */,
 				5C53B5F02BDD3A760026228F /* Colors.swift in Sources */,
 				5CC148602BDCF5E600DC5F49 /* TabShape.swift in Sources */,
 				5CC148622BDCFC9B00DC5F49 /* TabPosition.swift in Sources */,

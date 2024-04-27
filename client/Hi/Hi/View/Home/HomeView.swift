@@ -12,6 +12,7 @@ struct HomeView: View {
     @ObservedObject var viewModel: HomeViewModel
     @State private var searchText = ""
     @FocusState private var isFocused: Bool
+    //@ObservedObject var viewModel:DeleteModel
 
     var filteredFollowings: [User] {
         if searchText.isEmpty {
@@ -76,7 +77,7 @@ struct HomeView: View {
                 })
                 .swipeActions(edge: .trailing) {
                     Button("削除", role: .destructive) {
-                        // ユーザーを削除する処理を記述
+                        //viewModel.DeleteData()
                     }
                 }
                 .listRowInsets(EdgeInsets())
