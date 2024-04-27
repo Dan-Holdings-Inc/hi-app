@@ -12,11 +12,20 @@ struct HomeView: View {
     @ObservedObject var viewModel: HomeViewModel
     @State private var searchText = ""
     @FocusState private var isFocused: Bool
-    
+
+    var filteredFollowings: [User] {
+        if searchText.isEmpty {
+            return userEnvironmentData.user.followings
+        } else {
+            return userEnvironmentData.user.followings.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
+        }
+    }
+
     var body: some View {
         VStack {
-            HStack{
-                HStack{
+            HStack {
+                Image(systemName: "magnifyingglass")
+                    .foregroundColor(.gray)
                     TextField("検索", text: $searchText)
                         .focused($isFocused)
                         .toolbar {
@@ -28,9 +37,9 @@ struct HomeView: View {
                             }
                         }
                         .onSubmit {
-                            if searchText.isEmpty{
+                            if searchText.isEmpty {
                                 print("入力なし")
-                            }else{
+                            } else {
                                 print("\(searchText)")
                                 let isFollowing = userEnvironmentData.user.followings.contains { user in
                                     user.name == searchText
@@ -41,57 +50,40 @@ struct HomeView: View {
                     if isFocused {
                         Button(action: {
                             self.searchText = ""
-                        }){
+                        }) {
                             Image(systemName: "multiply.circle.fill")
                                 .foregroundColor(.gray)
                         }
                     }
-                }
-                .padding()
-                .background(Color(.systemGray5))
-                .cornerRadius(15)
-                .padding(.leading)
-                SearchButton(action: {
-                    if searchText.isEmpty{
-                        print("入力なし")
-                    }else{
-                        print("\(searchText)")
-                        let isFollowing = userEnvironmentData.user.followings.contains { user in
-                            user.name == searchText
-                        }
-                        print(isFollowing)
-                    }
-                })
-                .padding(.trailing)
             }
-            
+            .padding()
+            .background(Color(.systemGray5))
+            .cornerRadius(15)
+            .padding(.horizontal)
+
             if userEnvironmentData.user.followings.isEmpty {
                 VStack {
                     Text("フレンドがいません。\"**アカウント < フレンド検索**\"からフレンドを追加してください。")
                 }
                 .padding()
             }
-            List {
+
+            List(filteredFollowings, id: \.self) { user in
                 let cardColors = Colors.cardColors
-                ForEach(0 ..< userEnvironmentData.user.followings.count, id: \.self) { index in
-                    UserCard(userName: userEnvironmentData.user.followings[index].name, color: cardColors[index % cardColors.count], action: {
-                        viewModel.userCardButtonAction(name: userEnvironmentData.user.followings[index].name)
-                        viewModel.postHi(friendId: userEnvironmentData.user.followings[index]._id)
-                    })
-                    .swipeActions(edge: .trailing){
-                        Button("削除", role: .destructive) {
-                        }
+                UserCard(userName: user.name, color: cardColors[userEnvironmentData.user.followings.firstIndex(of: user)! % cardColors.count], action: {
+                    viewModel.userCardButtonAction(name: user.name)
+                    viewModel.postHi(friendId: user._id)
+                })
+                .swipeActions(edge: .trailing) {
+                    Button("削除", role: .destructive) {
+                        // ユーザーを削除する処理を記述
                     }
-                    .listRowInsets(EdgeInsets())
                 }
+                .listRowInsets(EdgeInsets())
             }
             .listStyle(GroupedListStyle())
             .scrollContentBackground(.hidden)
-            .background(.white)
+            .background(Color.white)
         }
     }
-}
-
-#Preview {
-    HomeView(viewModel: HomeViewModel())
 }
