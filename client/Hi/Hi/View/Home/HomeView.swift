@@ -41,14 +41,15 @@ struct HomeView: View {
             .background(Color(.systemGray5))
             .cornerRadius(15)
             .padding(.horizontal)
+            
+            if userEnvironmentData.user.followings.isEmpty {
+                VStack {
+                    Text("フレンドがいません。\"**アカウント < フレンド検索**\"からフレンドを追加してください。")
+                }
+                .padding()
+            }
             List {
                 let cardColors = Colors.cardColors
-                if userEnvironmentData.user.followings.count == 0 {
-                    UserCard(userName: "Tiffany", color: Colors.mobColor, action: {
-                        viewModel.userCardButtonAction(name: "Tiffany")
-                    })
-                    .listRowInsets(EdgeInsets())
-                }
                 ForEach(0 ..< userEnvironmentData.user.followings.count, id: \.self) { index in
                     UserCard(userName: userEnvironmentData.user.followings[index].name, color: cardColors[index % cardColors.count], action: {
                         viewModel.userCardButtonAction(name: userEnvironmentData.user.followings[index].name)
