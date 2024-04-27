@@ -42,13 +42,15 @@ struct HomeView: View {
             .cornerRadius(15)
             .padding(.horizontal)
             List {
+                let cardColors = Colors.cardColors
                 if userEnvironmentData.user.followings.count == 0 {
-                    UserCard(userName: "Tiffany", color: .gray, action: {
+                    UserCard(userName: "Tiffany", color: Colors.mobColor, action: {
                         viewModel.userCardButtonAction(name: "Tiffany")
                     })
+                    .listRowInsets(EdgeInsets())
                 }
                 ForEach(0 ..< userEnvironmentData.user.followings.count, id: \.self) { index in
-                    UserCard(userName: userEnvironmentData.user.followings[index].name, color: viewModel.cardColors[index % viewModel.cardColors.count], action: {
+                    UserCard(userName: userEnvironmentData.user.followings[index].name, color: cardColors[index % cardColors.count], action: {
                         viewModel.userCardButtonAction(name: userEnvironmentData.user.followings[index].name)
                         viewModel.postHi(friendId: userEnvironmentData.user.followings[index]._id)
                     })
@@ -60,6 +62,8 @@ struct HomeView: View {
                 }
             }
             .listStyle(GroupedListStyle())
+            .scrollContentBackground(.hidden)
+            .background(.white)
         }
     }
 }

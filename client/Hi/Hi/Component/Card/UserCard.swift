@@ -9,7 +9,7 @@ import SwiftUI
 
 struct UserCard: View {
     var userName: String
-    var color: Color
+    var color: LinearGradient
     var action: () -> Void
     @State private var scale: CGFloat = 1.0
     
@@ -42,7 +42,7 @@ struct UserCard: View {
 
 
 #Preview {
-    UserCard(userName: "だん", color: .blue, action: {
+    UserCard(userName: "だん", color: Colors.mobColor, action: {
         print("pressed!")
     })
 }
