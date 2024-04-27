@@ -84,13 +84,6 @@ struct SettingView: View {
             
             Spacer()
             
-            Button {
-                UserDefaultsHelper().removeUserDefaults()
-            } label: {
-                Text("アカウント削除（開発用）")
-                    .padding()
-            }
-            
             LogoutButton(action: {
                 service.logout()
             })
