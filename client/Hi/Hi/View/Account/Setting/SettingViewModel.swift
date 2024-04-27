@@ -9,11 +9,17 @@ import Foundation
 import Combine
 
 class SettingViewModel: ObservableObject {
-    @Published var name = ""
-    @Published var userID = ""
-    
     let userDefaultsHelper = UserDefaultsHelper()
+    @Published var name :String
+    @Published var userID :String
+    
     private var cancellables: Set<AnyCancellable> = []
+    
+    init() {
+            // イニシャライザで name と userID を初期化します
+            self.name = userDefaultsHelper.getStringData(key: "name")
+            self.userID = userDefaultsHelper.getStringData(key: "userName")
+        }
     
     func onAppear() {
         name = userDefaultsHelper.getStringData(key: "name")
