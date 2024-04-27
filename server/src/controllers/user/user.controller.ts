@@ -22,18 +22,27 @@ import {
 import { User, UserRegistrationDto } from "src/entity/entities/user";
 import { UserNotFoundError } from "src/errors";
 import { DbService } from "src/infrastructure/db/db.service";
+import { AlarmService } from "src/services/alarm/alarm.service";
 import { UsersService } from "src/services/users/users.service";
 
 // @UseGuards(AuthGuard("jwt"))
 @Controller("users")
 export class UsersController {
-  constructor(private usersService: UsersService) {}
+  constructor(
+    private usersService: UsersService,
+    private alarmService: AlarmService
+  ) {}
 
   @Get(":idOrEmail")
   async getUser(@Param("idOrEmail") id: string) {
     const user = await this.usersService.getUser(id);
     if (user) return user;
     throw new NotFoundException("user not registered yet.");
+  }
+
+  @Get(":id/penalties")
+  async getPenalties(@Param("id") userId: string) {
+    return await this.usersService.getPenalties(userId);
   }
 
   /**
