@@ -5,4 +5,8 @@
 //  Created by ryosei on 2024/04/27.
 //
 
-import Foundation
+struct TimeChangeDto: Codable {
+    var userId: String
+    var getUpAt: String
+    var daysToAlarm: [Bool]
+}
