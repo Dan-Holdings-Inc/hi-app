@@ -36,77 +36,78 @@ struct SettingView: View {
             .padding()
             
             // 設定部分
-            VStack {
-                HStack {
-                    Image(systemName: "gearshape")
-                        .resizable()
-                        .frame(width: 15, height: 15)
-                        .foregroundColor(.gray)
-                        .padding(.leading, 25)
-                    Text("設定の確認・変更")
-                        .font(.caption)
-                        .foregroundColor(.gray)
-                        .bold()
-                    Spacer()
+            ScrollView {
+                VStack {
+                    HStack {
+                        Image(systemName: "gearshape")
+                            .resizable()
+                            .frame(width: 15, height: 15)
+                            .foregroundColor(.gray)
+                            .padding(.leading, 25)
+                        Text("設定の確認・変更")
+                            .font(.caption)
+                            .foregroundColor(.gray)
+                            .bold()
+                        Spacer()
+                    }
+                    let settingLabels = ["名前", "ユーザーID", "起きる時間", "曜日"]
+                    ForEach(0 ..< settingLabels.count, id: \.self) { index in
+                        SettingCard(label: "\(settingLabels[index])", action: {
+                            router.navigateToView(destination: router.settingNavigationPath[index])
+                        })
+                    }
                 }
-                let settingLabels = ["名前", "ユーザーID", "起きる時間", "曜日"]
-                ForEach(0 ..< settingLabels.count, id: \.self) { index in
-                    SettingCard(label: "\(settingLabels[index])", action: {
-                        router.navigateToView(destination: router.settingNavigationPath[index])
+                .padding(.bottom)
+                
+                // フレンド
+                VStack {
+                    HStack {
+                        Image(systemName: "person")
+                            .resizable()
+                            .frame(width: 15, height: 15)
+                            .foregroundColor(.gray)
+                            .padding(.leading, 25)
+                        Text("フレンド")
+                            .font(.caption)
+                            .foregroundColor(.gray)
+                            .bold()
+                        Spacer()
+                    }
+                    let friendLabels = ["フレンド検索"]
+                    ForEach(0 ..< friendLabels.count, id: \.self) { index in
+                        SettingCard(label: "\(friendLabels[index])", action: {
+                            router.navigateToView(destination: router.friendNavigationPath[index])
+                        })
+                    }
+                    SettingExclamationMarkCard(label: "フレンド承認", isShowMark: true, action: {
+                        router.navigateToView(destination: .friendApproval)
                     })
                 }
-            }
-            .padding(.bottom)
-            
-            // フレンド
-            VStack {
-                HStack {
-                    Image(systemName: "person")
-                        .resizable()
-                        .frame(width: 15, height: 15)
-                        .foregroundColor(.gray)
-                        .padding(.leading, 25)
-                    Text("フレンド")
-                        .font(.caption)
-                        .foregroundColor(.gray)
-                        .bold()
-                    Spacer()
+                .padding(.bottom)
+                
+                // その他
+                VStack {
+                    HStack {
+                        Text("その他")
+                            .font(.caption)
+                            .foregroundColor(.gray)
+                            .bold()
+                            .padding(.leading, 25)
+                        Spacer()
+                    }
+                    let othersLabels = ["ペナルティ履歴"]
+                    ForEach(0 ..< othersLabels.count, id: \.self) { index in
+                        SettingCard(label: "\(othersLabels[index])", action: {
+                            router.navigateToView(destination: router.friendNavigationPath[index])
+                        })
+                    }
                 }
-                let friendLabels = ["フレンド検索"]
-                ForEach(0 ..< friendLabels.count, id: \.self) { index in
-                    SettingCard(label: "\(friendLabels[index])", action: {
-                        router.navigateToView(destination: router.friendNavigationPath[index])
-                    })
-                }
-                SettingExclamationMarkCard(label: "フレンド承認", isShowMark: true, action: {
-                    router.navigateToView(destination: .friendApproval)
+                .padding(.bottom)
+                
+                LogoutButton(action: {
+                    service.logout()
                 })
             }
-            .padding(.bottom)
-            
-            // その他
-            VStack {
-                HStack {
-                    Text("その他")
-                        .font(.caption)
-                        .foregroundColor(.gray)
-                        .bold()
-                    Spacer()
-                }
-                let othersLabels = ["ペナルティ履歴"]
-                ForEach(0 ..< othersLabels.count, id: \.self) { index in
-                    SettingCard(label: "\(othersLabels[index])", action: {
-                        router.navigateToView(destination: router.friendNavigationPath[index])
-                    })
-                }
-            }
-            .padding(.bottom)
-            
-            Spacer()
-            
-            LogoutButton(action: {
-                service.logout()
-            })
         }
         .onAppear {
             viewModel.onAppear()

@@ -51,16 +51,16 @@ struct FriendSearchView: View {
                         .stroke(.primary, lineWidth: 1)
                 )
             }
-            .padding(.horizontal)
-            
-            ForEach(0 ..< viewModel.userList.count, id: \.self) { index in
-                FriendSearchCard(name: viewModel.userList[index].name, userName: viewModel.userList[index].userName, followAction: {
-                    viewModel.followFriend(friendId: viewModel.userList[index]._id)
-                })
-            }
             .padding()
             
-            Spacer()
+            ScrollView(showsIndicators: false) {
+                ForEach(0 ..< viewModel.userList.count, id: \.self) { index in
+                    FriendSearchCard(name: viewModel.userList[index].name, userName: viewModel.userList[index].userName, followAction: {
+                        viewModel.followFriend(friendId: viewModel.userList[index]._id)
+                    })
+                }
+                .padding()
+            }
         }
         .onAppear {
             isFocused = true
