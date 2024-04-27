@@ -6,5 +6,5 @@
 //
 
 struct RelationshipDto: Codable {
-  var followsId: String
+    var followsId: String
 }

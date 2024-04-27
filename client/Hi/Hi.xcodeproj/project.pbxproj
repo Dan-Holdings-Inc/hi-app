@@ -18,6 +18,7 @@
 		5C1C7BF62BC41B79003049A1 /* HiUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1C7BF52BC41B79003049A1 /* HiUITestsLaunchTests.swift */; };
 		5C3545C32BC6714E0011E78D /* AccountSettingUserID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3545C22BC6714E0011E78D /* AccountSettingUserID.swift */; };
 		5C3545C82BC67B990011E78D /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3545C72BC67B990011E78D /* BackButton.swift */; };
+		5C382EB32BDD91D600B4C2FC /* PenaltyHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C382EB22BDD91D600B4C2FC /* PenaltyHistoryView.swift */; };
 		5C49CB822BD1732000DE1630 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C49CB812BD1732000DE1630 /* SettingViewModel.swift */; };
 		5C53B5F02BDD3A760026228F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C53B5EF2BDD3A760026228F /* Colors.swift */; };
 		5C818C9D2BC4DE56005A6FC1 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C818C9C2BC4DE56005A6FC1 /* HomeView.swift */; };
@@ -34,6 +35,9 @@
 		5C93BEA82BC6253F00C715DF /* Auth0 in Frameworks */ = {isa = PBXBuildFile; productRef = 5C93BEA72BC6253F00C715DF /* Auth0 */; };
 		5C93BEAB2BC625DE00C715DF /* Auth0Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C93BEAA2BC625DE00C715DF /* Auth0Service.swift */; };
 		5C93BEB52BC6633700C715DF /* AccountSettingName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C93BEB42BC6633700C715DF /* AccountSettingName.swift */; };
+		5CB723952BDD6A8100B8A213 /* FriendSearchCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB723942BDD6A8100B8A213 /* FriendSearchCard.swift */; };
+		5CB7239C2BDD73E700B8A213 /* FriendSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB7239B2BDD73E700B8A213 /* FriendSearchModel.swift */; };
+		5CB7239E2BDD73F500B8A213 /* FriendSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB7239D2BDD73F500B8A213 /* FriendSearchViewModel.swift */; };
 		5CC148602BDCF5E600DC5F49 /* TabShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC1485F2BDCF5E600DC5F49 /* TabShape.swift */; };
 		5CC148622BDCFC9B00DC5F49 /* TabPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC148612BDCFC9B00DC5F49 /* TabPosition.swift */; };
 		5CC2BE782BC91B9A00C56A21 /* FriendSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC2BE772BC91B9A00C56A21 /* FriendSearchView.swift */; };
@@ -98,6 +102,7 @@
 		5C1C7BF52BC41B79003049A1 /* HiUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		5C3545C22BC6714E0011E78D /* AccountSettingUserID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingUserID.swift; sourceTree = "<group>"; };
 		5C3545C72BC67B990011E78D /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
+		5C382EB22BDD91D600B4C2FC /* PenaltyHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenaltyHistoryView.swift; sourceTree = "<group>"; };
 		5C49CB812BD1732000DE1630 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		5C53B5EF2BDD3A760026228F /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		5C818C9C2BC4DE56005A6FC1 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -113,6 +118,9 @@
 		5C93BEA42BC623D300C715DF /* Auth0.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Auth0.plist; sourceTree = "<group>"; };
 		5C93BEAA2BC625DE00C715DF /* Auth0Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth0Service.swift; sourceTree = "<group>"; };
 		5C93BEB42BC6633700C715DF /* AccountSettingName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingName.swift; sourceTree = "<group>"; };
+		5CB723942BDD6A8100B8A213 /* FriendSearchCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendSearchCard.swift; sourceTree = "<group>"; };
+		5CB7239B2BDD73E700B8A213 /* FriendSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendSearchModel.swift; sourceTree = "<group>"; };
+		5CB7239D2BDD73F500B8A213 /* FriendSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendSearchViewModel.swift; sourceTree = "<group>"; };
 		5CC1485F2BDCF5E600DC5F49 /* TabShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabShape.swift; sourceTree = "<group>"; };
 		5CC148612BDCFC9B00DC5F49 /* TabPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabPosition.swift; sourceTree = "<group>"; };
 		5CC2BE772BC91B9A00C56A21 /* FriendSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendSearchView.swift; sourceTree = "<group>"; };
@@ -236,6 +244,14 @@
 			path = HiUITests;
 			sourceTree = "<group>";
 		};
+		5C382EB12BDD918300B4C2FC /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				5C382EB22BDD91D600B4C2FC /* PenaltyHistoryView.swift */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
 		5C53B5EE2BDD3A540026228F /* Constant */ = {
 			isa = PBXGroup;
 			children = (
@@ -332,10 +348,20 @@
 			path = AccountCreate;
 			sourceTree = "<group>";
 		};
-		5CC2BE722BC9062800C56A21 /* Friend */ = {
+		5CB723982BDD73AA00B8A213 /* FriendSearch */ = {
 			isa = PBXGroup;
 			children = (
 				5CC2BE772BC91B9A00C56A21 /* FriendSearchView.swift */,
+				5CB7239D2BDD73F500B8A213 /* FriendSearchViewModel.swift */,
+				5CB7239B2BDD73E700B8A213 /* FriendSearchModel.swift */,
+			);
+			path = FriendSearch;
+			sourceTree = "<group>";
+		};
+		5CC2BE722BC9062800C56A21 /* Friend */ = {
+			isa = PBXGroup;
+			children = (
+				5CB723982BDD73AA00B8A213 /* FriendSearch */,
 				5CC2BE792BC9216400C56A21 /* FriendApprovalView.swift */,
 			);
 			path = Friend;
@@ -369,6 +395,7 @@
 				5CCC35FB2BC4EB7D003B00C5 /* UserCard.swift */,
 				5CD375302BC822B6004BFF4E /* SettingCard.swift */,
 				5CD375372BC84B1E004BFF4E /* SettingExclamationMarkCard.swift */,
+				5CB723942BDD6A8100B8A213 /* FriendSearchCard.swift */,
 			);
 			path = Card;
 			sourceTree = "<group>";
@@ -398,6 +425,7 @@
 				5C93BEB32BC6632100C715DF /* AccountCreate */,
 				5C818C9E2BC4E152005A6FC1 /* Setting */,
 				5CC2BE722BC9062800C56A21 /* Friend */,
+				5C382EB12BDD918300B4C2FC /* Other */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -579,6 +607,7 @@
 				5CCC36032BC55B11003B00C5 /* LoginView.swift in Sources */,
 				B5F69C6B2BDDA42C00261B52 /* DeleteModel.swift in Sources */,
 				5C53B5F02BDD3A760026228F /* Colors.swift in Sources */,
+				5C382EB32BDD91D600B4C2FC /* PenaltyHistoryView.swift in Sources */,
 				5CC148602BDCF5E600DC5F49 /* TabShape.swift in Sources */,
 				5CC148622BDCFC9B00DC5F49 /* TabPosition.swift in Sources */,
 				B5ED02492BDCE98D00D37955 /* TimeSettingModel.swift in Sources */,
@@ -590,10 +619,13 @@
 				5CE5DE302BDB58AE0023B864 /* User.swift in Sources */,
 				5C93BEAB2BC625DE00C715DF /* Auth0Service.swift in Sources */,
 				5C3545C32BC6714E0011E78D /* AccountSettingUserID.swift in Sources */,
+				5CB7239C2BDD73E700B8A213 /* FriendSearchModel.swift in Sources */,
 				B5ED02452BDBD37300D37955 /* UserChangeDto.swift in Sources */,
+				5CB7239E2BDD73F500B8A213 /* FriendSearchViewModel.swift in Sources */,
 				5C3545C82BC67B990011E78D /* BackButton.swift in Sources */,
 				5CF546F82BDCDE8000481709 /* TabModel.swift in Sources */,
 				5CFCEC2D2BC7B69800CE530A /* DayOfWeekButton.swift in Sources */,
+				5CB723952BDD6A8100B8A213 /* FriendSearchCard.swift in Sources */,
 				5C93BE9E2BC585B300C715DF /* LogoutButton.swift in Sources */,
 				5C149F1A2BD3D4330034ABCC /* ApiService.swift in Sources */,
 				5C93BE9C2BC57A1D00C715DF /* NavigationRouter.swift in Sources */,

@@ -41,7 +41,7 @@ struct HiApp: App {
                         case .settingDayOfWeek:
                             SettingDayOfWeekView(viewModel: TimeSettingViewModel())
                         case .friendSearch:
-                            FriendSearchView()
+                            FriendSearchView(viewModel: FriendSearchViewModel())
                         case .friendApproval:
                             FriendApprovalView()
                         }
