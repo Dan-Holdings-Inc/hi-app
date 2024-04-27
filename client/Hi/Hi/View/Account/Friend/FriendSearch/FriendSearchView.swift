@@ -55,7 +55,7 @@ struct FriendSearchView: View {
             
             ForEach(0 ..< viewModel.userList.count, id: \.self) { index in
                 FriendSearchCard(name: viewModel.userList[index].name, userName: viewModel.userList[index].userName, followAction: {
-                    print("フォロー！")
+                    viewModel.followFriend(friendId: viewModel.userList[index]._id)
                 })
             }
             .padding()

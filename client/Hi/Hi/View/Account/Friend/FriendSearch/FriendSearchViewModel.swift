@@ -30,4 +30,24 @@ class FriendSearchViewModel: ObservableObject {
             })
             .store(in: &cancellables)
     }
+    
+    func followFriend(friendId: String) {
+        let userDefaults = UserDefaultsHelper()
+        let id = userDefaults.getStringData(key: "id")
+        let newRelationshipDto = RelationshipDto(followsId: friendId)
+        
+        FriendSearchModel.postFollow(relationshipDto: newRelationshipDto, id: id)
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .finished:
+                    print("フォロー成功")
+                    break
+                case .failure(let error):
+                    print(error.errorDescription)
+                }
+            }, receiveValue: { data in
+                print(data)
+            })
+            .store(in: &cancellables)
+    }
 }
