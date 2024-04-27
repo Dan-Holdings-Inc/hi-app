@@ -11,6 +11,7 @@ import Combine
 enum ApiError: Error {
     case emptyData
     case invalidURL
+    case networkError
     case decodingFailed
     case encodingFailed
     case unknown
@@ -21,6 +22,8 @@ enum ApiError: Error {
             return "ユーザーデータが存在しない"
         case .invalidURL:
             return "URLが無効"
+        case .networkError:
+            return "ネットワークエラー"
         case .decodingFailed:
             return "デコード失敗"
         case .encodingFailed:
@@ -44,6 +47,7 @@ class ApiService {
         guard let httpResponse = response as? HTTPURLResponse else {
             throw ApiError.unknown
         }
+        print(httpResponse.statusCode)
         switch httpResponse.statusCode {
         case 200:
             return data

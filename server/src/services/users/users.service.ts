@@ -27,6 +27,31 @@ export class UsersService {
     });
   }
 
+  async search(identifier: string) {
+    return await this.dbService.users
+      .find({
+        $or: [
+          {
+            _id: {
+              $regex: `${identifier}`,
+            },
+          },
+          {
+            email: {
+              $regex: `${identifier}`,
+            },
+          },
+          {
+            userName: {
+              $regex: `${identifier}`,
+            },
+          },
+        ],
+      })
+      .lean()
+      .exec();
+  }
+
   /**
    * 初回登録処理
    * @param dto

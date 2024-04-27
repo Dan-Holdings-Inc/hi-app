@@ -62,6 +62,7 @@ class LoginViewModel: ObservableObject {
     }
     
     func setUserData(user: UserWithRelatedData) {
+        userDefaults.set(value: user._id, key: "id")
         userDefaults.set(value: user.email, key: "email")
         userDefaults.set(value: user.name, key: "name")
         userDefaults.set(value: user.userName, key: "userName")

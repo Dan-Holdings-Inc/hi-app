@@ -29,6 +29,7 @@ class Auth0Service: ObservableObject {
                         return
                     }
                     print(credentials.idToken)
+                    self.userDefaults.set(value: credentials.idToken, key: "idToken")
                     print("Obtained credentials: \(credentials)")
                     
                     let jwt = try! decode(jwt: credentials.idToken)

@@ -99,21 +99,25 @@ struct SettingView: View {
 // 以降、各種設定画面への遷移後のビュー
 struct SettingNameView: View {
     @EnvironmentObject var router: NavigationRouter
+    @ObservedObject var viewModel: SettingViewModel
     
     var body: some View {
         AccountSettingName(viewModel: AccountCommonNameViewModel(), nextButtonLabel: "変更する", isShowBackButton: true, routerAction: {
             router.backPage()
-        })
+            viewModel.putUserData()
+    })
         .navigationBarHidden(true)
     }
 }
 
 struct SettingUserIDView: View {
     @EnvironmentObject var router: NavigationRouter
+    @ObservedObject var viewModel: SettingViewModel
     
     var body: some View {
-        AccountSettingUserID(nextButtonLabel: "変更する", action: {
+        AccountSettingUserID(viewModel: AccountCommonUserIDViewModel(),nextButtonLabel: "変更する", action: {
             router.backPage()
+            viewModel.putUserData()
         })
         .navigationBarHidden(true)
     }
@@ -141,6 +145,6 @@ struct SettingDayOfWeekView: View {
     }
 }
 
-#Preview {
-    SettingView()
-}
+//#Preview {
+//    SettingView()
+//}
