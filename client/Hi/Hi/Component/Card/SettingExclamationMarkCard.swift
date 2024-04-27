@@ -41,7 +41,6 @@ struct SettingExclamationMarkCard: View {
                 .padding(.horizontal)
             }
             .frame(width: screenWidth * 0.9, height: 50)
-            .shadow(radius: 5)
         }
     }
 }

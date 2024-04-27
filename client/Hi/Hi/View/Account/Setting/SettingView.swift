@@ -13,15 +13,25 @@ struct SettingView: View {
     @ObservedObject var viewModel = SettingViewModel()
     
     var body: some View {
+        let screenWidth = UIScreen.main.bounds.width
         VStack {
-            VStack {
-                Text("\(viewModel.name)")
-                    .font(.largeTitle)
-                    .bold()
-                    .padding(.bottom, 5)
-                Text("ユーザーID：\(viewModel.userID)")
-                    .font(.headline)
-                    .padding(.bottom)
+            ZStack {
+                RoundedRectangle(cornerRadius: 20)
+                    .frame(width: screenWidth * 0.9, height: 100)
+                    .foregroundColor(.white)
+                    .shadow(color: .gray, radius: 6)
+                
+                VStack {
+                    Text("\(viewModel.name)")
+                        .font(.largeTitle)
+                        .bold()
+                        .shadow(radius: 5)
+                        .padding(.vertical, 5)
+                    Text("ユーザーID：\(viewModel.userID)")
+                        .font(.headline)
+                        .shadow(radius: 5)
+                        .padding(.bottom, 5)
+                }
             }
             .padding()
             
