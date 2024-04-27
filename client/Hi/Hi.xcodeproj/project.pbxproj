@@ -33,9 +33,11 @@
 		5C93BEA82BC6253F00C715DF /* Auth0 in Frameworks */ = {isa = PBXBuildFile; productRef = 5C93BEA72BC6253F00C715DF /* Auth0 */; };
 		5C93BEAB2BC625DE00C715DF /* Auth0Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C93BEAA2BC625DE00C715DF /* Auth0Service.swift */; };
 		5C93BEB52BC6633700C715DF /* AccountSettingName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C93BEB42BC6633700C715DF /* AccountSettingName.swift */; };
+		5CC148602BDCF5E600DC5F49 /* TabShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC1485F2BDCF5E600DC5F49 /* TabShape.swift */; };
+		5CC148622BDCFC9B00DC5F49 /* TabPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC148612BDCFC9B00DC5F49 /* TabPosition.swift */; };
 		5CC2BE782BC91B9A00C56A21 /* FriendSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC2BE772BC91B9A00C56A21 /* FriendSearchView.swift */; };
 		5CC2BE7A2BC9216400C56A21 /* FriendApprovalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC2BE792BC9216400C56A21 /* FriendApprovalView.swift */; };
-		5CCC35FA2BC4E4F1003B00C5 /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCC35F92BC4E4F1003B00C5 /* MainTabBar.swift */; };
+		5CCC35FA2BC4E4F1003B00C5 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCC35F92BC4E4F1003B00C5 /* TabBar.swift */; };
 		5CCC35FC2BC4EB7D003B00C5 /* UserCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCC35FB2BC4EB7D003B00C5 /* UserCard.swift */; };
 		5CCC35FF2BC51276003B00C5 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCC35FE2BC51276003B00C5 /* HomeViewModel.swift */; };
 		5CCC36032BC55B11003B00C5 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCC36022BC55B11003B00C5 /* LoginView.swift */; };
@@ -50,6 +52,7 @@
 		5CED66EF2BC987A6007183F1 /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CED66EE2BC987A6007183F1 /* UserDefaultsHelper.swift */; };
 		5CF341A82BD15B5C000B4D2A /* AccountCommonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF341A72BD15B5C000B4D2A /* AccountCommonViewModel.swift */; };
 		5CF46EC32BD927980036B9A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF46EC22BD927980036B9A9 /* AppDelegate.swift */; };
+		5CF546F82BDCDE8000481709 /* TabModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF546F72BDCDE8000481709 /* TabModel.swift */; };
 		5CFB76392BC6FB6700741DC8 /* AccountSettingWakeUpTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFB76382BC6FB6700741DC8 /* AccountSettingWakeUpTime.swift */; };
 		5CFB763C2BC7014300741DC8 /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFB763B2BC7014300741DC8 /* DateFormat.swift */; };
 		5CFCEC2D2BC7B69800CE530A /* DayOfWeekButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFCEC2C2BC7B69800CE530A /* DayOfWeekButton.swift */; };
@@ -106,9 +109,11 @@
 		5C93BEA42BC623D300C715DF /* Auth0.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Auth0.plist; sourceTree = "<group>"; };
 		5C93BEAA2BC625DE00C715DF /* Auth0Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth0Service.swift; sourceTree = "<group>"; };
 		5C93BEB42BC6633700C715DF /* AccountSettingName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingName.swift; sourceTree = "<group>"; };
+		5CC1485F2BDCF5E600DC5F49 /* TabShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabShape.swift; sourceTree = "<group>"; };
+		5CC148612BDCFC9B00DC5F49 /* TabPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabPosition.swift; sourceTree = "<group>"; };
 		5CC2BE772BC91B9A00C56A21 /* FriendSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendSearchView.swift; sourceTree = "<group>"; };
 		5CC2BE792BC9216400C56A21 /* FriendApprovalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendApprovalView.swift; sourceTree = "<group>"; };
-		5CCC35F92BC4E4F1003B00C5 /* MainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
+		5CCC35F92BC4E4F1003B00C5 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		5CCC35FB2BC4EB7D003B00C5 /* UserCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCard.swift; sourceTree = "<group>"; };
 		5CCC35FE2BC51276003B00C5 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		5CCC36022BC55B11003B00C5 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -124,6 +129,7 @@
 		5CF341A72BD15B5C000B4D2A /* AccountCommonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCommonViewModel.swift; sourceTree = "<group>"; };
 		5CF46EC22BD927980036B9A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5CF46EC42BD928910036B9A9 /* Hi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Hi.entitlements; sourceTree = "<group>"; };
+		5CF546F72BDCDE8000481709 /* TabModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabModel.swift; sourceTree = "<group>"; };
 		5CFB76382BC6FB6700741DC8 /* AccountSettingWakeUpTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingWakeUpTime.swift; sourceTree = "<group>"; };
 		5CFB763B2BC7014300741DC8 /* DateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
 		5CFCEC2C2BC7B69800CE530A /* DayOfWeekButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayOfWeekButton.swift; sourceTree = "<group>"; };
@@ -226,6 +232,7 @@
 		5C818C9A2BC4DDAF005A6FC1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5CF546F92BDCE04200481709 /* Tab */,
 				5CCC36012BC55B00003B00C5 /* Login */,
 				5C818C9B2BC4DE44005A6FC1 /* Home */,
 				5CFBFF582BD01D0100C16EF6 /* Account */,
@@ -261,7 +268,6 @@
 			children = (
 				5CD375322BC822FD004BFF4E /* Card */,
 				5CCC35FD2BC5088C003B00C5 /* Button */,
-				5CCC35F82BC4E4D1003B00C5 /* Tab */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -294,6 +300,7 @@
 				5C847FB52BD5410700BE39B6 /* UserRegistrationDto.swift */,
 				5C847FB32BD540E000BE39B6 /* RelationshipDto.swift */,
 				B5ED02442BDBD37300D37955 /* UserChangeDto.swift */,
+				5CF546F72BDCDE8000481709 /* TabModel.swift */,
 				B5ED02462BDCE93200D37955 /* TimeChangeDto.swift */,
 			);
 			path = Model;
@@ -316,14 +323,6 @@
 				5CC2BE792BC9216400C56A21 /* FriendApprovalView.swift */,
 			);
 			path = Friend;
-			sourceTree = "<group>";
-		};
-		5CCC35F82BC4E4D1003B00C5 /* Tab */ = {
-			isa = PBXGroup;
-			children = (
-				5CCC35F92BC4E4F1003B00C5 /* MainTabBar.swift */,
-			);
-			path = Tab;
 			sourceTree = "<group>";
 		};
 		5CCC35FD2BC5088C003B00C5 /* Button */ = {
@@ -355,6 +354,16 @@
 				5CD375372BC84B1E004BFF4E /* SettingExclamationMarkCard.swift */,
 			);
 			path = Card;
+			sourceTree = "<group>";
+		};
+		5CF546F92BDCE04200481709 /* Tab */ = {
+			isa = PBXGroup;
+			children = (
+				5CCC35F92BC4E4F1003B00C5 /* TabBar.swift */,
+				5CC1485F2BDCF5E600DC5F49 /* TabShape.swift */,
+				5CC148612BDCFC9B00DC5F49 /* TabPosition.swift */,
+			);
+			path = Tab;
 			sourceTree = "<group>";
 		};
 		5CFB763A2BC7011E00741DC8 /* UICore */ = {
@@ -530,7 +539,7 @@
 				B5ED024B2BDCEAB900D37955 /* TimeSettingViewModel.swift in Sources */,
 				5CF46EC32BD927980036B9A9 /* AppDelegate.swift in Sources */,
 				5CD375382BC84B1E004BFF4E /* SettingExclamationMarkCard.swift in Sources */,
-				5CCC35FA2BC4E4F1003B00C5 /* MainTabBar.swift in Sources */,
+				5CCC35FA2BC4E4F1003B00C5 /* TabBar.swift in Sources */,
 				5CCC36052BC56492003B00C5 /* BasicRoundButton.swift in Sources */,
 				5C818C9D2BC4DE56005A6FC1 /* HomeView.swift in Sources */,
 				5CCC35FF2BC51276003B00C5 /* HomeViewModel.swift in Sources */,
@@ -550,6 +559,8 @@
 				B5ED02432BDBCF3800D37955 /* SettingModel.swift in Sources */,
 				5CCC35FC2BC4EB7D003B00C5 /* UserCard.swift in Sources */,
 				5CCC36032BC55B11003B00C5 /* LoginView.swift in Sources */,
+				5CC148602BDCF5E600DC5F49 /* TabShape.swift in Sources */,
+				5CC148622BDCFC9B00DC5F49 /* TabPosition.swift in Sources */,
 				B5ED02492BDCE98D00D37955 /* TimeSettingModel.swift in Sources */,
 				5CC2BE7A2BC9216400C56A21 /* FriendApprovalView.swift in Sources */,
 				5CCDE98D2BCE81FC00764750 /* SoundHelper.swift in Sources */,
@@ -561,6 +572,7 @@
 				5C3545C32BC6714E0011E78D /* AccountSettingUserID.swift in Sources */,
 				B5ED02452BDBD37300D37955 /* UserChangeDto.swift in Sources */,
 				5C3545C82BC67B990011E78D /* BackButton.swift in Sources */,
+				5CF546F82BDCDE8000481709 /* TabModel.swift in Sources */,
 				5CFCEC2D2BC7B69800CE530A /* DayOfWeekButton.swift in Sources */,
 				5C93BE9E2BC585B300C715DF /* LogoutButton.swift in Sources */,
 				5C149F1A2BD3D4330034ABCC /* ApiService.swift in Sources */,

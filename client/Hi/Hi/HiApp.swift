@@ -21,7 +21,7 @@ struct HiApp: App {
                     .navigationDestination(for: NavigationRouter.Path.self) { value in
                         switch value {
                         case .main:
-                            MainTabBar()
+                            TabBar()
                         case .login:
                             LoginView(viewModel: LoginViewModel())
                         case .accountCreateName:
