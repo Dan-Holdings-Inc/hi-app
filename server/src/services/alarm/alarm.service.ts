@@ -6,7 +6,7 @@ import * as timezone from "dayjs/plugin/timezone";
 import * as utc from "dayjs/plugin/utc";
 import { DbService } from "../../infrastructure/db/db.service";
 import { HiService } from "../hi/hi.service";
-import cron from "node-cron";
+import * as cron from "node-cron";
 import { AlarmSession } from "src/entity/entities/alarm-session";
 import { randomUUID } from "crypto";
 dayjs.extend(utc);
@@ -17,7 +17,7 @@ export class AlarmService {
     private dbService: DbService,
     private hiService: HiService
   ) {
-    console.log("AlarmServiceの初期化開始");
+    console.log("AlarmServiceの初期化開始", cron);
     this.setUpAlarms();
     cron.schedule("0 0 0 * * *", () => {
       this.setUpAlarms();
@@ -25,6 +25,7 @@ export class AlarmService {
   }
 
   async setUpAlarms() {
+    //TODO: 今日に設定されているアラームのみスケジューリングするようにする
     await this.dbService.alarmSessions.deleteMany({});
     const cursor = this.dbService.alarms.find({}).lean().cursor();
     const now = dayjs();
@@ -74,7 +75,8 @@ export class AlarmService {
       await alarmSession.save();
       const date = dayjs
         .tz(alarmSession.startDate, TIMEZONE)
-        .add(alarmSession.round - 1, "hour");
+        // .add(alarmSession.round - 1, "hour");
+        .add(alarmSession.round - 1, "second");
       const cronExpression = this.createCronExpression(date);
       cron.schedule(cronExpression, () => {
         this.cronCallback(alarmSession.userId);
@@ -127,9 +129,10 @@ export class AlarmService {
     const second = date.second();
     const minute = date.minute();
     const hour = date.hour();
-    const day = date.date();
+    const dateOfMonth = date.date();
     const month = date.month() + 1; //month indexは0-11なので一つ足す。
+    const week = date.day();
     const year = date.year();
-    return `${second} ${minute} ${hour} ${day} ${month} ${year}`;
+    return `${second} ${minute} ${hour} ${dateOfMonth} ${month} ${week} ${year}`;
   }
 }
