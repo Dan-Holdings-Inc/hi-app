@@ -47,6 +47,7 @@ class ApiService {
         guard let httpResponse = response as? HTTPURLResponse else {
             throw ApiError.unknown
         }
+        print(httpResponse.statusCode)
         switch httpResponse.statusCode {
         case 200:
             return data

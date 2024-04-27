@@ -33,9 +33,9 @@ struct HiApp: App {
                         case .accountCreateDayOfWeek:
                             AccountCreateDayOfWeekView(viewModel: AccountCreateViewModel())
                         case .settingName:
-                            SettingNameView()
+                            SettingNameView(viewModel: SettingViewModel())
                         case .settingUserID:
-                            SettingUserIDView()
+                            SettingUserIDView(viewModel: SettingViewModel())
                         case .settingWakuUpTime:
                             SettingWakeUpTimeView()
                         case .settingDayOfWeek:
