@@ -277,4 +277,8 @@ export class UsersService {
     };
     return userWithRelationship;
   }
+
+  async getPenalties(userId: string) {
+    return await this.dbService.penaltyHistories.find({ userId }).lean().exec();
+  }
 }

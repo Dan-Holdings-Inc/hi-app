@@ -2,11 +2,20 @@ import { Injectable } from "@nestjs/common";
 import { User } from "src/entity/entities/user";
 import { DbService } from "src/infrastructure/db/db.service";
 import { SNS } from "aws-sdk";
+import { response } from "express";
+import { HiHistory } from "src/entity/entities/hi-history";
+import { randomUUID } from "crypto";
+import * as dayjs from "dayjs";
+import { TIMEZONE } from "src/utils";
 
 @Injectable()
 export class HiService {
   constructor(private dbService: DbService) {}
-  async sendHi(sender: User, receiver: User) {
+  async sendHi(
+    sender: User | "system",
+    receiver: User,
+    systemMessage?: string
+  ) {
     const sns = new SNS({ apiVersion: "2010-03-31" });
 
     const deviceTokens = await this.dbService.deviceTokens
@@ -33,10 +42,19 @@ export class HiService {
         const params = {
           // MessageEvent: "json",
           TargetArn: ep.EndpointArn,
-          Message: `Hi from ${sender.name}`,
+          Message:
+            sender === "system" ? systemMessage : `Hi from ${sender.name}`,
         };
         return sns.publish(params).promise();
       })
     );
+
+    const hiHistory: HiHistory = {
+      _id: randomUUID(),
+      senderUserId: sender === "system" ? sender : sender._id,
+      receiverUserId: receiver._id,
+      date: dayjs().tz(TIMEZONE).toDate(),
+    };
+    await this.dbService.hiHistories.create(hiHistory);
   }
 }

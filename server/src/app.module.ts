@@ -4,13 +4,13 @@ import { InfrastructureModule } from "./infrastructure/infrastructure.module";
 import { DbService } from "./infrastructure/db/db.service";
 import { UsersController } from "./controllers/user/user.controller";
 import { UsersService } from "./services/users/users.service";
-import { HiController } from './controllers/hi/hi.controller';
-import { HiService } from './services/hi/hi.service';
-import { SearchController } from './controllers/search/search.controller';
-
+import { HiController } from "./controllers/hi/hi.controller";
+import { HiService } from "./services/hi/hi.service";
+import { AlarmService } from "./services/alarm/alarm.service";
+import { SearchController } from "./controllers/search/search.controller";
 @Module({
   imports: [AuthModule, InfrastructureModule],
   controllers: [UsersController, HiController, SearchController],
-  providers: [DbService, UsersService, HiService],
+  providers: [DbService, UsersService, HiService, AlarmService],
 })
 export class AppModule {}
