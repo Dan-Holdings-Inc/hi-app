@@ -65,6 +65,7 @@
 		B5ED02472BDCE93200D37955 /* TimeChangeDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ED02462BDCE93200D37955 /* TimeChangeDto.swift */; };
 		B5ED02492BDCE98D00D37955 /* TimeSettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ED02482BDCE98D00D37955 /* TimeSettingModel.swift */; };
 		B5ED024B2BDCEAB900D37955 /* TimeSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ED024A2BDCEAB900D37955 /* TimeSettingViewModel.swift */; };
+		B5ED024D2BDD494500D37955 /* SearchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ED024C2BDD494500D37955 /* SearchButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -146,6 +147,7 @@
 		B5ED02462BDCE93200D37955 /* TimeChangeDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeChangeDto.swift; sourceTree = "<group>"; };
 		B5ED02482BDCE98D00D37955 /* TimeSettingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSettingModel.swift; sourceTree = "<group>"; };
 		B5ED024A2BDCEAB900D37955 /* TimeSettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSettingViewModel.swift; sourceTree = "<group>"; };
+		B5ED024C2BDD494500D37955 /* SearchButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -359,6 +361,7 @@
 				5CCC36042BC56492003B00C5 /* BasicRoundButton.swift */,
 				5CFCEC2C2BC7B69800CE530A /* DayOfWeekButton.swift */,
 				5C93BE9D2BC585B300C715DF /* LogoutButton.swift */,
+				B5ED024C2BDD494500D37955 /* SearchButton.swift */,
 			);
 			path = Button;
 			sourceTree = "<group>";
@@ -569,6 +572,7 @@
 				5CD375382BC84B1E004BFF4E /* SettingExclamationMarkCard.swift in Sources */,
 				5CCC35FA2BC4E4F1003B00C5 /* TabBar.swift in Sources */,
 				5CCC36052BC56492003B00C5 /* BasicRoundButton.swift in Sources */,
+				B5ED024D2BDD494500D37955 /* SearchButton.swift in Sources */,
 				5C818C9D2BC4DE56005A6FC1 /* HomeView.swift in Sources */,
 				5CCC35FF2BC51276003B00C5 /* HomeViewModel.swift in Sources */,
 				5CD31A332BC7BC2B007B6135 /* AccountSettingDayOfWeek.swift in Sources */,
