@@ -7,11 +7,11 @@
 
 import Foundation
 import SwiftUI
+import Combine
 
 class HomeViewModel: ObservableObject {
-    @Published var cardColors: [Color] = [.pink, .blue, .green, .gray, .yellow]
-    
     let soundHelper = SoundHelper()
+    private var cancellables: Set<AnyCancellable> = []
     
     func userCardButtonAction(name: String) {
         print("\(name)にHiを送信")
