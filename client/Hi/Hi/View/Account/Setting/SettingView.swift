@@ -35,6 +35,7 @@ struct SettingView: View {
             }
             .padding()
             
+            // 設定部分
             VStack {
                 HStack {
                     Image(systemName: "gearshape")
@@ -57,6 +58,7 @@ struct SettingView: View {
             }
             .padding(.bottom)
             
+            // フレンド
             VStack {
                 HStack {
                     Image(systemName: "person")
@@ -79,6 +81,24 @@ struct SettingView: View {
                 SettingExclamationMarkCard(label: "フレンド承認", isShowMark: true, action: {
                     router.navigateToView(destination: .friendApproval)
                 })
+            }
+            .padding(.bottom)
+            
+            // その他
+            VStack {
+                HStack {
+                    Text("その他")
+                        .font(.caption)
+                        .foregroundColor(.gray)
+                        .bold()
+                    Spacer()
+                }
+                let othersLabels = ["ペナルティ履歴"]
+                ForEach(0 ..< othersLabels.count, id: \.self) { index in
+                    SettingCard(label: "\(othersLabels[index])", action: {
+                        router.navigateToView(destination: router.friendNavigationPath[index])
+                    })
+                }
             }
             .padding(.bottom)
             
