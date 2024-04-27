@@ -10,7 +10,7 @@ import Foundation
 struct User: Codable, Hashable {
     var _id: String
     var email: String
-    var name: String
     var userName: String
+    var name: String
     var __v: Int
 }

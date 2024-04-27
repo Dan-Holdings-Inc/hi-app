@@ -13,7 +13,6 @@ class SettingModel {
         guard let url = URL(string: ApiService.apiServer + "users/" + id) else {
             return Fail(error: .invalidURL).eraseToAnyPublisher()
         }
-        print(id)
         
         do {
             var request = try ApiService.buildRequest(url: url, httpMethod: "PUT")
