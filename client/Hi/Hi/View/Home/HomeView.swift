@@ -16,31 +16,54 @@ struct HomeView: View {
     var body: some View {
         VStack {
             HStack{
-                Image(systemName: "magnifyingglass")
-                    .foregroundColor(.gray)
-                TextField("検索", text: $searchText)
-                    .focused($isFocused)
-                    .toolbar {
-                        ToolbarItemGroup(placement: .keyboard) {
-                            Spacer()
-                            Button("閉じる") {
-                                isFocused = false
+                HStack{
+                    TextField("検索", text: $searchText)
+                        .focused($isFocused)
+                        .toolbar {
+                            ToolbarItemGroup(placement: .keyboard) {
+                                Spacer()
+                                Button("閉じる") {
+                                    isFocused = false
+                                }
                             }
                         }
-                    }
-                if isFocused {
-                    Button(action: {
-                        self.searchText = ""
-                    }){
-                        Image(systemName: "multiply.circle.fill")
-                            .foregroundColor(.gray)
+                        .onSubmit {
+                            if searchText.isEmpty{
+                                print("入力なし")
+                            }else{
+                                print("\(searchText)")
+                                let isFollowing = userEnvironmentData.user.followings.contains { user in
+                                    user.name == searchText
+                                }
+                                print(isFollowing)
+                            }
+                        }
+                    if isFocused {
+                        Button(action: {
+                            self.searchText = ""
+                        }){
+                            Image(systemName: "multiply.circle.fill")
+                                .foregroundColor(.gray)
+                        }
                     }
                 }
+                .padding()
+                .background(Color(.systemGray5))
+                .cornerRadius(15)
+                .padding(.leading)
+                SearchButton(action: {
+                    if searchText.isEmpty{
+                        print("入力なし")
+                    }else{
+                        print("\(searchText)")
+                        let isFollowing = userEnvironmentData.user.followings.contains { user in
+                            user.name == searchText
+                        }
+                        print(isFollowing)
+                    }
+                })
+                .padding(.trailing)
             }
-            .padding()
-            .background(Color(.systemGray5))
-            .cornerRadius(15)
-            .padding(.horizontal)
             
             if userEnvironmentData.user.followings.isEmpty {
                 VStack {

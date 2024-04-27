@@ -8,11 +8,30 @@
 import SwiftUI
 
 struct SearchButton: View {
+    var action: () -> Void
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        Button(action: {
+            action()
+        }){
+            ZStack{
+                Image(systemName: "magnifyingglass")
+                    .bold()
+                    .padding()
+                    .frame(width: 50, height: 50)
+                    .foregroundColor(Color.gray)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.gray, lineWidth: 3)
+                    )
+            }
+        }
     }
 }
 
 #Preview {
-    SearchButton()
+    SearchButton {
+        print("検索します")
+    }
 }
