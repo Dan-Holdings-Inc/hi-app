@@ -32,17 +32,17 @@ export class UsersService {
       .find({
         $or: [
           {
-            _id: {
-              $regex: `${identifier}`,
-            },
-          },
-          {
             email: {
               $regex: `${identifier}`,
             },
           },
           {
             userName: {
+              $regex: `${identifier}`,
+            },
+          },
+          {
+            name: {
               $regex: `${identifier}`,
             },
           },
