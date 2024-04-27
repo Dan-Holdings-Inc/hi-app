@@ -2,6 +2,7 @@ import { Injectable } from "@nestjs/common";
 import { User } from "src/entity/entities/user";
 import { DbService } from "src/infrastructure/db/db.service";
 import { SNS } from "aws-sdk";
+import { response } from "express";
 
 @Injectable()
 export class HiService {

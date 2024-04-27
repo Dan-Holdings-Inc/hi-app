@@ -17,11 +17,10 @@ export class AlarmService {
     private dbService: DbService,
     private hiService: HiService
   ) {
-    console.log("AlarmServiceの初期化開始", cron);
     this.setUpAlarms();
-    cron.schedule("0 0 0 * * *", () => {
-      this.setUpAlarms();
-    });
+    // cron.schedule("0 29 16 * * *", () => {
+    //   this.setUpAlarms();
+    // });
   }
 
   async setUpAlarms() {
@@ -65,7 +64,12 @@ export class AlarmService {
     } else {
       message = "二度寝していませんか？";
     }
-    this.hiService.sendHi("system", user, message);
+
+    try {
+      this.hiService.sendHi("system", user, message);
+    } catch (error) {
+      console.error(error);
+    }
     alarmSession.round += 1;
     alarmSession.isNew = false;
 
