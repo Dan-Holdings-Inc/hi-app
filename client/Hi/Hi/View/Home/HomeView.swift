@@ -46,6 +46,7 @@ struct HomeView: View {
                     UserCard(userName: "Tiffany", color: .gray, action: {
                         viewModel.userCardButtonAction(name: "Tiffany")
                     })
+                    .listRowInsets(EdgeInsets())
                 }
                 ForEach(0 ..< userEnvironmentData.user.followings.count, id: \.self) { index in
                     UserCard(userName: userEnvironmentData.user.followings[index].name, color: viewModel.cardColors[index % viewModel.cardColors.count], action: {
@@ -60,6 +61,8 @@ struct HomeView: View {
                 }
             }
             .listStyle(GroupedListStyle())
+            .scrollContentBackground(.hidden)
+            .background(.white)
         }
     }
 }
