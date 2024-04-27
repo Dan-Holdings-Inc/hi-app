@@ -9,6 +9,7 @@ import { HiService } from "../hi/hi.service";
 import * as cron from "node-cron";
 import { AlarmSession } from "src/entity/entities/alarm-session";
 import { randomUUID } from "crypto";
+import { PenaltyHistory } from "src/entity/entities/penalty-history";
 dayjs.extend(utc);
 dayjs.extend(timezone);
 @Injectable()
@@ -66,10 +67,11 @@ export class AlarmService {
     }
 
     try {
-      this.hiService.sendHi("system", user, message);
+      await this.hiService.sendHi("system", user, message);
     } catch (error) {
       console.error(error);
     }
+
     alarmSession.round += 1;
     alarmSession.isNew = false;
 
@@ -77,13 +79,22 @@ export class AlarmService {
       await alarmSession.deleteOne().exec();
     } else {
       await alarmSession.save();
-      const date = dayjs
+      const dateToNotifyNextTime = dayjs
         .tz(alarmSession.startDate, TIMEZONE)
-        // .add(alarmSession.round - 1, "hour");
-        .add(alarmSession.round - 1, "second");
-      const cronExpression = this.createCronExpression(date);
-      cron.schedule(cronExpression, () => {
+        .add(alarmSession.round - 1, "hour");
+      const cronExpressionForNextRound =
+        this.createCronExpression(dateToNotifyNextTime);
+      cron.schedule(cronExpressionForNextRound, () => {
         this.cronCallback(alarmSession.userId);
+      });
+      const detectionWithinMinute = 1;
+      const dateToDetectPenalty = dayjs()
+        .tz(TIMEZONE)
+        .add(detectionWithinMinute, "minute");
+      const cronExpressionForPenaltyDetection =
+        this.createCronExpression(dateToDetectPenalty);
+      cron.schedule(cronExpressionForPenaltyDetection, () => {
+        this.detectPenalty(userId, detectionWithinMinute);
       });
     }
   };
@@ -91,7 +102,7 @@ export class AlarmService {
   /**
    * 次のアラームを設定する日時を計算します。
    */
-  calculateAlarmDate(now: dayjs.Dayjs, alarm: Alarm) {
+  private calculateAlarmDate(now: dayjs.Dayjs, alarm: Alarm) {
     const timeRegex = /(\d\d?):(\d\d?)/;
     const getUpTime = alarm.getUpAt.match(timeRegex);
     const hour = Number(getUpTime[1]);
@@ -125,11 +136,45 @@ export class AlarmService {
     return date;
   }
 
+  private detectPenalty = async (userId: string, withinMinute: number = 5) => {
+    const end = dayjs().tz(TIMEZONE);
+    const start = end.subtract(withinMinute, "minute");
+    const hasPenalty = !(await this.hasSentHiWithinPeriod(userId, start, end));
+    if (hasPenalty) {
+      const penaltyHisotry: PenaltyHistory = {
+        _id: randomUUID(),
+        userId,
+        date: dayjs().tz(TIMEZONE).toDate(),
+      };
+      await this.dbService.penaltyHistories.create(penaltyHisotry);
+      return penaltyHisotry;
+    }
+    return null;
+  };
+
+  private async hasSentHiWithinPeriod(
+    userId: string,
+    start: dayjs.Dayjs,
+    end: dayjs.Dayjs
+  ) {
+    const his = await this.dbService.hiHistories
+      .find({
+        senderUserId: userId,
+        date: {
+          $gte: start.tz(TIMEZONE).toDate(),
+          $lte: end.tz(TIMEZONE).toDate(),
+        },
+      })
+      .lean()
+      .exec();
+    return his.length > 0;
+  }
+
   /**
    * Cron書式の文字列を生成します
    * @param date
    */
-  createCronExpression(date: dayjs.Dayjs) {
+  private createCronExpression(date: dayjs.Dayjs) {
     const second = date.second();
     const minute = date.minute();
     const hour = date.hour();
