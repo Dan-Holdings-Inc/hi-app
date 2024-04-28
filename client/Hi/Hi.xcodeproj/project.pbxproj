@@ -61,6 +61,8 @@
 		5CFB76392BC6FB6700741DC8 /* AccountSettingWakeUpTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFB76382BC6FB6700741DC8 /* AccountSettingWakeUpTime.swift */; };
 		5CFB763C2BC7014300741DC8 /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFB763B2BC7014300741DC8 /* DateFormat.swift */; };
 		5CFCEC2D2BC7B69800CE530A /* DayOfWeekButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFCEC2C2BC7B69800CE530A /* DayOfWeekButton.swift */; };
+		B59853062BDDF70900DE3EE6 /* DeleteDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59853052BDDF70900DE3EE6 /* DeleteDto.swift */; };
+		B59853082BDDFECF00DE3EE6 /* DeleteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59853072BDDFECF00DE3EE6 /* DeleteViewModel.swift */; };
 		B5ED02432BDBCF3800D37955 /* SettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ED02422BDBCF3800D37955 /* SettingModel.swift */; };
 		B5ED02452BDBD37300D37955 /* UserChangeDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ED02442BDBD37300D37955 /* UserChangeDto.swift */; };
 		B5ED02472BDCE93200D37955 /* TimeChangeDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ED02462BDCE93200D37955 /* TimeChangeDto.swift */; };
@@ -145,6 +147,8 @@
 		5CFB76382BC6FB6700741DC8 /* AccountSettingWakeUpTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingWakeUpTime.swift; sourceTree = "<group>"; };
 		5CFB763B2BC7014300741DC8 /* DateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
 		5CFCEC2C2BC7B69800CE530A /* DayOfWeekButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayOfWeekButton.swift; sourceTree = "<group>"; };
+		B59853052BDDF70900DE3EE6 /* DeleteDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteDto.swift; sourceTree = "<group>"; };
+		B59853072BDDFECF00DE3EE6 /* DeleteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteViewModel.swift; sourceTree = "<group>"; };
 		B5ED02422BDBCF3800D37955 /* SettingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingModel.swift; sourceTree = "<group>"; };
 		B5ED02442BDBD37300D37955 /* UserChangeDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserChangeDto.swift; sourceTree = "<group>"; };
 		B5ED02462BDCE93200D37955 /* TimeChangeDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeChangeDto.swift; sourceTree = "<group>"; };
@@ -279,6 +283,7 @@
 				5CCC35FE2BC51276003B00C5 /* HomeViewModel.swift */,
 				5CE5DE2D2BDAACA60023B864 /* HomeModel.swift */,
 				B5F69C6A2BDDA42C00261B52 /* DeleteModel.swift */,
+				B59853072BDDFECF00DE3EE6 /* DeleteViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -334,6 +339,7 @@
 				B5ED02442BDBD37300D37955 /* UserChangeDto.swift */,
 				5CF546F72BDCDE8000481709 /* TabModel.swift */,
 				B5ED02462BDCE93200D37955 /* TimeChangeDto.swift */,
+				B59853052BDDF70900DE3EE6 /* DeleteDto.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -586,6 +592,7 @@
 				5CD375382BC84B1E004BFF4E /* SettingExclamationMarkCard.swift in Sources */,
 				5CCC35FA2BC4E4F1003B00C5 /* TabBar.swift in Sources */,
 				5CCC36052BC56492003B00C5 /* BasicRoundButton.swift in Sources */,
+				B59853082BDDFECF00DE3EE6 /* DeleteViewModel.swift in Sources */,
 				B5ED024D2BDD494500D37955 /* SearchButton.swift in Sources */,
 				5C818C9D2BC4DE56005A6FC1 /* HomeView.swift in Sources */,
 				5CCC35FF2BC51276003B00C5 /* HomeViewModel.swift in Sources */,
@@ -620,6 +627,7 @@
 				5C93BEAB2BC625DE00C715DF /* Auth0Service.swift in Sources */,
 				5C3545C32BC6714E0011E78D /* AccountSettingUserID.swift in Sources */,
 				5CB7239C2BDD73E700B8A213 /* FriendSearchModel.swift in Sources */,
+				B59853062BDDF70900DE3EE6 /* DeleteDto.swift in Sources */,
 				B5ED02452BDBD37300D37955 /* UserChangeDto.swift in Sources */,
 				5CB7239E2BDD73F500B8A213 /* FriendSearchViewModel.swift in Sources */,
 				5C3545C82BC67B990011E78D /* BackButton.swift in Sources */,

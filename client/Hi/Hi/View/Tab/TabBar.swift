@@ -18,7 +18,7 @@ struct TabBar: View {
     var body: some View {
         VStack(spacing: 0) {
             TabView(selection: $activeTab) {
-                HomeView(viewModel: HomeViewModel())
+                HomeView(viewModel: HomeViewModel(), viewModel2: DeleteViewModel())
                     .tag(Tab.home)
                 SettingView()
                     .tag(Tab.account)
