@@ -23,11 +23,13 @@ struct SettingView: View {
                 
                 VStack {
                     Text("\(viewModel.name)")
+                        .foregroundColor(.black)
                         .font(.largeTitle)
                         .bold()
                         .shadow(radius: 5)
                         .padding(.vertical, 5)
                     Text("ユーザーID：\(viewModel.userID)")
+                        .foregroundColor(.black)
                         .font(.headline)
                         .shadow(radius: 5)
                         .padding(.bottom, 5)

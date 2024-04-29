@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     @EnvironmentObject var userEnvironmentData: UserEnvironmentData
+    @Environment(\.colorScheme) private var colorScheme
     @ObservedObject var viewModel: HomeViewModel
     @State private var searchText = ""
     @FocusState private var isFocused: Bool
@@ -58,8 +59,9 @@ struct HomeView: View {
                     }
             }
             .padding()
-            .background(Color(.systemGray5))
-            .cornerRadius(15)
+            .background(.white)
+            .cornerRadius(25)
+            .shadow(radius: 5)
             .padding(.horizontal)
 
             if userEnvironmentData.user.followings.isEmpty {
@@ -84,7 +86,7 @@ struct HomeView: View {
             }
             .listStyle(GroupedListStyle())
             .scrollContentBackground(.hidden)
-            .background(Color.white)
+            .background(colorScheme == .light ? .white : .black)
         }
     }
 }
