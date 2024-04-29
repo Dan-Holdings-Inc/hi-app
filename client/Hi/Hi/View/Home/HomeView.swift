@@ -78,6 +78,7 @@ struct HomeView: View {
                 .swipeActions(edge: .trailing) {
                     Button("削除", role: .destructive) {
                         viewModel2.DeleteFriend(friendId: user._id)
+                        userEnvironmentData.user.followings.removeAll { $0._id == user._id }
                             }
                         }
                 .listRowInsets(EdgeInsets())

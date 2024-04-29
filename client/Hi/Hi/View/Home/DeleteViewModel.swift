@@ -23,6 +23,7 @@ class DeleteViewModel: ObservableObject {
                 switch completion {
                 case .finished:
                     print("削除完了")
+                    self.userList = self.userList.filter { $0._id != friendId }
                     break
                 case .failure(let error):
                     print(error.errorDescription)
