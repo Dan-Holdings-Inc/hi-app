@@ -15,6 +15,13 @@ struct User: Codable, Hashable {
     var __v: Int
 }
 
+struct UserBasic: Codable, Hashable {
+    var _id: String
+    var email: String
+    var userName: String
+    var name: String
+}
+
 struct Time: Codable{
     var _id:String
     var userId:String
