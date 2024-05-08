@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 class SettingModel {
-    static func putUserData(userchangeDto: UserChangeDto, id:String) -> AnyPublisher<User, ApiError> {
+    static func putUserData(userchangeDto: UserChangeDto, id:String) -> AnyPublisher<UserBasic, ApiError> {
         guard let url = URL(string: ApiService.apiServer + "users/" + id) else {
             return Fail(error: .invalidURL).eraseToAnyPublisher()
         }
@@ -24,7 +24,7 @@ class SettingModel {
                 .tryMap { data, response in
                     try ApiService.handleResponse(data: data, response: response)
                 }
-                .decode(type: User.self, decoder: JSONDecoder())
+                .decode(type: UserBasic.self, decoder: JSONDecoder())
                 .mapError { error in
                     ApiService.handleError(error: error)
                 }

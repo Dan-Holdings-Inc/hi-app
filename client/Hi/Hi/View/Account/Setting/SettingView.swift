@@ -109,9 +109,6 @@ struct SettingView: View {
                 })
             }
         }
-        .onAppear {
-            viewModel.onAppear()
-        }
         .onChange(of: service.isAuthenticated) {
             if !service.isAuthenticated {
                 router.resetPath()

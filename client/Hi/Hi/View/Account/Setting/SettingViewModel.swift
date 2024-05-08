@@ -13,18 +13,13 @@ class SettingViewModel: ObservableObject {
     @Published var name :String
     @Published var userID :String
     
-    private var cancellables: Set<AnyCancellable> = []
-    
     init() {
-            // イニシャライザで name と userID を初期化します
-            self.name = userDefaultsHelper.getStringData(key: "name")
-            self.userID = userDefaultsHelper.getStringData(key: "userName")
-        }
-    
-    func onAppear() {
-        name = userDefaultsHelper.getStringData(key: "name")
-        userID = userDefaultsHelper.getStringData(key: "userName")
+        // イニシャライザで name と userID を初期化します
+        self.name = userDefaultsHelper.getStringData(key: "name")
+        self.userID = userDefaultsHelper.getStringData(key: "userName")
     }
+    
+    private var cancellables: Set<AnyCancellable> = []
     
     func putUserData(){
         let changeUser = setChangeUserData()
@@ -52,7 +47,7 @@ class SettingViewModel: ObservableObject {
         let getUpAt = userDefaultsHelper.getStringData(key: "wakeUpTime")
         let daysToAlarm = userDefaultsHelper.getArrayData(key: "dayOfWeekSelected") as? [Bool] ?? []
         let changeUserData = UserChangeDto(_id: id, email: email, userName: userName,
-                                              name: name, getUpAt: getUpAt, daysToAlarm: daysToAlarm )
+                                           name: name, getUpAt: getUpAt, daysToAlarm: daysToAlarm )
         
         return changeUserData
     }
