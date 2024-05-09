@@ -16,6 +16,7 @@
 		5C1C7BEA2BC41B79003049A1 /* HiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1C7BE92BC41B79003049A1 /* HiTests.swift */; };
 		5C1C7BF42BC41B79003049A1 /* HiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1C7BF32BC41B79003049A1 /* HiUITests.swift */; };
 		5C1C7BF62BC41B79003049A1 /* HiUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1C7BF52BC41B79003049A1 /* HiUITestsLaunchTests.swift */; };
+		5C1E743F2BEC971100E445FC /* KeyWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1E743E2BEC971100E445FC /* KeyWord.swift */; };
 		5C3545C32BC6714E0011E78D /* AccountSettingUserID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3545C22BC6714E0011E78D /* AccountSettingUserID.swift */; };
 		5C3545C82BC67B990011E78D /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3545C72BC67B990011E78D /* BackButton.swift */; };
 		5C382EB32BDD91D600B4C2FC /* PenaltyHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C382EB22BDD91D600B4C2FC /* PenaltyHistoryView.swift */; };
@@ -102,6 +103,7 @@
 		5C1C7BEF2BC41B79003049A1 /* HiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C1C7BF32BC41B79003049A1 /* HiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiUITests.swift; sourceTree = "<group>"; };
 		5C1C7BF52BC41B79003049A1 /* HiUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		5C1E743E2BEC971100E445FC /* KeyWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyWord.swift; sourceTree = "<group>"; };
 		5C3545C22BC6714E0011E78D /* AccountSettingUserID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingUserID.swift; sourceTree = "<group>"; };
 		5C3545C72BC67B990011E78D /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
 		5C382EB22BDD91D600B4C2FC /* PenaltyHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenaltyHistoryView.swift; sourceTree = "<group>"; };
@@ -260,6 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				5C53B5EF2BDD3A760026228F /* Colors.swift */,
+				5C1E743E2BEC971100E445FC /* KeyWord.swift */,
 			);
 			path = Constant;
 			sourceTree = "<group>";
@@ -622,6 +625,7 @@
 				5CCDE98D2BCE81FC00764750 /* SoundHelper.swift in Sources */,
 				5C149F1C2BD3D45E0034ABCC /* LoginViewModel.swift in Sources */,
 				5C93BEB52BC6633700C715DF /* AccountSettingName.swift in Sources */,
+				5C1E743F2BEC971100E445FC /* KeyWord.swift in Sources */,
 				5C847FB22BD4CC4200BE39B6 /* UserWithRelatedData.swift in Sources */,
 				5CE5DE302BDB58AE0023B864 /* User.swift in Sources */,
 				5C93BEAB2BC625DE00C715DF /* Auth0Service.swift in Sources */,

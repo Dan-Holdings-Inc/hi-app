@@ -29,12 +29,12 @@ class Auth0Service: ObservableObject {
                         return
                     }
                     print(credentials.idToken)
-                    self.userDefaults.set(value: credentials.idToken, key: "idToken")
+                    self.userDefaults.set(value: credentials.idToken, key: UserDefaultsKey.idToken)
                     print("Obtained credentials: \(credentials)")
                     
                     let jwt = try! decode(jwt: credentials.idToken)
                     self.email = jwt.claim(name: "name").string ?? ""
-                    self.userDefaults.set(value: self.email, key: "email")
+                    self.userDefaults.set(value: self.email, key: UserDefaultsKey.email)
                     
                     do {
                         try self.keychain.set(credentials.accessToken, forKey: "access_token")

@@ -33,7 +33,7 @@ class FriendSearchViewModel: ObservableObject {
     
     func followFriend(friendId: String) {
         let userDefaults = UserDefaultsHelper()
-        let id = userDefaults.getStringData(key: "id")
+        let id = userDefaults.getStringData(key: UserDefaultsKey.id)
         let newRelationshipDto = RelationshipDto(followsId: friendId)
         
         FriendSearchModel.postFollow(relationshipDto: newRelationshipDto, id: id)

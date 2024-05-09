@@ -32,12 +32,12 @@ class AccountCreateViewModel: ObservableObject {
     
     func setNewUserData() -> UserRegistrationDto {
         let uuid = UUID().uuidString
-        let email = userDefaultsHelper.getStringData(key: "email")
-        let name = userDefaultsHelper.getStringData(key: "name")
-        let userName = userDefaultsHelper.getStringData(key: "userName")
-        let getUpAt = userDefaultsHelper.getStringData(key: "wakeUpTime")
-        let daysToAlarm = userDefaultsHelper.getArrayData(key: "dayOfWeekSelected") as? [Bool] ?? []
-        let deviceToken = userDefaultsHelper.getStringData(key: "deviceToken")
+        let email = userDefaultsHelper.getStringData(key: UserDefaultsKey.email)
+        let name = userDefaultsHelper.getStringData(key: UserDefaultsKey.name)
+        let userName = userDefaultsHelper.getStringData(key: UserDefaultsKey.userName)
+        let getUpAt = userDefaultsHelper.getStringData(key: UserDefaultsKey.getUpAt)
+        let daysToAlarm = userDefaultsHelper.getArrayData(key: UserDefaultsKey.dayToAlarm) as? [Bool] ?? []
+        let deviceToken = userDefaultsHelper.getStringData(key: UserDefaultsKey.deviceToken)
         
         let newUserData = UserRegistrationDto(_id: uuid, email: email, userName: userName,
                                               name: name, getUpAt: getUpAt, daysToAlarm: daysToAlarm, deviceToken: deviceToken)

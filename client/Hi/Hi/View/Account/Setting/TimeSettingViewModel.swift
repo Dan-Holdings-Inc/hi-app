@@ -39,9 +39,9 @@ class TimeSettingViewModel: ObservableObject {
     }
     
     func setChangeTimeData() -> TimeChangeDto {
-        let id = userDefaultsHelper.getStringData(key: "id")
-        let getUpAt = userDefaultsHelper.getStringData(key: "wakeUpTime")
-        let daysToAlarm = userDefaultsHelper.getArrayData(key: "dayOfWeekSelected") as? [Bool] ?? []
+        let id = userDefaultsHelper.getStringData(key: UserDefaultsKey.id)
+        let getUpAt = userDefaultsHelper.getStringData(key: UserDefaultsKey.getUpAt)
+        let daysToAlarm = userDefaultsHelper.getArrayData(key: UserDefaultsKey.dayToAlarm) as? [Bool] ?? []
         let changeTimeData = TimeChangeDto(userId: id,getUpAt: getUpAt, daysToAlarm: daysToAlarm )
         
         return changeTimeData

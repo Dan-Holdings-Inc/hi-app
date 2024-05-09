@@ -48,13 +48,13 @@ struct AccountSettingWakeUpTime: View {
                 .bold()
             BasicRoundButton(text: "\(nextButtonLabel)", action: {
                 let stringDate = dateFormatHelper.dateToString(date: date)
-                userDefaultsHelper.set(value: stringDate, key: "wakeUpTime")
+                userDefaultsHelper.set(value: stringDate, key: UserDefaultsKey.getUpAt)
                 action()
             })
             Spacer()
         }
         .onAppear {
-            let stringDate = userDefaultsHelper.getStringData(key: "wakeUpTime")
+            let stringDate = userDefaultsHelper.getStringData(key: UserDefaultsKey.getUpAt)
             date = dateFormatHelper.StringToDate(string: stringDate)
         }
     }
