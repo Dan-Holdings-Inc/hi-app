@@ -17,6 +17,7 @@
 		5C1C7BF42BC41B79003049A1 /* HiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1C7BF32BC41B79003049A1 /* HiUITests.swift */; };
 		5C1C7BF62BC41B79003049A1 /* HiUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1C7BF52BC41B79003049A1 /* HiUITestsLaunchTests.swift */; };
 		5C1E743F2BEC971100E445FC /* KeyWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1E743E2BEC971100E445FC /* KeyWord.swift */; };
+		5C1E74432BED0BCF00E445FC /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 5C1E74422BED0BCF00E445FC /* Localizable.xcstrings */; };
 		5C3545C32BC6714E0011E78D /* AccountSettingUserID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3545C22BC6714E0011E78D /* AccountSettingUserID.swift */; };
 		5C3545C82BC67B990011E78D /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3545C72BC67B990011E78D /* BackButton.swift */; };
 		5C382EB32BDD91D600B4C2FC /* PenaltyHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C382EB22BDD91D600B4C2FC /* PenaltyHistoryView.swift */; };
@@ -104,6 +105,7 @@
 		5C1C7BF32BC41B79003049A1 /* HiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiUITests.swift; sourceTree = "<group>"; };
 		5C1C7BF52BC41B79003049A1 /* HiUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		5C1E743E2BEC971100E445FC /* KeyWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyWord.swift; sourceTree = "<group>"; };
+		5C1E74422BED0BCF00E445FC /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		5C3545C22BC6714E0011E78D /* AccountSettingUserID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingUserID.swift; sourceTree = "<group>"; };
 		5C3545C72BC67B990011E78D /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
 		5C382EB22BDD91D600B4C2FC /* PenaltyHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenaltyHistoryView.swift; sourceTree = "<group>"; };
@@ -263,6 +265,7 @@
 			children = (
 				5C53B5EF2BDD3A760026228F /* Colors.swift */,
 				5C1E743E2BEC971100E445FC /* KeyWord.swift */,
+				5C1E74422BED0BCF00E445FC /* Localizable.xcstrings */,
 			);
 			path = Constant;
 			sourceTree = "<group>";
@@ -535,11 +538,12 @@
 			};
 			buildConfigurationList = 5C1C7BD02BC41B77003049A1 /* Build configuration list for PBXProject "Hi" */;
 			compatibilityVersion = "Xcode 14.0";
-			developmentRegion = en;
+			developmentRegion = ja;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = 5C1C7BCC2BC41B77003049A1;
 			packageReferences = (
@@ -563,6 +567,7 @@
 			files = (
 				5C1C7BE02BC41B79003049A1 /* Preview Assets.xcassets in Resources */,
 				5C93BEA52BC623D300C715DF /* Auth0.plist in Resources */,
+				5C1E74432BED0BCF00E445FC /* Localizable.xcstrings in Resources */,
 				5C1C7BDD2BC41B79003049A1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
