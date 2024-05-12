@@ -18,7 +18,7 @@ struct AccountSettingDayOfWeek: View {
             BackButton()
                 .padding(.bottom, 5)
             HStack {
-                Text("曜日を選択")
+                Text("Select a day of the week")
                     .font(.title)
                     .bold()
                     .padding(.horizontal)
@@ -26,7 +26,7 @@ struct AccountSettingDayOfWeek: View {
                 Spacer()
             }
             HStack {
-                Text("選択した曜日は通知が届きます。")
+                Text("You will receive notifications for the selected days of the week.")
                     .padding(.horizontal)
                 Spacer()
             }

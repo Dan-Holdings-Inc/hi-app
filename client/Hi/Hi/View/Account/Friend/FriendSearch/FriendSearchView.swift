@@ -16,7 +16,7 @@ struct FriendSearchView: View {
         VStack {
             ZStack {
                 BackButton()
-                Text("フレンド検索")
+                Text("Find Friends")
                     .font(.title)
                     .bold()
                     .padding()
@@ -24,12 +24,12 @@ struct FriendSearchView: View {
             // 検索窓
             HStack {
                 HStack {
-                    TextField("名前、ユーザーID、メールアドレスを入力", text: $inputText)
+                    TextField("Enter name, user ID, and email address", text: $inputText)
                         .focused($isFocused)
                         .toolbar {
                             ToolbarItemGroup(placement: .keyboard) {
                                 Spacer()
-                                Button("閉じる") {
+                                Button("close") {
                                     isFocused = false
                                 }
                             }

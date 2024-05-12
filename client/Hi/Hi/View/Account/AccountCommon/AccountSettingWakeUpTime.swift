@@ -19,7 +19,7 @@ struct AccountSettingWakeUpTime: View {
             BackButton()
                 .padding(.bottom, 5)
             HStack {
-                Text("毎朝の起きる時間を設定")
+                Text("Set a time to get up each morning")
                     .font(.title)
                     .bold()
                     .padding(.horizontal)
@@ -27,7 +27,7 @@ struct AccountSettingWakeUpTime: View {
                 Spacer()
             }
             HStack {
-                Text("設定した時間までにフレンドにHiを送る必要があります。")
+                Text("You must send Hi to your friend by the set time.")
                     .padding(.horizontal)
                 Spacer()
             }

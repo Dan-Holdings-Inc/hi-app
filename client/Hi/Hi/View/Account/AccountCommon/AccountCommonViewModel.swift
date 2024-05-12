@@ -25,7 +25,7 @@ class AccountCommonNameViewModel: ObservableObject {
                 }
             }
         } else {
-            userDefaultsHelper.set(value: name, key: "name")
+            userDefaultsHelper.set(value: name, key: UserDefaultsKey.name)
             routerAction()
         }
     }

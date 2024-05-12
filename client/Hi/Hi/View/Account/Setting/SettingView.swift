@@ -27,7 +27,7 @@ struct SettingView: View {
                         .bold()
                         .shadow(radius: 5)
                         .padding(.vertical, 5)
-                    Text("ユーザーID：\(viewModel.userID)")
+                    Text("User ID：\(viewModel.userID)")
                         .font(.headline)
                         .shadow(radius: 5)
                         .padding(.bottom, 5)
@@ -44,7 +44,7 @@ struct SettingView: View {
                             .frame(width: 15, height: 15)
                             .foregroundColor(.gray)
                             .padding(.leading, 25)
-                        Text("設定の確認・変更")
+                        Text("Checking and changing settings")
                             .font(.caption)
                             .foregroundColor(.gray)
                             .bold()
@@ -52,7 +52,9 @@ struct SettingView: View {
                     }
                     let settingLabels = ["名前", "ユーザーID", "起きる時間", "曜日"]
                     ForEach(0 ..< settingLabels.count, id: \.self) { index in
-                        SettingCard(label: "\(settingLabels[index])", action: {
+                        SettingNavigationCard(textContent: {
+                            Text("\(settingLabels)")
+                        }, action: {
                             router.navigateToView(destination: router.settingNavigationPath[index])
                         })
                     }
@@ -67,7 +69,7 @@ struct SettingView: View {
                             .frame(width: 15, height: 15)
                             .foregroundColor(.gray)
                             .padding(.leading, 25)
-                        Text("フレンド")
+                        Text("Friend")
                             .font(.caption)
                             .foregroundColor(.gray)
                             .bold()
@@ -75,7 +77,9 @@ struct SettingView: View {
                     }
                     let friendLabels = ["フレンド検索"]
                     ForEach(0 ..< friendLabels.count, id: \.self) { index in
-                        SettingCard(label: "\(friendLabels[index])", action: {
+                        SettingNavigationCard(textContent: {
+                            Text("\(friendLabels[index])")
+                        }, action: {
                             router.navigateToView(destination: router.friendNavigationPath[index])
                         })
                     }
@@ -88,7 +92,7 @@ struct SettingView: View {
                 // その他
                 VStack {
                     HStack {
-                        Text("その他")
+                        Text("Other")
                             .font(.caption)
                             .foregroundColor(.gray)
                             .bold()
@@ -97,7 +101,9 @@ struct SettingView: View {
                     }
                     let othersLabels = ["ペナルティ履歴"]
                     ForEach(0 ..< othersLabels.count, id: \.self) { index in
-                        SettingCard(label: "\(othersLabels[index])", action: {
+                        SettingNavigationCard(textContent: {
+                            Text("\(othersLabels[index])")
+                        }, action: {
                             router.navigateToView(destination: router.friendNavigationPath[index])
                         })
                     }
@@ -115,6 +121,34 @@ struct SettingView: View {
             }
         }
     }
+    
+    @ViewBuilder
+    func SettingNavigationCard(textContent: @escaping () -> Text, action: @escaping () -> Void) -> some View {
+        let screenWidth = UIScreen.main.bounds.width
+        
+        Button(action: action) {
+            ZStack {
+                let cornerRadius = 10.0
+                RoundedRectangle(cornerRadius: cornerRadius)
+                    .foregroundColor(.white)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: cornerRadius)
+                            .stroke(.black, lineWidth: 1)
+                    )
+                HStack {
+                    textContent()
+                        .foregroundColor(.black)
+                        .font(.title2)
+                        .bold()
+                    Spacer()
+                    Image(systemName: "chevron.forward")
+                        .foregroundColor(.gray)
+                }
+                .padding(.horizontal)
+            }
+            .frame(width: screenWidth * 0.9, height: 50)
+        }
+    }
 }
 
 // 以降、各種設定画面への遷移後のビュー
@@ -126,7 +160,7 @@ struct SettingNameView: View {
         AccountSettingName(viewModel: AccountCommonNameViewModel(), nextButtonLabel: "変更する", isShowBackButton: true, routerAction: {
             router.backPage()
             viewModel.putUserData()
-    })
+        })
         .navigationBarHidden(true)
     }
 }
@@ -169,7 +203,3 @@ struct SettingDayOfWeekView: View {
         .navigationBarHidden(true)
     }
 }
-
-//#Preview {
-//    SettingView()
-//}

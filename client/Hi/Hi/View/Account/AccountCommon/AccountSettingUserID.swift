@@ -20,7 +20,7 @@ struct AccountSettingUserID: View {
             BackButton()
                 .padding(.bottom, 5)
             HStack {
-                Text("ユーザーIDを設定")
+                Text("Set user ID")
                     .font(.title)
                     .bold()
                     .padding(.horizontal)
@@ -29,9 +29,9 @@ struct AccountSettingUserID: View {
             }
             HStack {
                 VStack(alignment: .leading){
-                    Text("ユーザーIDはフレンドの検索に使用されます。")
-                    Text("他人と同じIDを使うことはできません。")
-                    Text("ユーザーIDを入力してください。")
+                    Text("The user ID is used to search for friends.")
+                    Text("You cannot use the same ID as someone else.")
+                    Text("User ID is blank.")
                         .foregroundColor(.red)
                         .opacity(viewModel.isShowEmptyErrorMessage ? 1.0 : 0.0)
                 }
@@ -42,12 +42,12 @@ struct AccountSettingUserID: View {
             let strokeColor: Color = colorScheme == .light ? .black : .white
             HStack {
                 // 英数字のみのキーボードを無理やり作っているが要見直し
-                TextField("ユーザーID", text: $viewModel.userID)
+                TextField("User ID", text: $viewModel.userID)
                     .focused($isFocused)
                     .toolbar {
                         ToolbarItemGroup(placement: .keyboard) {
                             Spacer()
-                            Button("閉じる") {
+                            Button("close") {
                                 isFocused = false
                             }
                         }

@@ -51,7 +51,6 @@
 		5CCC36052BC56492003B00C5 /* BasicRoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCC36042BC56492003B00C5 /* BasicRoundButton.swift */; };
 		5CCDE98D2BCE81FC00764750 /* SoundHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCDE98C2BCE81FB00764750 /* SoundHelper.swift */; };
 		5CD31A332BC7BC2B007B6135 /* AccountSettingDayOfWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD31A322BC7BC2B007B6135 /* AccountSettingDayOfWeek.swift */; };
-		5CD375312BC822B6004BFF4E /* SettingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD375302BC822B6004BFF4E /* SettingCard.swift */; };
 		5CD375362BC8318D004BFF4E /* AccountCreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD375352BC8318D004BFF4E /* AccountCreateView.swift */; };
 		5CD375382BC84B1E004BFF4E /* SettingExclamationMarkCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD375372BC84B1E004BFF4E /* SettingExclamationMarkCard.swift */; };
 		5CE5DE2E2BDAACA60023B864 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE5DE2D2BDAACA60023B864 /* HomeModel.swift */; };
@@ -138,7 +137,6 @@
 		5CCC36042BC56492003B00C5 /* BasicRoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicRoundButton.swift; sourceTree = "<group>"; };
 		5CCDE98C2BCE81FB00764750 /* SoundHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundHelper.swift; sourceTree = "<group>"; };
 		5CD31A322BC7BC2B007B6135 /* AccountSettingDayOfWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingDayOfWeek.swift; sourceTree = "<group>"; };
-		5CD375302BC822B6004BFF4E /* SettingCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCard.swift; sourceTree = "<group>"; };
 		5CD375352BC8318D004BFF4E /* AccountCreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCreateView.swift; sourceTree = "<group>"; };
 		5CD375372BC84B1E004BFF4E /* SettingExclamationMarkCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingExclamationMarkCard.swift; sourceTree = "<group>"; };
 		5CE5DE2D2BDAACA60023B864 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
@@ -405,7 +403,6 @@
 			isa = PBXGroup;
 			children = (
 				5CCC35FB2BC4EB7D003B00C5 /* UserCard.swift */,
-				5CD375302BC822B6004BFF4E /* SettingCard.swift */,
 				5CD375372BC84B1E004BFF4E /* SettingExclamationMarkCard.swift */,
 				5CB723942BDD6A8100B8A213 /* FriendSearchCard.swift */,
 			);
@@ -538,7 +535,7 @@
 			};
 			buildConfigurationList = 5C1C7BD02BC41B77003049A1 /* Build configuration list for PBXProject "Hi" */;
 			compatibilityVersion = "Xcode 14.0";
-			developmentRegion = ja;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -607,7 +604,6 @@
 				5CD31A332BC7BC2B007B6135 /* AccountSettingDayOfWeek.swift in Sources */,
 				5CFB76392BC6FB6700741DC8 /* AccountSettingWakeUpTime.swift in Sources */,
 				B5ED02472BDCE93200D37955 /* TimeChangeDto.swift in Sources */,
-				5CD375312BC822B6004BFF4E /* SettingCard.swift in Sources */,
 				5C818CA02BC4E162005A6FC1 /* SettingView.swift in Sources */,
 				5C847FB62BD5410700BE39B6 /* UserRegistrationDto.swift in Sources */,
 				5C847FB42BD540E000BE39B6 /* RelationshipDto.swift in Sources */,
