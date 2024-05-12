@@ -12,7 +12,7 @@ struct AccountSettingName: View {
     @Environment(\.colorScheme) var colorScheme
     @FocusState private var isFocused: Bool
     
-    var nextButtonLabel: String
+    var nextButtonLabel: Text
     var isShowBackButton: Bool
     var routerAction: () -> Void
     
@@ -23,7 +23,7 @@ struct AccountSettingName: View {
                 .opacity(isShowBackButton ? 1.0 : 0.0)
             
             HStack {
-                Text("名前を入力してください")
+                Text("Enter your name")
                     .font(.title)
                     .bold()
                     .padding(.horizontal)
@@ -32,8 +32,8 @@ struct AccountSettingName: View {
             }
             HStack {
                 VStack(alignment: .leading) {
-                    Text("名前はフレンドに表示されます。")
-                    Text("名前を入力してください。")
+                    Text("Names will be displayed to friends.")
+                    Text("Name is blank.")
                         .foregroundColor(.red)
                         .opacity(viewModel.isShowErrorMessage ? 1.0 : 0.0)
                 }
@@ -42,12 +42,12 @@ struct AccountSettingName: View {
             }
             
             let strokeColor: Color = colorScheme == .light ? .black : .white
-            TextField("名前", text: $viewModel.name)
+            TextField("Name", text: $viewModel.name)
                 .focused($isFocused)
                 .toolbar {
                     ToolbarItemGroup(placement: .keyboard) {
                         Spacer()
-                        Button("閉じる") {
+                        Button("close") {
                             isFocused = false
                         }
                     }
@@ -61,7 +61,7 @@ struct AccountSettingName: View {
                 )
                 .padding()
             
-            BasicRoundButton(text: "\(nextButtonLabel)", action: {
+            BasicRoundButton(text: Text("\(nextButtonLabel)"), action: {
                 viewModel.showErrorMessage(routerAction: routerAction)
             })
             Spacer()
@@ -73,7 +73,7 @@ struct AccountSettingName: View {
 }
 
 #Preview {
-    AccountSettingName(viewModel: AccountCommonNameViewModel(), nextButtonLabel: "次へ", isShowBackButton: false, routerAction: {
+    AccountSettingName(viewModel: AccountCommonNameViewModel(), nextButtonLabel: Text("Next"), isShowBackButton: false, routerAction: {
         print("名前の設定完了")
     })
 }

@@ -47,7 +47,7 @@ struct FriendSearchCard: View {
                         RoundedRectangle(cornerRadius: 10)
                             .foregroundColor(isFollowing ? .gray : .blue)
                             .frame(width: 120, height: 40)
-                        Text(isFollowing ? "フォロー中" : "フォロー")
+                        Text(isFollowing ? "Following" : "Follow")
                             .foregroundColor(isFollowing ? .black : .white)
                             .bold()
                     }

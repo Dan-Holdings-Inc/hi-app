@@ -20,7 +20,7 @@ class HomeViewModel: ObservableObject {
     
     func postHi(friendId: String) {
         let userDefaults = UserDefaultsHelper()
-        let idToken = userDefaults.getStringData(key: "idToken")
+        let idToken = userDefaults.getStringData(key: UserDefaultsKey.idToken)
         print(idToken)
         
         HomeModel.pushHi(friendId: friendId, idToken: idToken) { error in

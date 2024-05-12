@@ -29,12 +29,12 @@ struct HomeView: View {
             HStack {
                 Image(systemName: "magnifyingglass")
                     .foregroundColor(.gray)
-                TextField("検索", text: $searchText)
+                TextField("search", text: $searchText)
                     .focused($isFocused)
                     .toolbar {
                         ToolbarItemGroup(placement: .keyboard) {
                             Spacer()
-                            Button("閉じる") {
+                            Button("close") {
                                 isFocused = false
                             }
                         }
@@ -66,7 +66,7 @@ struct HomeView: View {
             
             if userEnvironmentData.user.followings.isEmpty {
                 VStack {
-                    Text("フレンドがいません。\"**アカウント < フレンド検索**\"からフレンドを追加してください。")
+                    Text("You have no friends. Please add a friend through \"**Account < Find Friends**\".")
                 }
                 .padding()
             }
@@ -78,7 +78,7 @@ struct HomeView: View {
                     viewModel.postHi(friendId: user._id)
                 })
                 .swipeActions(edge: .trailing) {
-                    Button("削除", role: .destructive) {
+                    Button("delete", role: .destructive) {
                         userToDelete = user
                         isAlertPresented = true
                     }
@@ -90,9 +90,9 @@ struct HomeView: View {
             .background(Color.white)
             .alert(isPresented: $isAlertPresented){
                 Alert(
-                    title: Text("フレンドを削除しますか？"),
-                    primaryButton: .cancel(Text("キャンセル")),
-                    secondaryButton: .destructive(Text("削除"), action: {
+                    title: Text("Do you want to delete a friend?"),
+                    primaryButton: .cancel(Text("cancel")),
+                    secondaryButton: .destructive(Text("delete"), action: {
                         if let user = userToDelete {
                             print("削除完了")
                             viewModel2.DeleteFriend(friendId: user._id)

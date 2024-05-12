@@ -37,9 +37,9 @@ class UserDefaultsHelper {
     }
     
     func removeUserDefaultsExceptEmail() {
-        userDefaults.removeObject(forKey: "name")
-        userDefaults.removeObject(forKey: "userName")
-        userDefaults.removeObject(forKey: "wakeUpTime")
-        userDefaults.removeObject(forKey: "dayOfWeekSelected")
+        userDefaults.removeObject(forKey: UserDefaultsKey.name)
+        userDefaults.removeObject(forKey: UserDefaultsKey.userName)
+        userDefaults.removeObject(forKey: UserDefaultsKey.getUpAt)
+        userDefaults.removeObject(forKey: UserDefaultsKey.dayToAlarm)
     }
 }

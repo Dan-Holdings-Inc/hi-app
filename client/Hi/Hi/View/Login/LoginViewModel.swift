@@ -21,7 +21,7 @@ class LoginViewModel: ObservableObject {
                                     failRouteAction: @escaping () -> Void,
                                     otherErrorAction: @escaping () -> Void) {
         
-        let email = userDefaults.getStringData(key: "email")
+        let email = userDefaults.getStringData(key: UserDefaultsKey.email)
         
         LoginModel.getUserWithRelationship(email: email)
             .sink(receiveCompletion: { completion in
@@ -62,11 +62,11 @@ class LoginViewModel: ObservableObject {
     }
     
     func setUserData(user: UserWithRelatedData) {
-        userDefaults.set(value: user._id, key: "id")
-        userDefaults.set(value: user.email, key: "email")
-        userDefaults.set(value: user.name, key: "name")
-        userDefaults.set(value: user.userName, key: "userName")
-        userDefaults.set(value: user.getUpAt, key: "wakeUpTime")
-        userDefaults.set(value: user.daysToAlarm, key: "dayOfWeekSelected")
+        userDefaults.set(value: user._id, key: UserDefaultsKey.id)
+        userDefaults.set(value: user.email, key: UserDefaultsKey.email)
+        userDefaults.set(value: user.name, key: UserDefaultsKey.name)
+        userDefaults.set(value: user.userName, key: UserDefaultsKey.userName)
+        userDefaults.set(value: user.getUpAt, key: UserDefaultsKey.getUpAt)
+        userDefaults.set(value: user.daysToAlarm, key: UserDefaultsKey.dayToAlarm)
     }
 }

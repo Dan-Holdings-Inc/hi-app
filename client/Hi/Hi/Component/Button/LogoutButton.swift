@@ -13,7 +13,7 @@ struct LogoutButton: View {
     var body: some View {
         Button(action: action) {
             ZStack {
-                Text("ログアウト")
+                Text("logout")
                     .foregroundColor(.red)
                     .bold()
             }

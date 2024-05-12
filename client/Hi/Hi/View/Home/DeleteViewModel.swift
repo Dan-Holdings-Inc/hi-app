@@ -15,7 +15,7 @@ class DeleteViewModel: ObservableObject {
     
     func DeleteFriend(friendId: String) {
         let userDefaults = UserDefaultsHelper()
-        let id = userDefaults.getStringData(key: "id")
+        let id = userDefaults.getStringData(key: UserDefaultsKey.id)
         let newdeleteDto = DeleteDto(followsId: friendId)
         
         DeleteModel.DeleteData(deleteDto: newdeleteDto, id: id)

@@ -15,8 +15,8 @@ class SettingViewModel: ObservableObject {
     
     init() {
         // イニシャライザで name と userID を初期化します
-        self.name = userDefaultsHelper.getStringData(key: "name")
-        self.userID = userDefaultsHelper.getStringData(key: "userName")
+        self.name = userDefaultsHelper.getStringData(key: UserDefaultsKey.name)
+        self.userID = userDefaultsHelper.getStringData(key: UserDefaultsKey.userName)
     }
     
     private var cancellables: Set<AnyCancellable> = []
@@ -40,12 +40,12 @@ class SettingViewModel: ObservableObject {
     }
     
     func setChangeUserData() -> UserChangeDto {
-        let id = userDefaultsHelper.getStringData(key: "id")
-        let email = userDefaultsHelper.getStringData(key: "email")
-        let name = userDefaultsHelper.getStringData(key: "name")
-        let userName = userDefaultsHelper.getStringData(key: "userName")
-        let getUpAt = userDefaultsHelper.getStringData(key: "wakeUpTime")
-        let daysToAlarm = userDefaultsHelper.getArrayData(key: "dayOfWeekSelected") as? [Bool] ?? []
+        let id = userDefaultsHelper.getStringData(key: UserDefaultsKey.id)
+        let email = userDefaultsHelper.getStringData(key: UserDefaultsKey.email)
+        let name = userDefaultsHelper.getStringData(key: UserDefaultsKey.name)
+        let userName = userDefaultsHelper.getStringData(key: UserDefaultsKey.userName)
+        let getUpAt = userDefaultsHelper.getStringData(key: UserDefaultsKey.getUpAt)
+        let daysToAlarm = userDefaultsHelper.getArrayData(key: UserDefaultsKey.dayToAlarm) as? [Bool] ?? []
         let changeUserData = UserChangeDto(_id: id, email: email, userName: userName,
                                            name: name, getUpAt: getUpAt, daysToAlarm: daysToAlarm )
         

@@ -19,7 +19,7 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         let token = deviceToken.map({String(format: "%02x", $0)}).joined()
         let userDefaults = UserDefaultsHelper()
-        userDefaults.set(value: token, key: "deviceToken")
+        userDefaults.set(value: token, key: UserDefaultsKey.deviceToken)
         print("deviceToken: \(token)")
     }
     

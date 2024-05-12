@@ -27,11 +27,11 @@ struct LoginView: View {
             }
             Spacer()
             
-            Text("エラーが発生しました。")
+            Text("An error has occurred.")
                 .foregroundColor(.red)
                 .opacity(viewModel.isShowErrorMessage ? 1 : 0)
             
-            BasicRoundButton(text: "始める", action: {
+            BasicRoundButton(text: Text("Start!"), action: {
                 service.login()
                 viewModel.startButtonAction()
             })

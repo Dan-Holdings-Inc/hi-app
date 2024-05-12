@@ -11,7 +11,7 @@ import SwiftUI
 let userDefaultsHelper = UserDefaultsHelper()
 
 class AccountCommonNameViewModel: ObservableObject {
-    @Published var name = userDefaultsHelper.getStringData(key: "name")
+    @Published var name = userDefaultsHelper.getStringData(key: UserDefaultsKey.name)
     @Published var isShowErrorMessage = false
     
     func showErrorMessage(routerAction: () -> Void) {
@@ -25,14 +25,14 @@ class AccountCommonNameViewModel: ObservableObject {
                 }
             }
         } else {
-            userDefaultsHelper.set(value: name, key: "name")
+            userDefaultsHelper.set(value: name, key: UserDefaultsKey.name)
             routerAction()
         }
     }
 }
 
 class AccountCommonUserIDViewModel: ObservableObject {
-    @Published var userID = userDefaultsHelper.getStringData(key: "userName")
+    @Published var userID = userDefaultsHelper.getStringData(key: UserDefaultsKey.userName)
     @Published var isShowEmptyErrorMessage = false
     
     func showErrorMessage(routerAction: () -> Void) {
@@ -46,7 +46,7 @@ class AccountCommonUserIDViewModel: ObservableObject {
                 }
             }
         } else {
-            userDefaultsHelper.set(value: userID, key: "userName")
+            userDefaultsHelper.set(value: userID, key: UserDefaultsKey.userName)
             routerAction()
         }
     }
@@ -62,10 +62,10 @@ class AccountCommonDayOfWeekViewModel: ObservableObject {
     @Published var dayOfWeekSelected = Array(repeating: false, count: 7)
     
     func nextButtonAction() {
-        userDefaultsHelper.set(value: dayOfWeekSelected, key: "dayOfWeekSelected")
+        userDefaultsHelper.set(value: dayOfWeekSelected, key: UserDefaultsKey.dayToAlarm)
     }
     
     func onAppear() {
-        dayOfWeekSelected = userDefaultsHelper.getArrayData(key: "dayOfWeekSelected") as? [Bool] ?? []
+        dayOfWeekSelected = userDefaultsHelper.getArrayData(key: UserDefaultsKey.dayToAlarm) as? [Bool] ?? []
     }
 }

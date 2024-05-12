@@ -16,6 +16,8 @@
 		5C1C7BEA2BC41B79003049A1 /* HiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1C7BE92BC41B79003049A1 /* HiTests.swift */; };
 		5C1C7BF42BC41B79003049A1 /* HiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1C7BF32BC41B79003049A1 /* HiUITests.swift */; };
 		5C1C7BF62BC41B79003049A1 /* HiUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1C7BF52BC41B79003049A1 /* HiUITestsLaunchTests.swift */; };
+		5C1E743F2BEC971100E445FC /* KeyWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1E743E2BEC971100E445FC /* KeyWord.swift */; };
+		5C1E74432BED0BCF00E445FC /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 5C1E74422BED0BCF00E445FC /* Localizable.xcstrings */; };
 		5C3545C32BC6714E0011E78D /* AccountSettingUserID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3545C22BC6714E0011E78D /* AccountSettingUserID.swift */; };
 		5C3545C82BC67B990011E78D /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3545C72BC67B990011E78D /* BackButton.swift */; };
 		5C382EB32BDD91D600B4C2FC /* PenaltyHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C382EB22BDD91D600B4C2FC /* PenaltyHistoryView.swift */; };
@@ -49,9 +51,7 @@
 		5CCC36052BC56492003B00C5 /* BasicRoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCC36042BC56492003B00C5 /* BasicRoundButton.swift */; };
 		5CCDE98D2BCE81FC00764750 /* SoundHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCDE98C2BCE81FB00764750 /* SoundHelper.swift */; };
 		5CD31A332BC7BC2B007B6135 /* AccountSettingDayOfWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD31A322BC7BC2B007B6135 /* AccountSettingDayOfWeek.swift */; };
-		5CD375312BC822B6004BFF4E /* SettingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD375302BC822B6004BFF4E /* SettingCard.swift */; };
 		5CD375362BC8318D004BFF4E /* AccountCreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD375352BC8318D004BFF4E /* AccountCreateView.swift */; };
-		5CD375382BC84B1E004BFF4E /* SettingExclamationMarkCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD375372BC84B1E004BFF4E /* SettingExclamationMarkCard.swift */; };
 		5CE5DE2E2BDAACA60023B864 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE5DE2D2BDAACA60023B864 /* HomeModel.swift */; };
 		5CE5DE302BDB58AE0023B864 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE5DE2F2BDB58AE0023B864 /* User.swift */; };
 		5CED66EF2BC987A6007183F1 /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CED66EE2BC987A6007183F1 /* UserDefaultsHelper.swift */; };
@@ -102,6 +102,8 @@
 		5C1C7BEF2BC41B79003049A1 /* HiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C1C7BF32BC41B79003049A1 /* HiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiUITests.swift; sourceTree = "<group>"; };
 		5C1C7BF52BC41B79003049A1 /* HiUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		5C1E743E2BEC971100E445FC /* KeyWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyWord.swift; sourceTree = "<group>"; };
+		5C1E74422BED0BCF00E445FC /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		5C3545C22BC6714E0011E78D /* AccountSettingUserID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingUserID.swift; sourceTree = "<group>"; };
 		5C3545C72BC67B990011E78D /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
 		5C382EB22BDD91D600B4C2FC /* PenaltyHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenaltyHistoryView.swift; sourceTree = "<group>"; };
@@ -134,9 +136,7 @@
 		5CCC36042BC56492003B00C5 /* BasicRoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicRoundButton.swift; sourceTree = "<group>"; };
 		5CCDE98C2BCE81FB00764750 /* SoundHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundHelper.swift; sourceTree = "<group>"; };
 		5CD31A322BC7BC2B007B6135 /* AccountSettingDayOfWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingDayOfWeek.swift; sourceTree = "<group>"; };
-		5CD375302BC822B6004BFF4E /* SettingCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCard.swift; sourceTree = "<group>"; };
 		5CD375352BC8318D004BFF4E /* AccountCreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCreateView.swift; sourceTree = "<group>"; };
-		5CD375372BC84B1E004BFF4E /* SettingExclamationMarkCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingExclamationMarkCard.swift; sourceTree = "<group>"; };
 		5CE5DE2D2BDAACA60023B864 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		5CE5DE2F2BDB58AE0023B864 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5CED66EE2BC987A6007183F1 /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
@@ -260,6 +260,8 @@
 			isa = PBXGroup;
 			children = (
 				5C53B5EF2BDD3A760026228F /* Colors.swift */,
+				5C1E743E2BEC971100E445FC /* KeyWord.swift */,
+				5C1E74422BED0BCF00E445FC /* Localizable.xcstrings */,
 			);
 			path = Constant;
 			sourceTree = "<group>";
@@ -337,7 +339,6 @@
 				5C847FB52BD5410700BE39B6 /* UserRegistrationDto.swift */,
 				5C847FB32BD540E000BE39B6 /* RelationshipDto.swift */,
 				B5ED02442BDBD37300D37955 /* UserChangeDto.swift */,
-				5CF546F72BDCDE8000481709 /* TabModel.swift */,
 				B5ED02462BDCE93200D37955 /* TimeChangeDto.swift */,
 				B59853052BDDF70900DE3EE6 /* DeleteDto.swift */,
 			);
@@ -377,8 +378,8 @@
 			isa = PBXGroup;
 			children = (
 				5C3545C72BC67B990011E78D /* BackButton.swift */,
-				5CCC36042BC56492003B00C5 /* BasicRoundButton.swift */,
 				5CFCEC2C2BC7B69800CE530A /* DayOfWeekButton.swift */,
+				5CCC36042BC56492003B00C5 /* BasicRoundButton.swift */,
 				5C93BE9D2BC585B300C715DF /* LogoutButton.swift */,
 				B5ED024C2BDD494500D37955 /* SearchButton.swift */,
 			);
@@ -399,8 +400,6 @@
 			isa = PBXGroup;
 			children = (
 				5CCC35FB2BC4EB7D003B00C5 /* UserCard.swift */,
-				5CD375302BC822B6004BFF4E /* SettingCard.swift */,
-				5CD375372BC84B1E004BFF4E /* SettingExclamationMarkCard.swift */,
 				5CB723942BDD6A8100B8A213 /* FriendSearchCard.swift */,
 			);
 			path = Card;
@@ -409,6 +408,7 @@
 		5CF546F92BDCE04200481709 /* Tab */ = {
 			isa = PBXGroup;
 			children = (
+				5CF546F72BDCDE8000481709 /* TabModel.swift */,
 				5CCC35F92BC4E4F1003B00C5 /* TabBar.swift */,
 				5CC1485F2BDCF5E600DC5F49 /* TabShape.swift */,
 				5CC148612BDCFC9B00DC5F49 /* TabPosition.swift */,
@@ -537,6 +537,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = 5C1C7BCC2BC41B77003049A1;
 			packageReferences = (
@@ -560,6 +561,7 @@
 			files = (
 				5C1C7BE02BC41B79003049A1 /* Preview Assets.xcassets in Resources */,
 				5C93BEA52BC623D300C715DF /* Auth0.plist in Resources */,
+				5C1E74432BED0BCF00E445FC /* Localizable.xcstrings in Resources */,
 				5C1C7BDD2BC41B79003049A1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -589,7 +591,6 @@
 				5C847FBC2BD55B4E00BE39B6 /* AccountCreateModel.swift in Sources */,
 				B5ED024B2BDCEAB900D37955 /* TimeSettingViewModel.swift in Sources */,
 				5CF46EC32BD927980036B9A9 /* AppDelegate.swift in Sources */,
-				5CD375382BC84B1E004BFF4E /* SettingExclamationMarkCard.swift in Sources */,
 				5CCC35FA2BC4E4F1003B00C5 /* TabBar.swift in Sources */,
 				5CCC36052BC56492003B00C5 /* BasicRoundButton.swift in Sources */,
 				B59853082BDDFECF00DE3EE6 /* DeleteViewModel.swift in Sources */,
@@ -599,7 +600,6 @@
 				5CD31A332BC7BC2B007B6135 /* AccountSettingDayOfWeek.swift in Sources */,
 				5CFB76392BC6FB6700741DC8 /* AccountSettingWakeUpTime.swift in Sources */,
 				B5ED02472BDCE93200D37955 /* TimeChangeDto.swift in Sources */,
-				5CD375312BC822B6004BFF4E /* SettingCard.swift in Sources */,
 				5C818CA02BC4E162005A6FC1 /* SettingView.swift in Sources */,
 				5C847FB62BD5410700BE39B6 /* UserRegistrationDto.swift in Sources */,
 				5C847FB42BD540E000BE39B6 /* RelationshipDto.swift in Sources */,
@@ -622,6 +622,7 @@
 				5CCDE98D2BCE81FC00764750 /* SoundHelper.swift in Sources */,
 				5C149F1C2BD3D45E0034ABCC /* LoginViewModel.swift in Sources */,
 				5C93BEB52BC6633700C715DF /* AccountSettingName.swift in Sources */,
+				5C1E743F2BEC971100E445FC /* KeyWord.swift in Sources */,
 				5C847FB22BD4CC4200BE39B6 /* UserWithRelatedData.swift in Sources */,
 				5CE5DE302BDB58AE0023B864 /* User.swift in Sources */,
 				5C93BEAB2BC625DE00C715DF /* Auth0Service.swift in Sources */,

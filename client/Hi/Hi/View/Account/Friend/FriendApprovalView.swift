@@ -12,7 +12,7 @@ struct FriendApprovalView: View {
         VStack {
             ZStack {
                 BackButton()
-                Text("フレンド承認待ち")
+                Text("Friend approval")
                     .font(.title)
                     .bold()
                     .padding()
