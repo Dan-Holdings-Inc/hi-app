@@ -8,6 +8,12 @@
             "state" : "translated",
             "value" : ""
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " "
+          }
         }
       }
     },
@@ -47,6 +53,16 @@
         }
       }
     },
+    "Change!" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "変更する"
+          }
+        }
+      }
+    },
     "Checking and changing settings" : {
       "localizations" : {
         "ja" : {
@@ -63,6 +79,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "閉じる"
+          }
+        }
+      }
+    },
+    "Day of week" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "曜日"
           }
         }
       }
@@ -137,6 +163,16 @@
         }
       }
     },
+    "Fri" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "金"
+          }
+        }
+      }
+    },
     "Friend" : {
       "localizations" : {
         "ja" : {
@@ -157,9 +193,25 @@
         }
       }
     },
+    "Friend Approval" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "フレンド承認"
+          }
+        }
+      }
+    },
     "Hello, World!" : {
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hello, World!"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Hello, World!"
@@ -183,12 +235,32 @@
         }
       }
     },
+    "Let's start Hi!" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hiを始める！"
+          }
+        }
+      }
+    },
     "logout" : {
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "ログアウト"
+          }
+        }
+      }
+    },
+    "Mon" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "月"
           }
         }
       }
@@ -223,12 +295,42 @@
         }
       }
     },
+    "Next" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "次へ"
+          }
+        }
+      }
+    },
     "Other" : {
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "その他"
+          }
+        }
+      }
+    },
+    "Penalty History" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ペナルティ履歴"
+          }
+        }
+      }
+    },
+    "Sat" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "土"
           }
         }
       }
@@ -273,12 +375,52 @@
         }
       }
     },
+    "Start!" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "始める"
+          }
+        }
+      }
+    },
+    "Sun" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "日"
+          }
+        }
+      }
+    },
     "The user ID is used to search for friends." : {
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "ユーザーIDはフレンドの検索に使用されます。"
+          }
+        }
+      }
+    },
+    "Thu" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "木"
+          }
+        }
+      }
+    },
+    "Tue" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "火"
           }
         }
       }
@@ -309,6 +451,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "ユーザーID：%@"
+          }
+        }
+      }
+    },
+    "Wake-up time" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "起きる時間"
+          }
+        }
+      }
+    },
+    "Wed" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "水"
           }
         }
       }
@@ -349,6 +511,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "選択した曜日は通知が届きます。"
+          }
+        }
+      }
+    },
+    "テキスト" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Text"
           }
         }
       }

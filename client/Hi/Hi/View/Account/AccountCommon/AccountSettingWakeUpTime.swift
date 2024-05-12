@@ -11,7 +11,7 @@ struct AccountSettingWakeUpTime: View {
     @State var date = Date()
     
     let dateFormatHelper = DateFormat()
-    var nextButtonLabel: String
+    var nextButtonLabel: Text
     var action: () -> Void
     
     var body: some View {
@@ -46,7 +46,7 @@ struct AccountSettingWakeUpTime: View {
             Text("\(dateFormatHelper.dateToString(date: date))")
                 .font(.title)
                 .bold()
-            BasicRoundButton(text: "\(nextButtonLabel)", action: {
+            BasicRoundButton(text: Text("\(nextButtonLabel)"), action: {
                 let stringDate = dateFormatHelper.dateToString(date: date)
                 userDefaultsHelper.set(value: stringDate, key: UserDefaultsKey.getUpAt)
                 action()
@@ -61,7 +61,7 @@ struct AccountSettingWakeUpTime: View {
 }
 
 #Preview {
-    AccountSettingWakeUpTime(nextButtonLabel: "次へ", action: {
+    AccountSettingWakeUpTime(nextButtonLabel: Text("Next"), action: {
         print("次へ行く")
     })
 }

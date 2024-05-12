@@ -52,7 +52,6 @@
 		5CCDE98D2BCE81FC00764750 /* SoundHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCDE98C2BCE81FB00764750 /* SoundHelper.swift */; };
 		5CD31A332BC7BC2B007B6135 /* AccountSettingDayOfWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD31A322BC7BC2B007B6135 /* AccountSettingDayOfWeek.swift */; };
 		5CD375362BC8318D004BFF4E /* AccountCreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD375352BC8318D004BFF4E /* AccountCreateView.swift */; };
-		5CD375382BC84B1E004BFF4E /* SettingExclamationMarkCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD375372BC84B1E004BFF4E /* SettingExclamationMarkCard.swift */; };
 		5CE5DE2E2BDAACA60023B864 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE5DE2D2BDAACA60023B864 /* HomeModel.swift */; };
 		5CE5DE302BDB58AE0023B864 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE5DE2F2BDB58AE0023B864 /* User.swift */; };
 		5CED66EF2BC987A6007183F1 /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CED66EE2BC987A6007183F1 /* UserDefaultsHelper.swift */; };
@@ -138,7 +137,6 @@
 		5CCDE98C2BCE81FB00764750 /* SoundHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundHelper.swift; sourceTree = "<group>"; };
 		5CD31A322BC7BC2B007B6135 /* AccountSettingDayOfWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingDayOfWeek.swift; sourceTree = "<group>"; };
 		5CD375352BC8318D004BFF4E /* AccountCreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCreateView.swift; sourceTree = "<group>"; };
-		5CD375372BC84B1E004BFF4E /* SettingExclamationMarkCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingExclamationMarkCard.swift; sourceTree = "<group>"; };
 		5CE5DE2D2BDAACA60023B864 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		5CE5DE2F2BDB58AE0023B864 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5CED66EE2BC987A6007183F1 /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
@@ -341,7 +339,6 @@
 				5C847FB52BD5410700BE39B6 /* UserRegistrationDto.swift */,
 				5C847FB32BD540E000BE39B6 /* RelationshipDto.swift */,
 				B5ED02442BDBD37300D37955 /* UserChangeDto.swift */,
-				5CF546F72BDCDE8000481709 /* TabModel.swift */,
 				B5ED02462BDCE93200D37955 /* TimeChangeDto.swift */,
 				B59853052BDDF70900DE3EE6 /* DeleteDto.swift */,
 			);
@@ -381,8 +378,8 @@
 			isa = PBXGroup;
 			children = (
 				5C3545C72BC67B990011E78D /* BackButton.swift */,
-				5CCC36042BC56492003B00C5 /* BasicRoundButton.swift */,
 				5CFCEC2C2BC7B69800CE530A /* DayOfWeekButton.swift */,
+				5CCC36042BC56492003B00C5 /* BasicRoundButton.swift */,
 				5C93BE9D2BC585B300C715DF /* LogoutButton.swift */,
 				B5ED024C2BDD494500D37955 /* SearchButton.swift */,
 			);
@@ -403,7 +400,6 @@
 			isa = PBXGroup;
 			children = (
 				5CCC35FB2BC4EB7D003B00C5 /* UserCard.swift */,
-				5CD375372BC84B1E004BFF4E /* SettingExclamationMarkCard.swift */,
 				5CB723942BDD6A8100B8A213 /* FriendSearchCard.swift */,
 			);
 			path = Card;
@@ -412,6 +408,7 @@
 		5CF546F92BDCE04200481709 /* Tab */ = {
 			isa = PBXGroup;
 			children = (
+				5CF546F72BDCDE8000481709 /* TabModel.swift */,
 				5CCC35F92BC4E4F1003B00C5 /* TabBar.swift */,
 				5CC1485F2BDCF5E600DC5F49 /* TabShape.swift */,
 				5CC148612BDCFC9B00DC5F49 /* TabPosition.swift */,
@@ -594,7 +591,6 @@
 				5C847FBC2BD55B4E00BE39B6 /* AccountCreateModel.swift in Sources */,
 				B5ED024B2BDCEAB900D37955 /* TimeSettingViewModel.swift in Sources */,
 				5CF46EC32BD927980036B9A9 /* AppDelegate.swift in Sources */,
-				5CD375382BC84B1E004BFF4E /* SettingExclamationMarkCard.swift in Sources */,
 				5CCC35FA2BC4E4F1003B00C5 /* TabBar.swift in Sources */,
 				5CCC36052BC56492003B00C5 /* BasicRoundButton.swift in Sources */,
 				B59853082BDDFECF00DE3EE6 /* DeleteViewModel.swift in Sources */,

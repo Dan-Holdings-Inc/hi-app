@@ -12,7 +12,7 @@ struct AccountSettingName: View {
     @Environment(\.colorScheme) var colorScheme
     @FocusState private var isFocused: Bool
     
-    var nextButtonLabel: String
+    var nextButtonLabel: Text
     var isShowBackButton: Bool
     var routerAction: () -> Void
     
@@ -61,7 +61,7 @@ struct AccountSettingName: View {
                 )
                 .padding()
             
-            BasicRoundButton(text: "\(nextButtonLabel)", action: {
+            BasicRoundButton(text: Text("\(nextButtonLabel)"), action: {
                 viewModel.showErrorMessage(routerAction: routerAction)
             })
             Spacer()
@@ -73,7 +73,7 @@ struct AccountSettingName: View {
 }
 
 #Preview {
-    AccountSettingName(viewModel: AccountCommonNameViewModel(), nextButtonLabel: "次へ", isShowBackButton: false, routerAction: {
+    AccountSettingName(viewModel: AccountCommonNameViewModel(), nextButtonLabel: Text("Next"), isShowBackButton: false, routerAction: {
         print("名前の設定完了")
     })
 }

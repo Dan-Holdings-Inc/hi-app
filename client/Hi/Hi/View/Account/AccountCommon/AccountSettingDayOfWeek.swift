@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct AccountSettingDayOfWeek: View {
+    @Environment(\.locale) var locale
     @ObservedObject var viewModel = AccountCommonDayOfWeekViewModel()
     
-    var nextButtonLabel: String
+    var nextButtonLabel: Text
     var action: () -> Void
     
     var body: some View {
@@ -30,17 +31,44 @@ struct AccountSettingDayOfWeek: View {
                     .padding(.horizontal)
                 Spacer()
             }
-            HStack {
-                let dayOfWeekLabel = ["月", "火", "水", "木", "金", "土", "日"]
-                ForEach(0 ..< dayOfWeekLabel.count, id: \.self) { index in
-                    DayOfWeekButton(label: dayOfWeekLabel[index], isSelected: viewModel.dayOfWeekSelected[index], action: {
-                        viewModel.dayOfWeekSelected[index].toggle()
-                    })
+            let dayOfWeekLabel: [Text] = [Text("Mon"), Text("Tue"), Text("Wed"), Text("Thu"), Text("Fri"), Text("Sat"), Text("Sun")]
+            if locale.language.languageCode?.identifier ?? "" == "ja" {
+                HStack {
+                    ForEach(0 ..< dayOfWeekLabel.count, id: \.self) { index in
+                        DayOfWeekButton(label: dayOfWeekLabel[index], isSelected: viewModel.dayOfWeekSelected[index], action: {
+                            viewModel.dayOfWeekSelected[index].toggle()
+                        })
+                    }
                 }
+                .padding()
+            } else {
+                VStack {
+                    HStack {
+                        ForEach(0 ..< 3, id: \.self) { index in
+                            DayOfWeekButton(label: dayOfWeekLabel[index], isSelected: viewModel.dayOfWeekSelected[index], action: {
+                                viewModel.dayOfWeekSelected[index].toggle()
+                            })
+                        }
+                    }
+                    HStack {
+                        ForEach(3 ..< 6, id: \.self) { index in
+                            DayOfWeekButton(label: dayOfWeekLabel[index], isSelected: viewModel.dayOfWeekSelected[index], action: {
+                                viewModel.dayOfWeekSelected[index].toggle()
+                            })
+                        }
+                    }
+                    HStack {
+                        ForEach(6 ..< dayOfWeekLabel.count, id: \.self) { index in
+                            DayOfWeekButton(label: dayOfWeekLabel[index], isSelected: viewModel.dayOfWeekSelected[index], action: {
+                                viewModel.dayOfWeekSelected[index].toggle()
+                            })
+                        }
+                    }
+                }
+                .padding()
             }
-            .padding()
-
-            BasicRoundButton(text: "\(nextButtonLabel)", action: {
+            
+            BasicRoundButton(text: Text("\(nextButtonLabel)"), action: {
                 viewModel.nextButtonAction()
                 action()
             })
@@ -53,7 +81,7 @@ struct AccountSettingDayOfWeek: View {
 }
 
 #Preview {
-    AccountSettingDayOfWeek(nextButtonLabel: "次へ", action: {
+    AccountSettingDayOfWeek(nextButtonLabel: Text("Next"), action: {
         print("次へ")
     })
 }

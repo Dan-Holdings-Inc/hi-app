@@ -10,7 +10,7 @@ import SwiftUI
 struct BasicRoundButton: View {
     @Environment(\.colorScheme) var colorScheme
     
-    var text: String
+    var text: Text
     var action: () -> Void
     
     var body: some View {
@@ -21,7 +21,7 @@ struct BasicRoundButton: View {
                 RoundedRectangle(cornerRadius: 25)
                     .frame(width: screenWidth * 0.7, height: 50)
                     .foregroundColor(.primary)
-                Text("\(text)")
+                text
                     .foregroundColor(colorScheme == .light ? .white : .black)
                     .bold()
             }
@@ -30,7 +30,7 @@ struct BasicRoundButton: View {
 }
 
 #Preview {
-    BasicRoundButton(text: "テキスト", action: {
+    BasicRoundButton(text: Text("テキスト"), action: {
         print("ログイン！")
     })
 }

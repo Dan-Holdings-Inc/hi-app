@@ -9,8 +9,9 @@ import SwiftUI
 
 struct DayOfWeekButton: View {
     @Environment(\.colorScheme) var colorScheme
+    @Environment(\.locale) var locale
     
-    var label: String
+    var label: Text
     var isSelected: Bool
     var action: () -> Void
     
@@ -28,19 +29,19 @@ struct DayOfWeekButton: View {
                             .stroke(colorScheme == .light ? .black : .white, lineWidth: 3)
                             .opacity(isSelected ? 1.0 : 0.3)
                     )
-                Text("\(label)")
+                label
                     .foregroundColor(.primary)
                     .font(.title)
                     .bold()
                     .opacity(isSelected ? 1.0 : 0.2)
             }
-            .frame(width: screenWidth / 9, height: 50)
+            .frame(width: screenWidth / (locale.language.languageCode?.identifier ?? "" == "ja" ? 9 : 4), height: 50)
         }
     }
 }
 
 #Preview {
-    DayOfWeekButton(label: "月", isSelected: false, action: {
+    DayOfWeekButton(label: Text("Mon"), isSelected: false, action: {
         print("タップ！")
     })
 }
