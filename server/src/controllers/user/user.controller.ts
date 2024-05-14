@@ -15,11 +15,16 @@ import {
 } from "@nestjs/common";
 import { AuthGuard } from "@nestjs/passport";
 import { Alarm, AlarmDto } from "src/entity/entities/alarm";
+import { PenaltyHistory } from "src/entity/entities/penalty-history";
 import {
   Relationship,
   RelationshipDto,
 } from "src/entity/entities/relationship";
-import { User, UserRegistrationDto } from "src/entity/entities/user";
+import {
+  User,
+  UserRegistrationDto,
+  UserWithRelatedData,
+} from "src/entity/entities/user";
 import { UserNotFoundError } from "src/errors";
 import { DbService } from "src/infrastructure/db/db.service";
 import { AlarmService } from "src/services/alarm/alarm.service";
@@ -34,14 +39,14 @@ export class UsersController {
   ) {}
 
   @Get(":idOrEmail")
-  async getUser(@Param("idOrEmail") id: string) {
+  async getUser(@Param("idOrEmail") id: string): Promise<User> {
     const user = await this.usersService.getUser(id);
     if (user) return user;
     throw new NotFoundException("user not registered yet.");
   }
 
   @Get(":id/penalties")
-  async getPenalties(@Param("id") userId: string) {
+  async getPenalties(@Param("id") userId: string): Promise<PenaltyHistory[]> {
     return await this.usersService.getPenalties(userId);
   }
 
@@ -51,13 +56,16 @@ export class UsersController {
    * @returns
    */
   @Post()
-  async register(@Request() req) {
+  async register(@Request() req): Promise<User> {
     const registration: UserRegistrationDto = req.body;
     return await this.usersService.register(registration);
   }
 
   @Post(":id/followings")
-  async follow(@Param("id") userId: string, @Body() body) {
+  async follow(
+    @Param("id") userId: string,
+    @Body() body
+  ): Promise<UserWithRelatedData[]> {
     //TODO: tokenを元に（nameとかから）アクセス元ユーザーがuserIdのユーザーなのか検証
     const { followsId } = body as RelationshipDto;
     if (userId === followsId) {

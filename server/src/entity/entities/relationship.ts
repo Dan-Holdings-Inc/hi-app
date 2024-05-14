@@ -1,3 +1,4 @@
+import { ApiProperty } from "@nestjs/swagger";
 export interface Relationship {
   _id: string;
   userId: string;
