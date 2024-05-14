@@ -23,6 +23,8 @@
 		5C382EB32BDD91D600B4C2FC /* PenaltyHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C382EB22BDD91D600B4C2FC /* PenaltyHistoryView.swift */; };
 		5C49CB822BD1732000DE1630 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C49CB812BD1732000DE1630 /* SettingViewModel.swift */; };
 		5C53B5F02BDD3A760026228F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C53B5EF2BDD3A760026228F /* Colors.swift */; };
+		5C617C152BF260350089027F /* MCEmojiPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 5C617C142BF260350089027F /* MCEmojiPicker */; };
+		5C617C182BF264800089027F /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C617C172BF264800089027F /* FloatingButton.swift */; };
 		5C818C9D2BC4DE56005A6FC1 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C818C9C2BC4DE56005A6FC1 /* HomeView.swift */; };
 		5C818CA02BC4E162005A6FC1 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C818C9F2BC4E162005A6FC1 /* SettingView.swift */; };
 		5C847FB22BD4CC4200BE39B6 /* UserWithRelatedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C847FB12BD4CC4200BE39B6 /* UserWithRelatedData.swift */; };
@@ -109,6 +111,7 @@
 		5C382EB22BDD91D600B4C2FC /* PenaltyHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenaltyHistoryView.swift; sourceTree = "<group>"; };
 		5C49CB812BD1732000DE1630 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		5C53B5EF2BDD3A760026228F /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		5C617C172BF264800089027F /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
 		5C818C9C2BC4DE56005A6FC1 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		5C818C9F2BC4E162005A6FC1 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		5C847FB12BD4CC4200BE39B6 /* UserWithRelatedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWithRelatedData.swift; sourceTree = "<group>"; };
@@ -164,6 +167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C93BEA82BC6253F00C715DF /* Auth0 in Frameworks */,
+				5C617C152BF260350089027F /* MCEmojiPicker in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,6 +270,14 @@
 			path = Constant;
 			sourceTree = "<group>";
 		};
+		5C617C162BF263CB0089027F /* FloatingButton */ = {
+			isa = PBXGroup;
+			children = (
+				5C617C172BF264800089027F /* FloatingButton.swift */,
+			);
+			path = FloatingButton;
+			sourceTree = "<group>";
+		};
 		5C818C9A2BC4DDAF005A6FC1 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -305,6 +317,7 @@
 		5C818CA12BC4E398005A6FC1 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				5C617C162BF263CB0089027F /* FloatingButton */,
 				5CD375322BC822FD004BFF4E /* Card */,
 				5CCC35FD2BC5088C003B00C5 /* Button */,
 			);
@@ -466,6 +479,7 @@
 			name = Hi;
 			packageProductDependencies = (
 				5C93BEA72BC6253F00C715DF /* Auth0 */,
+				5C617C142BF260350089027F /* MCEmojiPicker */,
 			);
 			productName = Hi;
 			productReference = 5C1C7BD52BC41B77003049A1 /* Hi.app */;
@@ -542,6 +556,7 @@
 			mainGroup = 5C1C7BCC2BC41B77003049A1;
 			packageReferences = (
 				5C93BEA62BC6253F00C715DF /* XCRemoteSwiftPackageReference "Auth0.swift" */,
+				5C617C132BF260350089027F /* XCRemoteSwiftPackageReference "MCEmojiPicker" */,
 			);
 			productRefGroup = 5C1C7BD62BC41B77003049A1 /* Products */;
 			projectDirPath = "";
@@ -610,6 +625,7 @@
 				5CD375362BC8318D004BFF4E /* AccountCreateView.swift in Sources */,
 				5CF341A82BD15B5C000B4D2A /* AccountCommonViewModel.swift in Sources */,
 				B5ED02432BDBCF3800D37955 /* SettingModel.swift in Sources */,
+				5C617C182BF264800089027F /* FloatingButton.swift in Sources */,
 				5CCC35FC2BC4EB7D003B00C5 /* UserCard.swift in Sources */,
 				5CCC36032BC55B11003B00C5 /* LoginView.swift in Sources */,
 				B5F69C6B2BDDA42C00261B52 /* DeleteModel.swift in Sources */,
@@ -975,6 +991,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		5C617C132BF260350089027F /* XCRemoteSwiftPackageReference "MCEmojiPicker" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/izyumkin/MCEmojiPicker";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.3;
+			};
+		};
 		5C93BEA62BC6253F00C715DF /* XCRemoteSwiftPackageReference "Auth0.swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/auth0/Auth0.swift.git";
@@ -986,6 +1010,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		5C617C142BF260350089027F /* MCEmojiPicker */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5C617C132BF260350089027F /* XCRemoteSwiftPackageReference "MCEmojiPicker" */;
+			productName = MCEmojiPicker;
+		};
 		5C93BEA72BC6253F00C715DF /* Auth0 */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5C93BEA62BC6253F00C715DF /* XCRemoteSwiftPackageReference "Auth0.swift" */;

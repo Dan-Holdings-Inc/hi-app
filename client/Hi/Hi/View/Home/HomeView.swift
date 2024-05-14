@@ -102,5 +102,29 @@ struct HomeView: View {
                 )
             }
         }
+        .overlay(alignment: .bottomTrailing) {
+            FloatingButton {
+                FloatingAction(symbol: "eraser") {
+                    print("tap1")
+                }
+                FloatingAction(symbol: "pencil.line") {
+                    print("tap2")
+                }
+                FloatingAction(symbol: "scribble") {
+                    print("tap3")
+                }
+            } label: { isExpanded in
+                Image(systemName: "plus")
+                    .font(.title3)
+                    .fontWeight(.semibold)
+                    .foregroundStyle(.white)
+                    .rotationEffect(.init(degrees: isExpanded ? 45 : 0))
+                    .scaleEffect(1.02)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .background(.black, in: .circle)
+                    .scaleEffect(isExpanded ? 0.9 : 1)
+            }
+            .padding()
+        }
     }
 }
