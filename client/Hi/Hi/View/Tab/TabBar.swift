@@ -79,11 +79,9 @@ struct TabItem: View {
                     }
                 }
             
-            
-            // ラベルの英語対応ができなかったので一旦コメントアウト
-//            Text(tab.rawValue)
-//                .font(.caption)
-//                .foregroundColor(activeTab == tab ? tint : .gray)
+            Text(tab.rawValue)
+                .font(.caption)
+                .foregroundColor(activeTab == tab ? tint : .gray)
             
         }
         .frame(maxWidth: .infinity)
