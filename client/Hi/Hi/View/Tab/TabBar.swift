@@ -79,7 +79,7 @@ struct TabItem: View {
                     }
                 }
             
-            Text(tab.rawValue)
+            tab.label
                 .font(.caption)
                 .foregroundColor(activeTab == tab ? tint : .gray)
             

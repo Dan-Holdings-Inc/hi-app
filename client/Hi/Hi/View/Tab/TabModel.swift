@@ -6,10 +6,20 @@
 //
 
 import Foundation
+import SwiftUI
 
 enum Tab: String, CaseIterable {
-    case home = "ホーム"
-    case account = "アカウント"
+    case home
+    case account
+    
+    var label: Text {
+        switch self {
+        case .home:
+            Text("Home")
+        case .account:
+            Text("Account")
+        }
+    }
     
     var systemImage: String {
         switch self {
