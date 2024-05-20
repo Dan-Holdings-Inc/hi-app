@@ -26,7 +26,7 @@ struct HiApp: App {
                             LoginView(viewModel: LoginViewModel())
                         case .accountCreateName:
                             AccountCreateNameView()
-                        case .accountCreateUserID:
+                        case .accountCreateUsnavierID:
                             AccountCreateUserID()
                         case .accountCreateWakeUpTime:
                             AccountCreateWakeUpTimeView()

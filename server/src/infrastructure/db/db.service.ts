@@ -1,12 +1,12 @@
 import { Injectable } from "@nestjs/common";
 import * as mongoose from "mongoose";
-import { AlarmModel } from "src/entity/db-models/alarm";
-import { AlarmSessionModel } from "src/entity/db-models/alarm-session";
-import { DeviceTokenModel } from "src/entity/db-models/device-token";
-import { HiHistoryModel } from "src/entity/db-models/hi-history";
-import { PenaltyHistoryModel } from "src/entity/db-models/penalty-history";
-import { RelationshipModel } from "src/entity/db-models/relationship";
-import { UserModel } from "src/entity/db-models/user";
+import { AlarmModel } from "../../entity/db-models/alarm";
+import { AlarmSessionModel } from "../../entity/db-models/alarm-session";
+import { DeviceTokenModel } from "../../entity/db-models/device-token";
+import { HiHistoryModel } from "../../entity/db-models/hi-history";
+import { PenaltyHistoryModel } from "../../entity/db-models/penalty-history";
+import { RelationshipModel } from "../../entity/db-models/relationship";
+import { UserModel } from "../../entity/db-models/user";
 @Injectable()
 export class DbService {
   constructor() {
