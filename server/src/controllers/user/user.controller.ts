@@ -14,7 +14,7 @@ import {
   UseGuards,
 } from "@nestjs/common";
 import { AuthGuard } from "@nestjs/passport";
-import { ApiResponse } from "@nestjs/swagger";
+import { ApiResponse, ApiTags } from "@nestjs/swagger";
 import { Alarm, AlarmDto } from "src/entity/entities/alarm";
 import { PenaltyHistory } from "src/entity/entities/penalty-history";
 import {
@@ -33,6 +33,7 @@ import { UsersService } from "src/services/users/users.service";
 
 // @UseGuards(AuthGuard("jwt"))
 @Controller("users")
+@ApiTags("users")
 export class UsersController {
   constructor(
     private usersService: UsersService,

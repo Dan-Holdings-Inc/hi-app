@@ -5,11 +5,12 @@ import {
   Param,
   Query,
 } from "@nestjs/common";
-import { ApiResponse } from "@nestjs/swagger";
+import { ApiResponse, ApiTags } from "@nestjs/swagger";
 import { User } from "src/entity/entities/user";
 import { UsersService } from "src/services/users/users.service";
 // @UseGuards(AuthGuard("jwt"))
 @Controller("search")
+@ApiTags("search")
 export class SearchController {
   constructor(private usersService: UsersService) {}
 

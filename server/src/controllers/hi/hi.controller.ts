@@ -7,12 +7,13 @@ import {
   UseGuards,
 } from "@nestjs/common";
 import { AuthGuard } from "@nestjs/passport";
-import { ApiResponse } from "@nestjs/swagger";
+import { ApiResponse, ApiTags } from "@nestjs/swagger";
 import { DbService } from "src/infrastructure/db/db.service";
 import { HiService } from "src/services/hi/hi.service";
 
 @UseGuards(AuthGuard("jwt"))
 @Controller("hi")
+@ApiTags("hi")
 export class HiController {
   constructor(
     private dbService: DbService,
