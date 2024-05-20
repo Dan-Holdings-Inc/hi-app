@@ -1,9 +1,10 @@
 import { NestFactory } from "@nestjs/core";
 import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
 import { AppModule } from "../src/app.module";
-import { safeDump } from "js-yaml";
+import { dump } from "js-yaml";
 import { join } from "path";
 import { writeFileSync } from "fs";
+import { exit } from "process";
 
 const exportOpenapiDocument = async () => {
   const app = await NestFactory.create(AppModule);
@@ -14,7 +15,7 @@ const exportOpenapiDocument = async () => {
     .build();
 
   const document = SwaggerModule.createDocument(app, documentConfig);
-  const yamlDocument = safeDump(document, {
+  const yamlDocument = dump(document, {
     skipInvalid: true,
     noRefs: true,
   });
@@ -22,6 +23,11 @@ const exportOpenapiDocument = async () => {
   writeFileSync(path, yamlDocument, "utf8");
 };
 
-exportOpenapiDocument().catch((e) => {
-  console.error(e);
-});
+exportOpenapiDocument()
+  .then(() => {
+    console.log("openapi.yaml exported.");
+    exit(0);
+  })
+  .catch((e) => {
+    console.error(e);
+  });

@@ -1,0 +1,264 @@
+openapi: 3.0.0
+paths:
+  /users/{idOrEmail}:
+    get:
+      operationId: UsersController_getUser
+      parameters:
+        - name: idOrEmail
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserWithRelatedData'
+        '404':
+          description: user not registered yet.
+      tags:
+        - users
+  /users/{id}/penalties:
+    get:
+      operationId: UsersController_getPenalties
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PenaltyHistory'
+      tags:
+        - users
+  /users:
+    post:
+      operationId: UsersController_register
+      parameters: []
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+      tags:
+        - users
+  /users/{id}/followings:
+    post:
+      operationId: UsersController_follow
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserWithRelatedData'
+        '400':
+          description: ''
+      tags:
+        - users
+    delete:
+      operationId: UsersController_unfollow
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserWithRelatedData'
+        '400':
+          description: ''
+      tags:
+        - users
+  /users/{id}:
+    put:
+      operationId: UsersController_update
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+      tags:
+        - users
+    delete:
+      operationId: UsersController_delete
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags:
+        - users
+  /users/{id}/alarm:
+    put:
+      operationId: UsersController_updateAlarm
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AlarmDto'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Alarm'
+      tags:
+        - users
+  /hi/{receiverUserId}:
+    post:
+      operationId: HiController_sendHi
+      parameters:
+        - name: receiverUserId
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Hi sent.
+        '400':
+          description: ''
+      tags:
+        - hi
+  /search/users:
+    get:
+      operationId: SearchController_searchUsers
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+        '400':
+          description: ''
+      tags:
+        - search
+info:
+  title: Hi Document
+  description: The Hi API description
+  version: '1.0'
+  contact: {}
+tags: []
+servers: []
+components:
+  schemas:
+    UserWithRelatedData:
+      type: object
+      properties:
+        _id:
+          type: string
+        email:
+          type: string
+        userName:
+          type: string
+        name:
+          type: string
+      required:
+        - _id
+        - email
+        - userName
+        - name
+    PenaltyHistory:
+      type: object
+      properties:
+        _id:
+          type: string
+        userId:
+          type: string
+        date:
+          format: date-time
+          type: string
+      required:
+        - _id
+        - userId
+        - date
+    User:
+      type: object
+      properties:
+        _id:
+          type: string
+        email:
+          type: string
+        userName:
+          type: string
+        name:
+          type: string
+      required:
+        - _id
+        - email
+        - userName
+        - name
+    AlarmDto:
+      type: object
+      properties:
+        userId:
+          type: string
+        getUpAt:
+          type: string
+        daysToAlarm:
+          type: array
+          items:
+            type: string
+      required:
+        - userId
+        - getUpAt
+        - daysToAlarm
+    Alarm:
+      type: object
+      properties:
+        _id:
+          type: string
+        userId:
+          type: string
+        getUpAt:
+          type: string
+        daysToAlarm:
+          type: array
+          items:
+            type: string
+      required:
+        - _id
+        - userId
+        - getUpAt
+        - daysToAlarm
