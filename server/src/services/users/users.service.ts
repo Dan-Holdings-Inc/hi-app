@@ -1,19 +1,19 @@
 import { Injectable } from "@nestjs/common";
 import { randomUUID } from "crypto";
-import { Alarm, AlarmDto } from "src/entity/entities/alarm";
-import { DeviceToken } from "src/entity/entities/device-token";
-import { Relationship } from "src/entity/entities/relationship";
+import { Alarm, AlarmDto } from "../../entity/entities/alarm";
+import { DeviceToken } from "../../entity/entities/device-token";
+import { Relationship } from "../../entity/entities/relationship";
 import {
   User,
   UserRegistrationDto,
   UserWithRelatedData,
-} from "src/entity/entities/user";
+} from "../../entity/entities/user";
 import {
   AlreadyFollowingError,
   UserAlreadyExistError,
   UserNotFoundError,
-} from "src/errors";
-import { DbService } from "src/infrastructure/db/db.service";
+} from "../../errors";
+import { DbService } from "../../infrastructure/db/db.service";
 
 @Injectable()
 export class UsersService {

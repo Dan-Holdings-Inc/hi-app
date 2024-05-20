@@ -6,8 +6,8 @@ import {
   Query,
 } from "@nestjs/common";
 import { ApiResponse, ApiTags } from "@nestjs/swagger";
-import { User } from "src/entity/entities/user";
-import { UsersService } from "src/services/users/users.service";
+import { User } from "../../entity/entities/user";
+import { UsersService } from "../../services/users/users.service";
 // @UseGuards(AuthGuard("jwt"))
 @Controller("search")
 @ApiTags("search")

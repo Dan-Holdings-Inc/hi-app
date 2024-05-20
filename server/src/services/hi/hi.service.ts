@@ -1,12 +1,12 @@
 import { Injectable } from "@nestjs/common";
-import { User } from "src/entity/entities/user";
-import { DbService } from "src/infrastructure/db/db.service";
+import { User } from "../../entity/entities/user";
+import { DbService } from "../../infrastructure/db/db.service";
 import { SNS } from "aws-sdk";
 import { response } from "express";
-import { HiHistory } from "src/entity/entities/hi-history";
+import { HiHistory } from "../../entity/entities/hi-history";
 import { randomUUID } from "crypto";
 import * as dayjs from "dayjs";
-import { TIMEZONE } from "src/utils";
+import { TIMEZONE } from "../../utils";
 
 @Injectable()
 export class HiService {

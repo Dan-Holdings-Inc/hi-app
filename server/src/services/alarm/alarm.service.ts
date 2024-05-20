@@ -7,9 +7,9 @@ import * as utc from "dayjs/plugin/utc";
 import { DbService } from "../../infrastructure/db/db.service";
 import { HiService } from "../hi/hi.service";
 import * as cron from "node-cron";
-import { AlarmSession } from "src/entity/entities/alarm-session";
+import { AlarmSession } from "../../entity/entities/alarm-session";
 import { randomUUID } from "crypto";
-import { PenaltyHistory } from "src/entity/entities/penalty-history";
+import { PenaltyHistory } from "../../entity/entities/penalty-history";
 dayjs.extend(utc);
 dayjs.extend(timezone);
 @Injectable()
