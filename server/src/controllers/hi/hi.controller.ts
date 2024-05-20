@@ -7,6 +7,7 @@ import {
   UseGuards,
 } from "@nestjs/common";
 import { AuthGuard } from "@nestjs/passport";
+import { ApiResponse } from "@nestjs/swagger";
 import { DbService } from "src/infrastructure/db/db.service";
 import { HiService } from "src/services/hi/hi.service";
 
@@ -17,7 +18,15 @@ export class HiController {
     private dbService: DbService,
     private hiService: HiService
   ) {}
+
   @Post(":receiverUserId")
+  @ApiResponse({
+    status: 204,
+    description: "Hi sent.",
+  })
+  @ApiResponse({
+    status: 400,
+  })
   async sendHi(
     @Param("receiverUserId") receiverUserId: string,
     @Req() request

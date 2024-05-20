@@ -107,6 +107,13 @@ export class UsersController {
   }
 
   @Delete(":id/followings")
+  @ApiResponse({
+    status: 200,
+    type: [UserWithRelatedData],
+  })
+  @ApiResponse({
+    status: 400,
+  })
   async unfollow(@Param("id") userId: string, @Body() body) {
     const { followsId } = body as RelationshipDto;
     if (userId === followsId) {
@@ -124,6 +131,10 @@ export class UsersController {
   }
 
   @Put(":id")
+  @ApiResponse({
+    status: 200,
+    type: User,
+  })
   async update(@Request() req) {
     const body = req.body;
     //UserWithRelationshipが渡されることを考慮
@@ -137,6 +148,10 @@ export class UsersController {
   }
 
   @Put(":id/alarm")
+  @ApiResponse({
+    status: 200,
+    type: Alarm,
+  })
   async updateAlarm(@Param("id") userId: string, @Body() alarm: AlarmDto) {
     if (userId !== alarm.userId) {
       throw new BadRequestException(
@@ -147,6 +162,9 @@ export class UsersController {
   }
 
   @Delete(":id")
+  @ApiResponse({
+    status: 200,
+  })
   async delete(@Param("id") userId) {
     await this.usersService.delete(userId);
   }
