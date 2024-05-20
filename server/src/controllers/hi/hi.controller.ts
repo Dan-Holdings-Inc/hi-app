@@ -8,8 +8,8 @@ import {
 } from "@nestjs/common";
 import { AuthGuard } from "@nestjs/passport";
 import { ApiResponse, ApiTags } from "@nestjs/swagger";
-import { DbService } from "src/infrastructure/db/db.service";
-import { HiService } from "src/services/hi/hi.service";
+import { DbService } from "../../infrastructure/db/db.service";
+import { HiService } from "../../services/hi/hi.service";
 
 @UseGuards(AuthGuard("jwt"))
 @Controller("hi")

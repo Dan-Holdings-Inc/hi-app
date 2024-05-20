@@ -1,6 +1,6 @@
 import { NestFactory } from "@nestjs/core";
 import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
-import { AppModule } from "src/app.module";
+import { AppModule } from "../src/app.module";
 import { safeDump } from "js-yaml";
 import { join } from "path";
 import { writeFileSync } from "fs";

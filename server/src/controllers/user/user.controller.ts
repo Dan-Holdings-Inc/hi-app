@@ -15,21 +15,20 @@ import {
 } from "@nestjs/common";
 import { AuthGuard } from "@nestjs/passport";
 import { ApiResponse, ApiTags } from "@nestjs/swagger";
-import { Alarm, AlarmDto } from "src/entity/entities/alarm";
-import { PenaltyHistory } from "src/entity/entities/penalty-history";
+import { Alarm, AlarmDto } from "../../entity/entities/alarm";
+import { PenaltyHistory } from "../../entity/entities/penalty-history";
 import {
   Relationship,
   RelationshipDto,
-} from "src/entity/entities/relationship";
+} from "../../entity/entities/relationship";
 import {
   User,
   UserRegistrationDto,
   UserWithRelatedData,
-} from "src/entity/entities/user";
-import { UserNotFoundError } from "src/errors";
-import { DbService } from "src/infrastructure/db/db.service";
-import { AlarmService } from "src/services/alarm/alarm.service";
-import { UsersService } from "src/services/users/users.service";
+} from "../../entity/entities/user";
+import { UserNotFoundError } from "../../errors";
+import { AlarmService } from "../../services/alarm/alarm.service";
+import { UsersService } from "../../services/users/users.service";
 
 // @UseGuards(AuthGuard("jwt"))
 @Controller("users")
