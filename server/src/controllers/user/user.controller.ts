@@ -14,6 +14,7 @@ import {
   UseGuards,
 } from "@nestjs/common";
 import { AuthGuard } from "@nestjs/passport";
+import { ApiResponse } from "@nestjs/swagger";
 import { Alarm, AlarmDto } from "src/entity/entities/alarm";
 import { PenaltyHistory } from "src/entity/entities/penalty-history";
 import {
@@ -39,6 +40,14 @@ export class UsersController {
   ) {}
 
   @Get(":idOrEmail")
+  @ApiResponse({
+    status: 200,
+    type: UserWithRelatedData,
+  })
+  @ApiResponse({
+    status: 404,
+    description: "user not registered yet.",
+  })
   async getUser(@Param("idOrEmail") id: string): Promise<User> {
     const user = await this.usersService.getUser(id);
     if (user) return user;
@@ -46,6 +55,10 @@ export class UsersController {
   }
 
   @Get(":id/penalties")
+  @ApiResponse({
+    status: 200,
+    type: [PenaltyHistory],
+  })
   async getPenalties(@Param("id") userId: string): Promise<PenaltyHistory[]> {
     return await this.usersService.getPenalties(userId);
   }
@@ -56,12 +69,23 @@ export class UsersController {
    * @returns
    */
   @Post()
+  @ApiResponse({
+    status: 201,
+    type: User,
+  })
   async register(@Request() req): Promise<User> {
     const registration: UserRegistrationDto = req.body;
     return await this.usersService.register(registration);
   }
 
   @Post(":id/followings")
+  @ApiResponse({
+    status: 201,
+    type: [UserWithRelatedData],
+  })
+  @ApiResponse({
+    status: 400,
+  })
   async follow(
     @Param("id") userId: string,
     @Body() body

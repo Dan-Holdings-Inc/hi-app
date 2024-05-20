@@ -65,12 +65,12 @@ export class UsersService {
     if (existingUser) {
       throw new UserAlreadyExistError();
     }
-    const user: User = {
+    const user = new User({
       _id: dto._id,
       email: dto.email,
       userName: dto.userName,
       name: dto.name,
-    };
+    });
     await this.dbService.users.create(user);
 
     const alarm: Alarm = {
@@ -80,13 +80,13 @@ export class UsersService {
       daysToAlarm: dto.daysToAlarm,
     };
     await this.dbService.alarms.create(alarm);
-    const userWithRelationship: UserWithRelatedData = {
+    const userWithRelationship = new UserWithRelatedData({
       ...user,
       followers: [],
       followings: [],
       getUpAt: dto.getUpAt,
       daysToAlarm: dto.daysToAlarm,
-    };
+    });
     const deviceToken: DeviceToken = {
       _id: randomUUID(),
       userId: dto._id,
