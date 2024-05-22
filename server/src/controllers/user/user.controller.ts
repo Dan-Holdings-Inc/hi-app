@@ -14,19 +14,25 @@ import {
   UseGuards,
 } from "@nestjs/common";
 import { AuthGuard } from "@nestjs/passport";
-import { Alarm, AlarmDto } from "src/entity/entities/alarm";
+import { ApiResponse, ApiTags } from "@nestjs/swagger";
+import { Alarm, AlarmDto } from "../../entity/entities/alarm";
+import { PenaltyHistory } from "../../entity/entities/penalty-history";
 import {
   Relationship,
   RelationshipDto,
-} from "src/entity/entities/relationship";
-import { User, UserRegistrationDto } from "src/entity/entities/user";
-import { UserNotFoundError } from "src/errors";
-import { DbService } from "src/infrastructure/db/db.service";
-import { AlarmService } from "src/services/alarm/alarm.service";
-import { UsersService } from "src/services/users/users.service";
+} from "../../entity/entities/relationship";
+import {
+  User,
+  UserRegistrationDto,
+  UserWithRelatedData,
+} from "../../entity/entities/user";
+import { UserNotFoundError } from "../../errors";
+import { AlarmService } from "../../services/alarm/alarm.service";
+import { UsersService } from "../../services/users/users.service";
 
 // @UseGuards(AuthGuard("jwt"))
 @Controller("users")
+@ApiTags("users")
 export class UsersController {
   constructor(
     private usersService: UsersService,
@@ -34,14 +40,26 @@ export class UsersController {
   ) {}
 
   @Get(":idOrEmail")
-  async getUser(@Param("idOrEmail") id: string) {
+  @ApiResponse({
+    status: 200,
+    type: UserWithRelatedData,
+  })
+  @ApiResponse({
+    status: 404,
+    description: "user not registered yet.",
+  })
+  async getUser(@Param("idOrEmail") id: string): Promise<User> {
     const user = await this.usersService.getUser(id);
     if (user) return user;
     throw new NotFoundException("user not registered yet.");
   }
 
   @Get(":id/penalties")
-  async getPenalties(@Param("id") userId: string) {
+  @ApiResponse({
+    status: 200,
+    type: [PenaltyHistory],
+  })
+  async getPenalties(@Param("id") userId: string): Promise<PenaltyHistory[]> {
     return await this.usersService.getPenalties(userId);
   }
 
@@ -51,13 +69,27 @@ export class UsersController {
    * @returns
    */
   @Post()
-  async register(@Request() req) {
+  @ApiResponse({
+    status: 201,
+    type: User,
+  })
+  async register(@Request() req): Promise<User> {
     const registration: UserRegistrationDto = req.body;
     return await this.usersService.register(registration);
   }
 
   @Post(":id/followings")
-  async follow(@Param("id") userId: string, @Body() body) {
+  @ApiResponse({
+    status: 201,
+    type: [UserWithRelatedData],
+  })
+  @ApiResponse({
+    status: 400,
+  })
+  async follow(
+    @Param("id") userId: string,
+    @Body() body
+  ): Promise<UserWithRelatedData[]> {
     //TODO: tokenを元に（nameとかから）アクセス元ユーザーがuserIdのユーザーなのか検証
     const { followsId } = body as RelationshipDto;
     if (userId === followsId) {
@@ -75,6 +107,13 @@ export class UsersController {
   }
 
   @Delete(":id/followings")
+  @ApiResponse({
+    status: 200,
+    type: [UserWithRelatedData],
+  })
+  @ApiResponse({
+    status: 400,
+  })
   async unfollow(@Param("id") userId: string, @Body() body) {
     const { followsId } = body as RelationshipDto;
     if (userId === followsId) {
@@ -92,6 +131,10 @@ export class UsersController {
   }
 
   @Put(":id")
+  @ApiResponse({
+    status: 200,
+    type: User,
+  })
   async update(@Request() req) {
     const body = req.body;
     //UserWithRelationshipが渡されることを考慮
@@ -105,6 +148,10 @@ export class UsersController {
   }
 
   @Put(":id/alarm")
+  @ApiResponse({
+    status: 200,
+    type: Alarm,
+  })
   async updateAlarm(@Param("id") userId: string, @Body() alarm: AlarmDto) {
     if (userId !== alarm.userId) {
       throw new BadRequestException(
@@ -115,6 +162,9 @@ export class UsersController {
   }
 
   @Delete(":id")
+  @ApiResponse({
+    status: 200,
+  })
   async delete(@Param("id") userId) {
     await this.usersService.delete(userId);
   }

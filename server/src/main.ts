@@ -6,6 +6,7 @@ import * as dotenv from "dotenv";
 import * as dayjs from "dayjs";
 import * as timezone from "dayjs/plugin/timezone";
 import * as utc from "dayjs/plugin/utc";
+import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
 dayjs.extend(utc);
 dayjs.extend(timezone);
 async function bootstrap() {
@@ -24,6 +25,13 @@ async function bootstrap() {
       secretAccessKey: process.env.aws_secret_access_key,
     }),
   });
+  const documentConfig = new DocumentBuilder()
+    .setTitle("Hi Document")
+    .setDescription("The Hi API description")
+    .setVersion("1.0")
+    .build();
+  const document = SwaggerModule.createDocument(app, documentConfig);
+  SwaggerModule.setup("api", app, document);
   await app.listen(3000);
 }
 bootstrap();

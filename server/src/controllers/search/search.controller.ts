@@ -5,13 +5,23 @@ import {
   Param,
   Query,
 } from "@nestjs/common";
-import { UsersService } from "src/services/users/users.service";
+import { ApiResponse, ApiTags } from "@nestjs/swagger";
+import { User } from "../../entity/entities/user";
+import { UsersService } from "../../services/users/users.service";
 // @UseGuards(AuthGuard("jwt"))
 @Controller("search")
+@ApiTags("search")
 export class SearchController {
   constructor(private usersService: UsersService) {}
 
   @Get("users")
+  @ApiResponse({
+    status: 200,
+    type: [User],
+  })
+  @ApiResponse({
+    status: 400,
+  })
   async searchUsers(@Query() query) {
     const text = query.text;
     if (!text) {
