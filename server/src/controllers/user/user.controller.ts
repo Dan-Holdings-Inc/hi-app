@@ -39,6 +39,11 @@ export class UsersController {
     private alarmService: AlarmService
   ) {}
 
+  @Get("greeting")
+  async greet(): Promise<string> {
+    return "hello!";
+  }
+
   @Get(":idOrEmail")
   @ApiResponse({
     status: 200,
